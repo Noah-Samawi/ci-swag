@@ -7,7 +7,6 @@ from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
 
 
-# Create your models here.
 class UserProfile(models.Model):
     """
     A user profile model for maintaining default
