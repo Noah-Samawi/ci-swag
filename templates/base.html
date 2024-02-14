@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Ci Swag{% block extra_title %}{% endblock %}</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+
+  {% block corejs %}
+
+  {% endblock %}
+
+
+  {% block extra_js %}
+  {% endblock %}
+
+
+    {% block extra_css %}
+    {% endblock %}
+
+  </head>
+
+
+  <body class="d-flex flex-column h-100 bg-dark">
+
+    <!-- Navigation-->
+    <nav></nav>
+
+
+    <!-- Header-->
+    {% block page_header %}
+    {% endblock %}
+
+     <!-- Main Content-->
+
+    <main class="flex-grow-1 bg-white">
+    {% block content %}
+    {% endblock %}
+    </main>
+
+
+     
+    <!-- Footer-->
+    <footer></footer>
+
+
+    {% block postloadjs %}
+    {% endblock %}
+  
+  </body>
+</html>
