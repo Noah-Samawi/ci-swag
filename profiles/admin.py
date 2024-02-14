@@ -1,6 +1,8 @@
+"Profile Admin Models"
+
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, Subscription
 
 
 # Register your models here.
@@ -35,7 +37,14 @@ class UserAdmin(admin.ModelAdmin):
     inlines = [ProfileInline]
 
 
+class SubscriptionAdmin(admin.ModelAdmin):
+    """
+    Admin interface customization for managing Subscription model.
+
+    """
+    model = Subscription
+
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
+admin.site.register(Subscription, SubscriptionAdmin)
 
