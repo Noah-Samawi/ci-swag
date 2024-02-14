@@ -8,6 +8,42 @@
 
 {% block page_header %}
 <header class="py-5">
+  <!-- Navigation-->
+  <div class="container px-5">
+    <div class="row gx-5 align-items-center justify-content-center">
+      <div class="col-lg-8 col-xl-7 col-xxl-6">
+        <div class="my-5 text-center text-xl-start">
+          <h1 class="display-5 fw-bolder text-white mb-2">CI SWAG STORE</h1>
+          <p class="lead fw-normal text-white-50 mb-4">
+            CI Swag Store, where fashion meets knowledge. Our store not only
+            offers stylish branded gear but also provides short
+            instructional courses, enriching students with skills and
+            insights beyond the classroom.
+          </p>
+          <div
+            class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start"
+          >
+            <a
+              class="btn bg-orange btn-lg px-4 me-sm-3 text-white"
+              href="#"
+              >Shop Now</a
+            >
+            <a class="btn btn-outline-light btn-lg px-4" 
+            href="#"
+              >Buy Courses</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center">
+        <img
+          class="img-fluid rounded-3 my-5"
+          src="{% static 'images/hero-image.jpg' %}"
+          alt="hero image of CI Swag store items"
+        />
+      </div>
+    </div>
+  </div>
 </header>
 {% endblock %}
 
