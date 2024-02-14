@@ -1,0 +1,51 @@
+<div class="col px-1 mb-3">
+    <div class="card h-100 border-grey shadow">
+      <!-- Sale badge-->
+      {% if product.sale %}
+      <div class="badge bg-success text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+        {{product.sale}}% Sale
+      </div>
+      {% endif %}
+      <!-- Product image-->
+      
+      <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}"/>
+
+      <!-- Product details-->
+      <div class="card-body p-2">
+        <div class="text-center">
+          <!-- Product name-->
+          <h5 class="fw-bolder">{{product.name}}</h5>
+          <!-- Product reviews-->
+          <div
+            class="d-flex justify-content-center small text-warning mb-2"
+          >
+
+          {% for i in product.rating_array %}
+          <div class="bi-star-fill"></div>
+        {% endfor %}
+
+          </div>
+          <!-- Product price-->
+
+          <p>
+          {% if product.sale %}
+          <span class="text-decoration-line-through">${{product.price}}</span>
+          <strong>${{product.total_final_price}}</strong>
+          {% else %}
+          <strong>${{product.price}}</strong>
+          {% endif %}
+          </p>
+      
+          <p class="excerpt">
+            {{product.description}}
+          </p>
+        </div>
+      </div>
+      <!-- Product actions-->
+      <div class="p-1 pb-2 p-lg-4 pt-0 text-center">
+          <a class="btn btn-outline-dark mt-auto" href="#"
+            >View Product</a
+          >
+      </div>
+    </div>
+</div>
