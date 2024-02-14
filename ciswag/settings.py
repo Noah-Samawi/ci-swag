@@ -92,6 +92,13 @@ SITE_ID = 1
 
 WSGI_APPLICATION = 'ciswag.wsgi.application'
 
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
