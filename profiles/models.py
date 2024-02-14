@@ -1,3 +1,5 @@
+"""Profile Models"""
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
@@ -5,6 +7,44 @@ from django.db.models.signals import post_save
 
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+
+
+class Subscription(models.Model):
+    """
+    A user subscription model for maintaining user subscriptions
+    """
+    USER_TYPE_CHOICES = [
+        ('normal', 'Normal'),
+        ('priority', 'Priority'),
+    ]
+
+    COLOUR_CHOICES = [
+        ('orange', 'Orange'),
+        ('green', 'Green'),
+        ('cyan', 'Cyan'),
+    ]
+
+    SUBSCRIPTION_CHOICES = [
+        ('junior_dev', 'Junior Dev'),
+        ('mid_dev', 'Mid Dev'),
+        ('senior_dev', 'Senior Dev'),
+    ]
+
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    name = models.CharField(max_length=20, choices=SUBSCRIPTION_CHOICES, default='junior_dev')
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    mentor = models.BooleanField(default=False)
+    tutor_support = models.CharField(max_length=20, choices=USER_TYPE_CHOICES,  blank=True)
+    color = models.CharField(max_length=20, choices=COLOUR_CHOICES,  default='orange')
+    description = models.TextField(default='Junior Dev monthly subscription package')
+    free_delivery = models.BooleanField(default=True)
+    product_discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+    program_discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
+
+
+    def __str__(self):
+        return str(self.name)
+
 
 
 class UserProfile(models.Model):
@@ -24,7 +64,7 @@ class UserProfile(models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return str(self.user.username)
 
 
 @receiver(post_save, sender=User)
