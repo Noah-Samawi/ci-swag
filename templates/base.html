@@ -45,7 +45,153 @@
   <body class="d-flex flex-column h-100 bg-dark">
 
     <!-- Navigation-->
-    <nav></nav>
+    <div class="nav-container">
+        <nav class="container sticky-top sticky-nav navbar navbar-expand-lg navbar-light bg-light p-0">
+          <div class="container-fluid">
+            <a class="navbar-brand fw-bolder logo" href="{% url "home" %}">
+              <img src="{% static 'images/logo.png' %}" alt="code institute swag logo" class="" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-orange fw-bold">Swag <i class="fa-solid fa-store text-orange"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Clothing</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Stationary</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Miscellaneous</a>
+                    </li>
+                  </ul>
+                </li>
+      
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-orange fw-bold">Courses <i class="fa-solid fa-graduation-cap text-orange"></i>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="courseDropdown">
+                    <li><a class="dropdown-item" href="#">All</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Full-Stack</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">UI/UX Design</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">DevOps</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Data Science</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Game Dev</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Mobile App</a>
+                    </li>
+                  </ul>
+                </li>
+             
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <span class="text-orange fw-bold">Subscriptions <i class="fa-solid fa-certificate text-orange"></i>
+                    </span>
+                  </a>
+                </li> 
+              </ul>
+      
+      
+      
+              <div class="">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link text-capitalize" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      
+                      {% if request.user.is_authenticated %}
+                      {% if request.user.profile.active_subscription %}
+                      <span class="fw-bold text-{{request.user.profile.active_subscription.color}}">{{request.user.username}} <i class="fa-solid fa-user fa-lg"></i>
+                      </span>
+                      {% else %}
+                      <span class="fw-bold">{{request.user.username}} <i class="fa-solid fa-user fa-lg"></i>
+                      </span>
+                      {% endif %}
+                   
+                      {% else %}
+                      <i class="fa-solid fa-user fa-lg"></i>
+                      {% endif %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+      
+                      {% if request.user.is_authenticated %}
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+      
+                      <li>
+                        <a class="dropdown-item" href="#">My Courses</a>
+                      </li>
+      
+                      <li><hr class="dropdown-divider" /></li>
+      
+                      <li>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                      
+                      {% else %}
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Register</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Login</a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                  </li>
+      
+                  <li class="nav-item">
+                    <a class="nav-link text-secondary m-0" href="#" aria-expanded="false">
+                      <span class='text-orange fw-bold d-md-none'>Cart</span>
+                      <i class="fas fa-shopping-bag fa-lg position-relative h5">
+                        {% if cart_items|length > 0 %}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
+                          {{ cart_items|length }}
+                        </span>
+                        {% endif %}
+                      </i>
+      
+                      
+                      </span>
+                    </a>
+                  </li>
+              
+                </ul>
+      
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+            
 
 
     <!-- Header-->
