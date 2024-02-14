@@ -1,7 +1,7 @@
-from django.contrib import admin
-from .models import Category
+"Product Admin Models"
 
-# Register your models here.
+from django.contrib import admin
+from .models import Category, Product
 
 class CategoryAdmin(admin.ModelAdmin):
     """
@@ -13,4 +13,25 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
+class ProductAdmin(admin.ModelAdmin):
+    """
+    Admin configuration for Product model.
+
+    Defines the display fields and ordering for the Product admin panel.
+    """
+
+    list_display = (
+        'sku',
+        'name',
+        'category',
+        'price',
+        'rating',
+        'image',
+    )
+
+    ordering = ('sku',)
+
+
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
