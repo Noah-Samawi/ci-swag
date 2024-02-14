@@ -60,11 +60,16 @@ class UserProfile(models.Model):
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='Country', null=True, blank=True)
-
+    subscription = models.ForeignKey(Subscription, on_delete=models.SET_NULL, null=True, blank=True)
+    active_subscription = models.ForeignKey(
+                                    Subscription,
+                                    on_delete=models.SET_NULL,
+                                    null=True, blank=True,
+                                    related_name='active_subscription')
 
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.user)
 
 
 @receiver(post_save, sender=User)
