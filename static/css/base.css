@@ -24,3 +24,37 @@ header {
 body {
   min-height: 100vh;
 }
+
+/* Theming for similar custom bootstrap styles */
+
+.bg-orange {
+  background: var(--primary-orange);
+}
+
+.text-orange {
+  color: var(--primary-orange);
+}
+
+.bg-amber {
+  background-color: var(--primary-amber);
+}
+
+.text-amber {
+  color: var(--primary-amber);
+}
+
+.bg-green {
+  background-color: var(--primary-green);
+}
+
+.text-green {
+  color: var(--primary-green);
+}
+
+.bg-cyan {
+  background-color: var(--primary-cyan);
+}
+
+.text-cyan {
+  color: var(--primary-cyan);
+}
