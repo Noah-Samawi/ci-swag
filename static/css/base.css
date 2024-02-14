@@ -58,3 +58,24 @@ body {
 .text-cyan {
   color: var(--primary-cyan);
 }
+
+/* NAVIGATION BAR */
+.nav-container {
+  padding-top: 0.25rem;
+  padding-bottom: 1rem;
+}
+
+.sticky-nav {
+  border-radius: 0.5rem;
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+}
