@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<header class="bg-dark">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Expand your knowledge</h1>
+      <p class="lead fw-normal text-white-50 mb-0">
+        Gain a deeper understainding with our supplementary courses
+      </p>
+    </div>
+  </div>
+</header>
+
+{% endblock %} 
+
+{% block content %}
+
+<section class="py-5 bg-white">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6">
+        <div class="small mb-1">SKU: {{program.sku}}</div>
+        <h1 class="display-5 fw-bolder">{{program.name}}</h1>
+        <div class="fs-5 mb-3">
+          {% if program.sale %}
+          <span class="text-decoration-line-through text-danger">${{program.price}}</span>
+          <span>${{program.total_final_price}}</span>
+          {% else %}
+          <span>${{program.price}}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
