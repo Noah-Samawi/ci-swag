@@ -53,7 +53,7 @@
       <form
       class="form text-center"
       action="{% url 'update_cart' item.product.id %}"
-    method="POST"
+      method="POST"
     >
       {% csrf_token %}
       <input
