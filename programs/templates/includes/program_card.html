@@ -54,7 +54,13 @@
               </div>  
               <div>
                 <i class="fa-solid fa-chart-line text-danger"></i>
-                Difficulty
+                {% if program.difficulty == 1 %}
+                    <span class="badge bg-success">Beginner</span>
+                    {% elif program.difficulty == 2 %}
+                    <span class="badge bg-warning">Intermediate</span>
+                    {% elif program.difficulty == 3 %}
+                    <span class="badge bg-danger">Expert</span>
+                    {% endif %}
               </div>         
             </div>
           </div>
