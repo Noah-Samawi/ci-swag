@@ -65,7 +65,7 @@ def remove_from_cart(request, item_id):
     cart = request.session.get('cart', {})
     redirect_url = request.POST.get('redirect_url')
 
-    product = get_object_or_404(Product, pk=item_id)
+    product = get_item_from_item_id(item_id)
 
     try:
         cart.pop(item_id)
