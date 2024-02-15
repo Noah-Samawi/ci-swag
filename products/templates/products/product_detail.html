@@ -48,7 +48,7 @@
           <p class="lead">{{product.description}}</p>
 
          <!-- Add to cart form -->
-            <form class="form" action="#" method="POST">
+            <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="d-flex">
                 <input
