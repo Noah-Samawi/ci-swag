@@ -36,7 +36,7 @@
               </thead>
               <tbody>
                 {% for item in cart_items %}
-                <p>{{item.product.name}}</p>
+                {% include "includes/cart_item.html" with item=item  %}
                 {% endfor %}
               </tbody>
             </table>
