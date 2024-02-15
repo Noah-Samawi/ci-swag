@@ -1,6 +1,6 @@
 "Checkout Views"
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.views import View
 from profiles.models import UserProfile
 
@@ -44,9 +44,9 @@ class CheckoutView(View):
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-            cart = request.session.get('cart', {})
+        cart = request.session.get('cart', {})
 
-            form_data = {
+        form_data = {
                 'full_name': request.POST['full_name'],
                 'email': request.POST['email'],
                 'phone_number': request.POST['phone_number'],
@@ -58,11 +58,13 @@ class CheckoutView(View):
                 'county': request.POST['county'],
             }
 
-            order_form = OrderForm(form_data)
+        order_form = OrderForm(form_data)
 
-            if order_form.is_valid():
-                order_form.save()
-                print('Form is valid')
-            
-            else:
-                print('Form is not valid')
+        if order_form.is_valid():
+            order_form.save()
+            print('Form is valid')
+            return redirect(reverse('checkout'))
+ 
+        else:
+            print('Form is not valid')
+            return redirect(reverse('checkout'))
