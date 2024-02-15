@@ -52,8 +52,8 @@
       {% if item.product.id < 26 %}
       <form
       class="form text-center"
-      action="#"
-      method="POST"
+      action="{% url 'update_cart' item.product.id %}"
+    method="POST"
     >
       {% csrf_token %}
       <input
