@@ -125,7 +125,7 @@
                 </li>
     
                 <li class="nav-item">
-                  <a class="nav-link text-secondary m-0" href="#" aria-expanded="false">
+                  <a class="nav-link text-secondary m-0" href="{% url "view_cart" %}" aria-expanded="false">
                     <span class='text-orange fw-bold d-md-none'>Cart</span>
                     <i class="fas fa-shopping-bag fa-lg position-relative h5">
                       {% if cart_items|length > 0 %}
@@ -134,8 +134,6 @@
                       </span>
                       {% endif %}
                     </i>
-    
-                    
                     </span>
                   </a>
                 </li>
