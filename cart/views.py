@@ -22,29 +22,20 @@ def add_to_cart(request, item_id):
 
     product = get_item_from_item_id(item_id)
 
-    print(product)
-    
+    cart = request.session.get('cart', {})
 
-    # if 26 <= int(item_id) < 52:
-    #     product = get_object_or_404(Program, pk=item_id)
-
-    # else:
-    #     product = get_object_or_404(Product, pk=item_id)
-
-    # cart = request.session.get('cart', {})
-
-    # if item_id in list(cart.keys()) and quantity:
-    #     cart[item_id] += int(quantity)
-    #     messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
-    # elif quantity:
-    #     cart[item_id] = int(quantity)
-    #     messages.success(request, f'Added {cart[item_id]} {product.name} to your cart')
-    # else:
-    #     cart[item_id] = 1
-    #     messages.success(request, f'Added {product.name} to your cart')
+    if item_id in list(cart.keys()) and quantity:
+        cart[item_id] += int(quantity)
+        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+    elif quantity:
+        cart[item_id] = int(quantity)
+        messages.success(request, f'Added {cart[item_id]} {product.name} to your cart')
+    else:
+        cart[item_id] = 1
+        messages.success(request, f'Added {product.name} to your cart')
 
 
-    # request.session['cart'] = cart
+    request.session['cart'] = cart
     return redirect(redirect_url)
 
 def update_cart(request, item_id):

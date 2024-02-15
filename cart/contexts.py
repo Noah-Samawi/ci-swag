@@ -2,6 +2,8 @@
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+from .utils import get_item_from_item_id
+
 
 def cart_contents(request):
     cart_items = []
@@ -11,10 +13,8 @@ def cart_contents(request):
 
 
     for item_id, item_data in cart.items():
-        
-        if int(item_id) > 26:
-            product = get_object_or_404(Product, pk=item_id)
-            total = item_data * product.total_final_price
+        product = get_item_from_item_id(item_id)
+        total = item_data * product.total_final_price
 
         product_count += item_data
         cart_items.append({
