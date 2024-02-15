@@ -163,3 +163,33 @@ body {
 .search-icon:hover {
   color: #fff !important;
 }
+
+/* WIDGETS */
+
+.widget-list-inline li a {
+  padding: 2px 15px;
+  border: 1px solid var(--primary-orange);
+  border-radius: 30px;
+  display: block;
+  color: #434343;
+  background-color: whitesmoke;
+  transition: 300ms;
+  text-decoration: none;
+}
+
+.widget-list-inline li a:hover {
+  background: var(--primary-orange);
+  color: white;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 576px) {
+  .search-container {
+    flex-wrap: wrap;
+  }
+
+  .widget-list-inline li a {
+    font-size: 12px;
+  }
+}
