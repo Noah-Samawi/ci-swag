@@ -48,26 +48,23 @@
 
 
      <!-- Crud notification messages-->
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-        <div class="toast custom-toast rounded-0 border-top-0" data-autohide="false">
-            <div class="arrow-up arrow-danger"></div>
-            <div class="w-100 toast-capper bg-success"></div>
-            <div class="toast-header d-flex justify-content-between bg-white text-dark">
-              <strong class="mr-auto">Success!</strong>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="toast-body bg-white">{{ message }}</div>
-          </div>          
-        {% endfor %}
-    </div>
-    {% endif %}
+     {% if messages %}
+     <div class="message-container">
+         {% for message in messages %}
+             {% with message.level as level %}
+                 {% if level == 40 %}
+                     {% include 'includes/toasts/toast_error.html' %}
+                 {% elif level == 30 %}
+                     {% include 'includes/toasts/toast_warning.html' %}
+                 {% elif level == 25 %}
+                     {% include 'includes/toasts/toast_success.html' %}
+                 {% else %}
+                     {% include 'includes/toasts/toast_info.html' %}
+                 {% endif %}
+             {% endwith %}
+         {% endfor %}
+     </div>
+     {% endif %}
 
             
 
