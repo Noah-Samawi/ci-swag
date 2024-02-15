@@ -70,8 +70,8 @@
       {% endif %}
         <form
         class="form text-center"
-        action="#"
-          method="POST"
+        action="{% url 'remove_from_cart' item.product.id %}"
+        method="POST"
         >
           {% csrf_token %}
           {% if item.product.id >= 26 %}

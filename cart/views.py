@@ -1,5 +1,5 @@
 """Cart Views"""
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from products.models import Product
 
 def view_cart(request):
@@ -31,3 +31,18 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def remove_from_cart(request, item_id):
+    """Remove the item from the shopping cart"""
+
+    cart = request.session.get('cart', {})
+    redirect_url = request.POST.get('redirect_url')
+
+    try:
+        cart.pop(item_id)
+        request.session['cart'] = cart
+        return redirect(redirect_url)
+
+    except Exception as e:
+        return HttpResponse(status=500)
