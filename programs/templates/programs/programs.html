@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'programs/css/programs.css' %}" />
+{% endblock %}
+
 {% block page_header %}
 <header class="bg-dark">
     <div class="container px-4 px-lg-5 mt-5 mb-2">
@@ -22,7 +26,7 @@
           <a href="{% url 'programs' %}?category=ui_ux_design">UI/UX Design</a>
         </li>
         <li class="list-inline-item m-1">
-          <a class="" href="{% url 'programs' %}?category=devops">DevOps</a>        </li>
+          <a class="" href="{% url 'programs' %}?category=devops">DevOps</a> </li>
         <li class="list-inline-item m-1">
           <a class="" href="{% url 'programs' %}?category=data_science">Data Science</a>
         </li>
