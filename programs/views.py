@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Program
 
 from products.utils import filter_and_sort_products
+from cart.contexts import cart_contents
+
 
 
 
@@ -31,12 +33,22 @@ def all_programs(request):
 
 
 def program_detail(request, program_id):
-    """ A view to show individual program details """
+    """ A view to show individual product details """
 
     program = get_object_or_404(Program, pk=program_id)
 
+
+
+    # check to see if program is in cart
+    current_cart = cart_contents(request)
+    in_cart = any(item['product'].id == program.id for item in current_cart['cart_items'])
+
+
+
     context = {
         'program': program,
+        'in_cart': in_cart
     }
+
 
     return render(request, 'programs/program_detail.html', context)
