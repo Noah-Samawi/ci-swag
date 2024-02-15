@@ -41,6 +41,13 @@
 {% block content %}
     <!-- Section-->
     <section class="py-3 bg-white">
+
+        {% url 'programs' as url %}
+        {% with url=url %}
+            {% include "includes/searchbar.html" %}
+        {% endwith %}
+
+        
       <div class="container px-4 px-lg-5 mt-5">
           <div
             class="row gx-2 gy-2 row-cols-lg-2 justify-content-center"
