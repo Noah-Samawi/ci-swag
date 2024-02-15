@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.contrib import messages
 
 from products.models import Product
+from profiles.models import Subscription
+
 
 from .utils import get_item_from_item_id
 
@@ -20,8 +22,15 @@ def add_to_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
 
     product = get_item_from_item_id(item_id)
-
     cart = request.session.get('cart', {})
+
+
+    # Remove previous subscription from cart if a new subscription is added
+    if isinstance(product, Subscription):
+        for cart_item_id in list(cart.keys()):
+            if int(cart_item_id) >= 51:
+                del cart[cart_item_id]
+
 
     if item_id in list(cart.keys()) and quantity:
         cart[item_id] += int(quantity)

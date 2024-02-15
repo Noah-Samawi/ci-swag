@@ -1,6 +1,7 @@
 "Cart context functions"
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from profiles.models import Subscription
 
 from .utils import get_item_from_item_id
 
