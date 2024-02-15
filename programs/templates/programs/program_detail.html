@@ -71,24 +71,50 @@
         <hr>
           <p class="lead">{{program.description}}</p>
 
-          <form
-            class="form"
-            action="#"
-            method="POST"
-          >
-            {% csrf_token %}
-            <div class="d-flex mb-3">
-              <button type="submit" class="btn btn-primary flex-shrink-0">
-                <i class="fa-solid fa-school"></i> Add to Cart
-              </button>
-              <input type="hidden" name="item_type" value="program" />
-              <input
-                type="hidden"
-                name="redirect_url"
-                value="{{ request.path }}"
-              />
-            </div>
-          </form>
+          {% if request.user.is_authenticated %}
+
+        {% if in_cart %}
+        <form
+          class="form"
+          action="{% url 'remove_from_cart' program.id %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <div class="d-flex mb-3">
+            <button type="submit" class="btn btn-danger flex-shrink-0">
+              <i class="fa-solid fa-trash"></i> Remove from Cart
+            </button>
+            <input
+              type="hidden"
+              name="redirect_url"
+              value="{{ request.path }}"
+            />
+          </div>
+        </form>
+        {% else %}
+        <form
+          class="form"
+          action="{% url 'add_to_cart' program.id %}"
+          method="POST"
+        >
+          {% csrf_token %}
+          <div class="d-flex mb-3">
+            <button type="submit" class="btn btn-primary flex-shrink-0">
+              <i class="fa-solid fa-school"></i> Add to Cart
+            </button>
+            <input type="hidden" name="item_type" value="program" />
+            <input
+              type="hidden"
+              name="redirect_url"
+              value="{{ request.path }}"
+            />
+          </div>
+        </form>
+        {% endif %}
+
+        {% else %}
+        <a href="{% url 'account_login' %}" class="btn btn-outline-primary">Login to Enroll</a>
+        {% endif %}
 
           <hr>
 

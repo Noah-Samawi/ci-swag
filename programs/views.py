@@ -37,12 +37,9 @@ def program_detail(request, program_id):
 
     program = get_object_or_404(Program, pk=program_id)
 
-
-
     # check to see if program is in cart
     current_cart = cart_contents(request)
     in_cart = any(item['product'].id == program.id for item in current_cart['cart_items'])
-
 
 
     context = {
