@@ -46,25 +46,25 @@
               </span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="courseDropdown">
-              <li><a class="dropdown-item" href="#">All</a></li>
+              <li><a class="dropdown-item" href="{% url 'programs' %}">All</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <a class="dropdown-item" href="#">Full-Stack</a>
+                <a class="dropdown-item" href="{% url 'programs' %}?category=fullstack">Full-Stack</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">UI/UX Design</a>
+                <a class="dropdown-item" href="{% url 'programs' %}?category=ui_ux_design">UI/UX Design</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">DevOps</a>
+                <a class="dropdown-item" href="{% url 'programs' %}?category=devops">DevOps</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Data Science</a>
+                <a class="dropdown-item" href="{% url 'programs' %}?category=data_science">Data Science</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Game Dev</a>
+                <a class="dropdown-item" href="{% url 'programs' %}?category=game_dev">Game Dev</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Mobile App</a>
+                <a class="dropdown-item" href='{% url 'programs' %}?category=mobile_app'>Mobile App</a>
               </li>
             </ul>
           </li>
