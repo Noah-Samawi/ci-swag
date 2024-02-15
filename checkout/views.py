@@ -1,8 +1,10 @@
 "Checkout Views"
-
+import stripe
 from django.shortcuts import render, redirect, reverse
 from django.views import View
+from django.conf import settings
 from profiles.models import UserProfile
+from cart.contexts import cart_contents
 
 
 from .forms import OrderForm
@@ -13,9 +15,15 @@ from .forms import OrderForm
 # Create your views here.
 class CheckoutView(View):
     template_name = 'checkout/checkout.html'
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+    stripe_wh_key = settings.STRIPE_WH_SECRET
 
-     
     def get(self, request, *args, **kwargs):
+        current_cart = cart_contents(request)
+        total = current_cart['total']
+
+        stripe_total = round(total * 100)
 
         if request.user.is_authenticated:
             try:
@@ -36,9 +44,21 @@ class CheckoutView(View):
         else:
             order_form = OrderForm()
 
+        if not self.stripe_secret_key:
+            return redirect(reverse('home'))
+
+
+        stripe.api_key = self.stripe_secret_key
+
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
+
         context = {
             'order_form': order_form,
-
+            'stripe_public_key': self.stripe_public_key,
+            'client_secret': intent.client_secret,
         }
 
         return render(request, self.template_name, context)
