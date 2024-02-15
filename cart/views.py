@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.contrib import messages
 
 from products.models import Product
-from programs.models import Program
 
 from .utils import get_item_from_item_id
 
