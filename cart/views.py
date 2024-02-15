@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.contrib import messages
 
 from products.models import Product
+from programs.models import Program
 
 def view_cart(request):
     """ A view that renders the cart contents page """
@@ -17,8 +18,11 @@ def add_to_cart(request, item_id):
     quantity = request.POST.get('quantity')
     redirect_url = request.POST.get('redirect_url')
 
-    product = get_object_or_404(Product, pk=item_id)
+    if 26 <= int(item_id) < 52:
+        product = get_object_or_404(Program, pk=item_id)
 
+    else:
+        product = get_object_or_404(Product, pk=item_id)
 
     cart = request.session.get('cart', {})
 
