@@ -1,15 +1,16 @@
 """Checkout Models"""
 
 import uuid
+from decimal import Decimal
 from django.db import models
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
 from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
 
 
 from profiles.models import UserProfile
-
-
-
 
 class Order(models.Model):
     """
@@ -53,3 +54,50 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+
+class OrderLineItem(models.Model):
+    """
+    Model representing a line item within an order.
+    An Order line item can be of any type of product or subscription.
+    This is achieved using Django's content types framework.
+
+    """
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='lineitems')
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        editable=False)
+    subscription_discount = models.DecimalField(
+        blank=True, null=True, max_digits=6, decimal_places=0)
+    item_total = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, blank=False,
+        default=0)
+
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+
+        # Calculate the total price before applying discount
+        total_price = self.content_object.total_final_price * self.quantity
+
+        # Apply discount if it's not None
+        if self.subscription_discount is not None:
+            discount_amount = total_price * (self.subscription_discount / Decimal(100))
+            total_price -= discount_amount
+
+        # Assign the calculated total price to lineitem_total
+        self.lineitem_total = total_price
+
+        self.item_total = total_price / self.quantity
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'SKU {self.content_object.sku} on order {self.order.order_number}'
