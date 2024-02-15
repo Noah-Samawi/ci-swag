@@ -11,9 +11,10 @@ def cart_contents(request):
 
 
     for item_id, item_data in cart.items():
-
-        product = get_object_or_404(Product, pk=item_id)
-        total = item_data * product.total_final_price
+        
+        if int(item_id) > 26:
+            product = get_object_or_404(Product, pk=item_id)
+            total = item_data * product.total_final_price
 
         product_count += item_data
         cart_items.append({
