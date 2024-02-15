@@ -42,6 +42,14 @@ class Subscription(models.Model):
     program_discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
 
+    @property
+    def total_final_price(self):
+        """
+        Returns the total price of subscription
+        """
+        return self.price
+
+
     def __str__(self):
         return str(self.name)
 

@@ -8,11 +8,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Subscription
 
 class SubscriptionsView(LoginRequiredMixin, View):
-    template_name = 'profiles/subscriptions.html'
     """
     View for displaying user subscriptions.
 
     """
+
+    template_name = 'profiles/subscriptions.html'
+
 
     def get(self, request):
         """
