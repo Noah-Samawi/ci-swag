@@ -25,8 +25,11 @@
           <h1 class="display-5 fw-bolder">{{program.name}}</h1>
           <div class="fs-5 mb-3">
             {% if program.sale %}
-            <span class="text-decoration-line-through">${{program.price}}</span>
+            <p class='h5'><span class="badge bg-success">{{program.sale}}% Sale
+            </span><p>
+            <span class="text-decoration-line-through text-danger">${{program.price}}</span>
             <span>${{program.total_final_price}}</span>
+             
             {% else %}
             <span>${{program.price}}</span>
             {% endif %}
