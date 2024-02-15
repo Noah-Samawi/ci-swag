@@ -3,8 +3,30 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
+class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Inline admin class for displaying order line items in the admin panel.
+
+    """
+    model = OrderLineItem
+    readonly_fields = ('lineitem_total',
+                        'get_content_object_name','content_type', 
+                        'object_id', 'quantity', 'subscription_discount', )
+    extra = 0
+
+    def get_content_object_name(self, obj):
+        """
+        Method to get the name of the associated content object.
+
+        """
+        return obj.content_object.name
 
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Admin class for managing orders in the admin panel.
+    """
+    inlines = (OrderLineItemAdminInline,)
+
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total', 'original_cart',
