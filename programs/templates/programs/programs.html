@@ -10,6 +10,29 @@
             Elevate your expertise with our courses.
         </p>
       </div>
+
+      <ul class="list-inline widget-list-inline text-center my-3">
+        <li class="list-inline-item m-1">
+          <a href="{% url 'programs' %}">All</a>
+        </li>
+        <li class="list-inline-item m-1">
+          <a href="{% url 'programs' %}?category=fullstack">Full-Stack</a>
+        </li>
+        <li class="list-inline-item m-1">
+          <a href="{% url 'programs' %}?category=ui_ux_design">UI/UX Design</a>
+        </li>
+        <li class="list-inline-item m-1">
+          <a class="" href="{% url 'programs' %}?category=devops">DevOps</a>        </li>
+        <li class="list-inline-item m-1">
+          <a class="" href="{% url 'programs' %}?category=data_science">Data Science</a>
+        </li>
+        <li class="list-inline-item m-1">
+          <a class="" href="{% url 'programs' %}?category=game_dev">Game Dev</a>
+        </li>
+        <li class="list-inline-item m-1">
+          <a class="" href='{% url 'programs' %}?category=mobile_app'>Mobile App</a>
+        </li>
+    </ul>
     </div>
 </header>  
 
