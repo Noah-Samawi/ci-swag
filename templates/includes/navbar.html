@@ -26,16 +26,16 @@
               </span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="productDropdown">
-              <li><a class="dropdown-item" href="#">All</a></li>
+              <li><a class="dropdown-item" href="{% url 'products' %}">All</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <a class="dropdown-item" href="#">Clothing</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=clothing">Clothing</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Stationary</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=stationary">Stationary</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Miscellaneous</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=miscellaneous">Miscellaneous</a>
               </li>
             </ul>
           </li>
