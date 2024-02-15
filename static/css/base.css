@@ -186,6 +186,28 @@ a:link {
   color: white;
 }
 
+/* BOOTSTRAP TOASTS */
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+  position: fixed;
+  top: 100px;
+  right: 15px;
+  z-index: 99999999999;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 310px;
+}
+
+.custom-toast {
+  overflow: visible;
+}
+
+.toast-capper {
+  height: 2px;
+}
+
 /* MEDIA QUERIES */
 
 @media screen and (max-width: 576px) {
