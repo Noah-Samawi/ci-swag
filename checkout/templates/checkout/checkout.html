@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tools %}
+
+
+
+{% block page_header %}
+<header class="bg-dark">
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Checkout</h1>
+        <p class="lead fw-normal text-white-50 mb-0">
+            Review and Confirm Your Selections
+        </p>
+      </div>
+    </div>
+  </header>
+
+{% endblock %}
+
+{% block content %}
+    <!-- Section-->
+    <section class="container p-0">
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="card">
+              <div class="card-body">
+              Checkout Form Goes Here
+              </div>
+            </div>
+  
+      
+          <div class="col-xl-4">
+            <div class="card checkout-order-summary">
+              <div class="card-body">
+                <div class="p-3 bg-light mb-3">
+                  <h5 class="font-size-16 mb-0">
+                    Order Summary <span class="float-end ms-2">({{ product_count }})</span>
+                  </h5>
+                </div>
+                {% for item in cart_items %}
+
+                <div class="card border-0 my-2">
+                  <div class="row">
+                    <div class="col-3 p-0">
+                      {% if item.product.image.url %}
+                      <img class="avatar-lg"  src="{{item.product.image.url}}" style='object-fit: cover;' />
+                      {% else %}
+                      <img class="avatar-lg bg-{{item.product.color}}"   alt="product image"  src="{% static "images/award-placeholder.webp" %}" style='object-fit: cover;' />
+                      {% endif %}
+                    </div>
+                    <div class="col-6">
+                      <div class="row d-flex">
+                        <p class='small'>{{ item.product.name }}
+                        </p>
+                      </div>
+                      <div class="row d-flex">
+                        <p class="text-muted small">Quantity {{item.quantity}}</p>
+                      </div>
+                    </div>
+                    <div class="col-3 d-flex justify-content-end">
+                      <p class='fw-bold'>
+                        {% if item.product.discount %}
+                        <span class='text-decoration-line-through text-danger'>${{ item.product.price | calc_subtotal:item.quantity }}</span>
+                        {% endif %}
+                        ${{ item.product.total_final_price | calc_subtotal:item.quantity }}</p>
+
+                        
+                    </div>
+                  </div>
+                  {% endfor %}
+
+
+                  <hr />
+                  <div class="row mb-2">
+                    <div class="col"><b> Shipping/Admin Charge:</b></div>
+                    <div class="col-auto d-flex justify-content-end"><b>$5</b></div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col"><b>Member Discounts:</b></div>
+                    <div class="col-auto d-flex justify-content-end">
+                      <b>$10</b>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col"><b> Total:</b></div>
+                    <div class="col-auto d-flex justify-content-end"><b>${{ total | floatformat:2 }}</b></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+{% endblock %}
+
+ {% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
