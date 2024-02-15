@@ -3,3 +3,8 @@
   height: 100%;
   object-fit: cover;
 }
+
+.program-card:hover,
+.program-card:focus {
+  border: 1px solid #0275d8;
+}

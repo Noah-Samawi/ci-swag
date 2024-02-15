@@ -60,7 +60,7 @@
           {% for program in programs  %}
 
           <div class="col">
-            <div class="card shadow border-grey overflow-hidden">
+            <a class="card program-card shadow border-grey overflow-hidden" href="{% url 'program_detail' program.id %}" alt='Link to {{program.name}}'>
               <div class="row">
                 <div class="col-lg-4 order-lg-2 bg-dark p-0">
                   <img
@@ -81,15 +81,8 @@
                       </span>
                     </h5>
                     {% endif %}
-                    <h5 class="card-title">
-                      <a
-                      class="link-primary mb-2"
-                      role="button"
-                      href="{% url 'program_detail' program.id %}">
-                      <strong>
-                        {{program.name}}</strong
-                      >
-                    </a>
+                    <h5 class="text-primary fw-bold">
+                        {{program.name}}
                     </h5>
                     <p class="card-text text-secondary pb-2 border-bottom">
                       {{program.description}}
@@ -122,7 +115,7 @@
                       </div>  
                       <div>
                         <i class="fa-solid fa-chart-line text-danger"></i>
-                        Difficulty 
+                        Difficulty
                       </div>         
                     </div>
                   </div>
@@ -130,7 +123,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         
           {% endfor %}
