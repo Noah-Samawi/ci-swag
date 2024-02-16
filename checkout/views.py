@@ -84,7 +84,6 @@ class CheckoutView(View):
     def post(self, request, *args, **kwargs):
         cart = request.session.get('cart', {})
         profile = None
-        print('Post request')
 
         form_data = {
                 'full_name': request.POST['full_name'],
@@ -121,13 +120,20 @@ class CheckoutView(View):
                 try:
                     if isinstance(item, Subscription):
                         content_type = ContentType.objects.get_for_model(Subscription)
-                        print('Subscription')
+                        if request.user.is_authenticated:
+                            request.user.profile.active_subscription = item
+                            request.user.profile.save()
                     elif isinstance(item, Program):
                         content_type = ContentType.objects.get_for_model(Program)
-                        print('Program')
+                        if request.user.is_authenticated:
+                            if request.user.profile.subscription:
+                                discount = request.user.profile.subscription.program_discount
                     else:
                         content_type = ContentType.objects.get_for_model(Product)
-                        print('Product')
+                        if request.user.is_authenticated:
+                            if request.user.profile.subscription:
+                                discount = request.user.profile.subscription.product_discount
+
 
                     order_line_item = OrderLineItem(
                             order=order,
@@ -147,12 +153,26 @@ class CheckoutView(View):
                     order.delete()
                     return redirect(reverse('view_cart'))
 
-            print('Form is valid')
+            if request.user.is_authenticated:
+                if request.user.profile.subscription:
+                    request.user.profile.subscription = None
+                    request.user.profile.save()
+
+            request.session['save_info'] = 'save-info' in request.POST
+
             return redirect(reverse('checkout'))
 
-        else:
-            print('Form is not valid')
-            return redirect(reverse('checkout'))
+        # If form is invalid, store form data in session and redirect to checkout
+        order_form_data = {
+                        'cleaned_data': order_form.cleaned_data,
+                        'errors': order_form.errors,
+                    }
+
+        request.session['order_form_data'] = order_form_data
+
+        messages.error(request, 'There was an error with your form. \
+            Please double-check your information.')
+        return redirect(reverse('checkout'))
 
 
 
