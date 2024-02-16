@@ -3,13 +3,13 @@ import stripe
 from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.conf import settings
+from django.contrib import messages
+
 from profiles.models import UserProfile
 from cart.contexts import cart_contents
 
 
 from .forms import OrderForm
-
-
 
 
 # Create your views here.
@@ -22,6 +22,10 @@ class CheckoutView(View):
     def get(self, request, *args, **kwargs):
         current_cart = cart_contents(request)
         total = current_cart['total']
+
+        if len(current_cart['cart_items']) == 0:
+            messages.error(request, "There are no items in your cart")
+            return redirect(reverse('view_cart'))
 
         stripe_total = round(total * 100)
 
