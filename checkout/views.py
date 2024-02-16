@@ -1,15 +1,25 @@
 "Checkout Views"
 import stripe
+import json
+
 from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.contenttypes.models import ContentType
 
 from profiles.models import UserProfile
 from cart.contexts import cart_contents
+from cart.utils import get_model_from_id
 
 
+from products.models import Product
+from programs.models import Program
+from profiles.models import Subscription
+
+from .models import Order, OrderLineItem
 from .forms import OrderForm
+
 
 
 # Create your views here.
@@ -69,6 +79,8 @@ class CheckoutView(View):
 
     def post(self, request, *args, **kwargs):
         cart = request.session.get('cart', {})
+        profile = None
+        print('Post request')
 
         form_data = {
                 'full_name': request.POST['full_name'],
@@ -85,10 +97,53 @@ class CheckoutView(View):
         order_form = OrderForm(form_data)
 
         if order_form.is_valid():
-            order_form.save()
+            order = order_form.save(commit=False)
+            # Add user profile to order if user is authenticated
+            if request.user.is_authenticated:
+                profile = UserProfile.objects.get(user=request.user)
+                order.user_profile = profile
+
+            # Add stripe pid and original cart to order
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.original_cart = json.dumps(cart)
+            order.stripe_pid = pid
+
+            order.save()
+
+            for item_id, item_data in cart.items():
+                # Membership discount
+                discount = 0
+                try:
+                    item_model =  get_model_from_id(item_id)
+                    content_type = ContentType.objects.get_for_model(item_model)
+                    if isinstance(content_type, Subscription):
+                        print('Subscription')
+                    elif isinstance(content_type, Program):
+                        print('Program')
+                    else:
+                        print('Product')
+
+                    order_line_item = OrderLineItem(
+                            order=order,
+                            content_type=content_type,
+                            object_id=item_id,
+                            quantity=item_data,
+                            subscription_discount=discount
+                        )
+                    order_line_item.save()
+
+
+                except item_model.DoesNotExist:
+                    messages.error(request, (
+                        "One of the products in your cart wasn't found in our database."
+                        "Please call us for assistance!")
+                    )
+                    order.delete()
+                    return redirect(reverse('view_cart'))
+
             print('Form is valid')
             return redirect(reverse('checkout'))
- 
+
         else:
             print('Form is not valid')
             return redirect(reverse('checkout'))
