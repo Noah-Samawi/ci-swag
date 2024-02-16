@@ -1,6 +1,8 @@
 "Checkout Views"
 import stripe
 import json
+import inspect
+
 
 from django.shortcuts import render, redirect, reverse
 from django.views import View
@@ -12,7 +14,7 @@ from django.http import HttpResponse
 
 from profiles.models import UserProfile
 from cart.contexts import cart_contents
-from cart.utils import get_model_from_id
+from cart.utils import get_item_from_item_id
 
 
 from products.models import Product
@@ -115,14 +117,16 @@ class CheckoutView(View):
             for item_id, item_data in cart.items():
                 # Membership discount
                 discount = 0
+                item =  get_item_from_item_id(item_id)
                 try:
-                    item_model =  get_model_from_id(item_id)
-                    content_type = ContentType.objects.get_for_model(item_model)
-                    if isinstance(content_type, Subscription):
+                    if isinstance(item, Subscription):
+                        content_type = ContentType.objects.get_for_model(Subscription)
                         print('Subscription')
-                    elif isinstance(content_type, Program):
+                    elif isinstance(item, Program):
+                        content_type = ContentType.objects.get_for_model(Program)
                         print('Program')
                     else:
+                        content_type = ContentType.objects.get_for_model(Product)
                         print('Product')
 
                     order_line_item = OrderLineItem(
@@ -135,7 +139,7 @@ class CheckoutView(View):
                     order_line_item.save()
 
 
-                except item_model.DoesNotExist:
+                except item.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart wasn't found in our database."
                         "Please call us for assistance!")
