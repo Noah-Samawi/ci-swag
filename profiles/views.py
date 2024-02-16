@@ -1,6 +1,6 @@
 """Profile views."""
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -36,3 +36,19 @@ class SubscriptionsView(LoginRequiredMixin, View):
         }
 
         return render(request, self.template_name, context)
+
+
+def remove_subscription(request):
+    """Remove a user's active subscription."""
+
+    redirect_url = request.POST.get('redirect_url')
+
+    try:
+        request.user.profile.active_subscription = None
+        request.user.profile.subscription = None
+        request.user.profile.save()
+        return redirect(redirect_url)
+
+    except Exception as e:
+        return HttpResponse(status=500)
+
