@@ -73,6 +73,13 @@ class CheckoutView(View):
             currency=settings.STRIPE_CURRENCY,
         )
 
+        order_form_data = request.session.get('order_form_data')
+
+        if order_form_data:
+            order_form = OrderForm(initial=order_form_data['cleaned_data'])
+            order_form._errors = order_form_data['errors']
+            del request.session['order_form_data']
+
         context = {
             'order_form': order_form,
             'stripe_public_key': self.stripe_public_key,
