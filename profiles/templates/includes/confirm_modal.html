@@ -24,7 +24,7 @@
        </button>
 
 
-       <form method="POST" action=""
+       <form method="POST" action="{% url 'remove_subscription' %}"
        >
          {% csrf_token %}
          <input type="hidden"       

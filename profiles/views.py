@@ -1,6 +1,7 @@
 """Profile views."""
 
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse
+from django.contrib import messages
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -44,11 +45,13 @@ def remove_subscription(request):
     redirect_url = request.POST.get('redirect_url')
 
     try:
+        messages.success(request, f'Your {request.user.profile.active_subscription.name} membership was cancelled')
         request.user.profile.active_subscription = None
         request.user.profile.subscription = None
         request.user.profile.save()
         return redirect(redirect_url)
 
     except Exception as e:
+        messages.error(request, f'Error unsubscribing your membership: {e}')
         return HttpResponse(status=500)
 
