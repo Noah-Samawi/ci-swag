@@ -52,13 +52,13 @@ def cart_contents(request):
     if subscription_exists:
         delivery_cost = 0
 
-   for item_id, item_data in cart.items():
+    for item_id, item_data in cart.items():
         product = get_item_from_item_id(item_id)
 
         if isinstance(product, Subscription):
             total += item_data * product.price
 
-        elif isinstance(product, Program)
+        elif isinstance(product, Program):
             total_item_price = item_data * product.total_final_price
             if subscription_exists:
                 print('sub program')
