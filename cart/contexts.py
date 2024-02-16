@@ -5,7 +5,7 @@ from products.models import Product
 from profiles.models import Subscription
 from programs.models import Program
 
-from .utils import get_item_from_item_id
+from .utils import get_item_from_item_id, apply_subscription_discount
 
 
 def cart_contents(request):
@@ -61,11 +61,23 @@ def cart_contents(request):
         elif isinstance(product, Program):
             total_item_price = item_data * product.total_final_price
             if subscription_exists:
-                print('sub program')
+                total_item_price, members_discount = apply_subscription_discount(
+                    subscription_discount=request.user.profile.subscription.program_discount,
+                    product=product,
+                    total_item_price=total_item_price
+                )
+                total_members_discount += members_discount
+            total += total_item_price
         else:
             total_item_price = item_data * product.total_final_price
             if subscription_exists:
-                print('sub product')
+                total_item_price, members_discount = apply_subscription_discount(
+                    subscription_discount=request.user.profile.subscription.product_discount,
+                    product=product,
+                    total_item_price=total_item_price
+                )
+                total_members_discount += members_discount
+            total += total_item_price
 
 
         product_count += item_data
