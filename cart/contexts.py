@@ -99,8 +99,6 @@ def cart_contents(request):
         'product_count': product_count,
         'delivery_cost': delivery_cost,
         "discount": round(total_members_discount, 2),
-
-
     }
 
     return context

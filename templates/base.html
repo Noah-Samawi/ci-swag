@@ -42,7 +42,7 @@
   </head>
 
 
-  <body class="bg-dark">
+  <body class="d-flex flex-column h-100 bg-dark">
     <!-- Navigation-->
     {% include 'includes/navbar.html' %}
 
@@ -75,7 +75,7 @@
 
      <!-- Main Content-->
 
-    <main class="bg-white">
+    <main class="flex-grow-1 bg-white">
     {% block content %}
     {% endblock %}
     </main>
