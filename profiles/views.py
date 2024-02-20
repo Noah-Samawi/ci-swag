@@ -8,6 +8,22 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Subscription
 
+
+class ProfileView(LoginRequiredMixin, View):
+    template_name = 'profiles/profile.html'
+
+
+    def get(self, request):
+        """
+        Handles HTTP GET requests for rendering the profile update page.
+
+        Returns:
+        - HttpResponse: Renders the profile update page with context data.
+        """
+        return render(request, self.template_name)
+
+
+
 class SubscriptionsView(LoginRequiredMixin, View):
     """
     View for displaying user subscriptions.

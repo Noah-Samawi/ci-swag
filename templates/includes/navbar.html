@@ -100,7 +100,7 @@
                   <ul class="dropdown-menu" aria-labelledby="profileDropdown">
     
                     {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url "profile" %}">Profile</a></li>
     
                     <li>
                       <a class="dropdown-item" href="#">My Courses</a>
