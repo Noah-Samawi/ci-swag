@@ -2,6 +2,12 @@
 {% load static %}
 {% load embed_video_tags %}
 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'programs/css/programs.css' %}" />
+{% endblock %}
+
+
 {% block page_header %}
 <header class="bg-dark">
   <div class="container px-4 px-lg-5 my-5">
@@ -160,12 +166,17 @@
             </div>
           </div>
       </div>
+      <div class="mt-3">
+        <a href="{% url "programs" %}">
+          <i class="fas fa-arrow-left mr-2"></i> Back to programs</a
+        >
+    </div>
     </div>
   </section>
 
     <!-- Enrolled Video Section -->
     {% if purchased %}
-    <section class="bg-dark container pb-5">
+    <section class="bg-dark container pb-5 rounded-3">
       <h2 class="text-light text-center p-5">{{program.name}}</h2>
       <div class="mx-auto video-container">
         {% video program.video_url '100% x 100%' %}
@@ -173,12 +184,7 @@
     </section>
     {% endif %}
 
+
 {% endblock %}
 
 
-
-<div class="mt-3">
-    <a href="{% url "programs" %}">
-      <i class="fas fa-arrow-left mr-2"></i> Back to programs</a
-    >
-  </div>

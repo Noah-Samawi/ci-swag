@@ -8,3 +8,15 @@
 .program-card:focus {
   border: 1px solid #0275d8;
 }
+
+/* VIDEO  */
+
+iframe {
+  aspect-ratio: 16/9;
+}
+
+.video-container {
+  max-width: 960px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
