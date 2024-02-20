@@ -34,17 +34,44 @@ def all_programs(request):
 
 def program_detail(request, program_id):
     """ A view to show individual product details """
-
+    purchased = False
     program = get_object_or_404(Program, pk=program_id)
+
+
+    # Loop through orders to check if program has been purchased
+    if request.user.is_authenticated:
+        if hasattr(request.user, 'profile'):
+            orders = request.user.profile.orders.all()
+        else:
+            orders = []
+    else:
+        orders = []
+
+    for order in orders:
+        for item in order.lineitems.all():
+            if item.content_object.id == program_id:
+                purchased = True
 
     # check to see if program is in cart
     current_cart = cart_contents(request)
     in_cart = any(item['product'].id == program.id for item in current_cart['cart_items'])
 
 
+    # check to see if senior dev subscription is in cart
+    senior_dev_in_cart = any(item['product'].id == 54 for item in current_cart['cart_items'])
+
+    # Add purchase to all courses if senior dev subscription active and not in cart
+    if request.user.is_authenticated:
+        subscription = request.user.profile.subscription
+        if subscription:
+            if subscription.pk == 54 and not senior_dev_in_cart:
+                purchased = True
+
     context = {
         'program': program,
-        'in_cart': in_cart
+        'in_cart': in_cart,
+        "purchased" : purchased,
+
     }
 
 
