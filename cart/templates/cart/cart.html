@@ -13,9 +13,15 @@
     <div class="container px-4 px-lg-5 my-5">
       <div class="text-center text-white">
         <h1 class="display-4 fw-bolder">Shopping Cart</h1>
+        
         <p class="lead fw-normal text-white-50 mb-0">
           <i class="text-info font-weight-bold">{{cart_items|length}}</i> type of item in your cart
         </p>
+
+        {% if  request.user.profile.active_subscription %}
+        <p class="lead fw-normal text-white-50 mb-0">Your membership is <span class="fw-bold text-{{request.user.profile.active_subscription.color}} font-weight-bold text-capitalize">{{request.user.profile.active_subscription}}</span></p>
+        {% endif %}
+
       </div>
     </div>
   </header> 

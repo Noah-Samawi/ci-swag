@@ -16,6 +16,9 @@
         <p class="lead fw-normal text-white-50 mb-0">
             Review and Confirm Your Selections
         </p>
+        {% if  request.user.profile.active_subscription %}
+        <p class="lead fw-normal text-white-50 mb-0">Your membership is <span class="fw-bold text-{{request.user.profile.active_subscription.color}} font-weight-bold text-capitalize">{{request.user.profile.active_subscription}}</span></p>
+        {% endif %}
       </div>
     </div>
   </header>
