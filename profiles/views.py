@@ -6,6 +6,8 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from checkout.models import Order
+from programs.models import Program   
+
 
 from .models import Subscription, UserProfile
 from .forms import UserProfileForm, UpdateUserForm
@@ -132,6 +134,33 @@ def remove_subscription(request):
     except Exception as e:
         messages.error(request, f'Error unsubscribing your membership: {e}')
         return HttpResponse(status=500)
+
+
+class MyCoursesView(LoginRequiredMixin, View):
+    """
+    View for displaying the user's courses on the "My Courses" page.
+    """
+    template_name = 'profiles/my_courses.html'
+
+    def get(self, request):
+
+        programs = []
+        if request.user.profile.active_subscription:
+            if request.user.profile.active_subscription.id == 54:
+                programs = Program.objects.all()
+        else:
+            if hasattr(request.user, 'profile'):
+                orders = request.user.profile.orders.all() or []
+                for order in orders:
+                    for item in order.lineitems.all():
+                        if isinstance(item.content_object, Program):
+                            programs.append(item.content_object)
+
+        context = {
+            'programs': programs,
+        }
+
+        return render(request, self.template_name, context)
 
 
 def order_history(request, order_number):
