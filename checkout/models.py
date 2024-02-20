@@ -3,6 +3,7 @@
 import uuid
 from decimal import Decimal
 from django.db import models
+from django.db.models import Sum
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 
@@ -42,7 +43,24 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
-    
+    def update_total(self):
+        """
+        Update grand total each time a line item is added,
+        accounting for delivery costs.
+        """
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+
+        print(self.user_profile)
+        if self.user_profile:
+            if self.user_profile.subscription:
+                self.delivery_cost = 0
+            else:
+                self.delivery_cost = settings.DELIVERY_COST
+        else:
+            self.delivery_cost = settings.DELIVERY_COST
+
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
 
 
     def save(self, *args, **kwargs):
