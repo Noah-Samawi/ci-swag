@@ -5,10 +5,10 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from checkout.models import Order
+
 from .models import Subscription, UserProfile
 from .forms import UserProfileForm, UpdateUserForm
-
-from checkout.models import Order
 
 
 class ProfileView(LoginRequiredMixin, View):

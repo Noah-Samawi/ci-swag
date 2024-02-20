@@ -4,7 +4,7 @@ import json
 import inspect
 
 
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import View
 from django.conf import settings
 from django.contrib import messages
@@ -21,8 +21,14 @@ from products.models import Product
 from programs.models import Program
 from profiles.models import Subscription
 
+
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
+
+
 from .models import Order, OrderLineItem
 from .forms import OrderForm
+
 
 
 
@@ -167,7 +173,7 @@ class CheckoutView(View):
 
             request.session['save_info'] = 'save-info' in request.POST
 
-            return redirect(reverse('checkout'))
+            return redirect(reverse('checkout_success', args=[order.order_number]))
 
         # If form is invalid, store form data in session and redirect to checkout
         order_form_data = {
