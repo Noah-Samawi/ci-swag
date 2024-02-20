@@ -47,6 +47,13 @@ class Product(models.Model):
     sale = models.IntegerField(default=0, null=True, blank=True)
     discount = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
+
+    @property
+    def rating_array(self):
+        # Return an array of items to be used in the template for looping
+        return ['item' for _ in range(round(self.rating))]
+
+
     @property
     def total_final_price(self):
         """
