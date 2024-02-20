@@ -55,8 +55,6 @@ class StripeWH_Handler:
         cart = intent.metadata.cart
         save_info = intent.metadata.save_info
 
-        (pid)
-
 
                 # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
