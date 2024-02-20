@@ -41,14 +41,17 @@
                     <div class="row">
                       <div class="col-lg-4">
                         <div class="mb-3">
+                          {{ user_form.first_name | as_crispy_field }}
                         </div>
                       </div>
                       <div class="col-lg-4">
                         <div class="mb-3">
+                          {{ user_form.last_name | as_crispy_field }}
                         </div>
                       </div>
                       <div class="col-lg-4">
                         <div class="mb-3">
+                          {{ user_form.username | as_crispy_field }}
                         </div>
                       </div>
                     </div>
