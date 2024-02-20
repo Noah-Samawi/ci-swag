@@ -43,7 +43,7 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Section-->
+    <!-- Program Info Section -->
     <section class="py-3 bg-white">
 
         {% url 'programs' as url %}
@@ -65,4 +65,15 @@
           </div>
         </div>
       </section>
+
+     <!-- Enrolled Video Section -->
+      {% if purchased %}
+    <section class="bg-dark container pb-5">
+      <h2 class="text-light text-center p-5">{{program.name}}</h2>
+      <div class="mx-auto video-container">
+        {% video program.video_url '100% x 100%' %}
+      </div>
+    </section>
+    {% endif %}
+
 {% endblock %}
