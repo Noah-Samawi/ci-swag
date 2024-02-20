@@ -89,7 +89,9 @@ def cart_contents(request):
             'product': product,
         })
 
-
+    # Add delivery cost if no products in cart
+    if len(cart_items) == 0:
+        delivery_cost = 0
 
     total += delivery_cost
 
