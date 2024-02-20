@@ -1,26 +1,87 @@
 """Profile views."""
 
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-# Create your views here.
 
-from .models import Subscription
+from .models import Subscription, UserProfile
+from .forms import UserProfileForm, UpdateUserForm
+
 
 
 class ProfileView(LoginRequiredMixin, View):
-    template_name = 'profiles/profile.html'
+    """
+    View for displaying and updating user profiles.
 
+    """
+    template_name = 'profiles/profile.html'
+    user_form_class = UpdateUserForm
+    profile_form_class = UserProfileForm
+
+    def get_context_data(self, **kwargs):
+        """
+        Retrieves context data for rendering the profile update page.
+        Returns:
+        - dict: A dictionary containing context data for rendering the page.
+        """
+        user = self.request.user
+        profile = get_object_or_404(UserProfile, user=user)
+        orders = profile.orders.all()
+
+        for order in orders:
+            order.total_items = 0
+            for line_item in order.lineitems.all():
+                order.total_items += line_item.quantity
+
+        context = {
+            "user_form": kwargs.get("user_form",
+                                    self.user_form_class(instance=user)),
+            "profile_form": kwargs.get(
+                "profile_form", self.profile_form_class(instance=profile)
+            ),
+            'orders': orders,
+            'on_profile_page': True,
+
+        }
+        return context
 
     def get(self, request):
         """
         Handles HTTP GET requests for rendering the profile update page.
 
-        Returns:
-        - HttpResponse: Renders the profile update page with context data.
         """
-        return render(request, self.template_name)
+        context = self.get_context_data()
+        return render(request, self.template_name, context)
+
+
+    def post(self, request, *args, **kwargs):
+        """
+        Handles HTTP POST requests for updated the profile models in database.
+
+        """
+        context = self.get_context_data()
+        profile = get_object_or_404(UserProfile, user=request.user)
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, instance=profile)
+
+
+        if "user_form" in request.POST:
+            if user_form.is_valid():
+                user_form.save()
+                context["user_form"] = user_form
+            else:
+                context['user_form'] = user_form
+                return render(request, self.template_name, context)
+        else:
+            if profile_form.is_valid():
+                profile_form.save()
+                context["profile_form"] = profile_form
+            else:
+                context["profile_form"] = profile_form
+
+        return render(request, self.template_name, context)
+
 
 
 
