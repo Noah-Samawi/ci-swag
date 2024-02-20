@@ -7,7 +7,6 @@ from programs.models import Program
 
 from .utils import get_item_from_item_id, apply_subscription_discount
 
-
 def cart_contents(request):
     cart_items = []
     total = 0
@@ -25,7 +24,7 @@ def cart_contents(request):
             request.user.profile.save()
             subscription_exists = True
 
-
+    # Add subscription profile discount if in cart
     for item_id, item_data in cart.items():
 
         product = get_item_from_item_id(item_id)
@@ -42,16 +41,19 @@ def cart_contents(request):
                 request.user.profile.subscription = product
                 request.user.profile.save()
 
-        subscription_exists = True
+            subscription_exists = True
 
+    # Remove subscription if not in cart or profile
     if not subscription_exists and request.user.is_authenticated:
         request.user.profile.active_subscription = None
         request.user.profile.subscription = None
         request.user.profile.save()
 
+    # Add delivery cost if no subscription
     if subscription_exists:
         delivery_cost = 0
 
+    # Add products to cart and apply discounts to individual products
     for item_id, item_data in cart.items():
         product = get_item_from_item_id(item_id)
 
@@ -88,12 +90,16 @@ def cart_contents(request):
         })
 
 
+
     total += delivery_cost
 
     context = {
         'cart_items': cart_items,
         'total': total,
         'product_count': product_count,
+        'delivery_cost': delivery_cost,
+        "discount": round(total_members_discount, 2),
+
 
     }
 

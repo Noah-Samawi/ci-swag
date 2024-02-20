@@ -54,4 +54,3 @@ def remove_subscription(request):
     except Exception as e:
         messages.error(request, f'Error unsubscribing your membership: {e}')
         return HttpResponse(status=500)
-
