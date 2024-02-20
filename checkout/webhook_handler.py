@@ -11,6 +11,8 @@ from django.contrib.contenttypes.models import ContentType
 from products.models import Product
 from programs.models import Program
 from profiles.models import UserProfile, Subscription
+from cart.utils import get_item_from_item_id
+
 
 from .models import Order, OrderLineItem
 
@@ -61,9 +63,9 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = stripe_charge.billing_details # updated
+        billing_details = stripe_charge.billing_details 
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2) # updated
+        grand_total = round(stripe_charge.amount / 100, 2) 
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():
@@ -72,6 +74,7 @@ class StripeWH_Handler:
 
         profile = None
         username = intent.metadata.username
+
         if username != 'AnonymousUser':
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
@@ -131,11 +134,12 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(cart).items():
-                    if 26 <= int(item_id) < 52:
-                        content_type = ContentType.objects.get_for_model(Program)
-                    elif int(item_id) >= 52:
+                    item =  get_item_from_item_id(item_id)
+                    if isinstance(item, Subscription):
                         content_type = ContentType.objects.get_for_model(Subscription)
-                    else:
+                    if isinstance(item, Program):
+                        content_type = ContentType.objects.get_for_model(Program)
+                    if isinstance(item, Product):
                         content_type = ContentType.objects.get_for_model(Product)
 
                     order_line_item = OrderLineItem(
