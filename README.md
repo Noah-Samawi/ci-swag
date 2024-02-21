@@ -24,7 +24,7 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
     - [Overview](#overview)
     - [EPICS(Milestones)](#epics---milestones)
     - [User Stories Issues](#user-stories---issues)
-    - [MoSCoW prioritization](#moscow-prioritization)
+    - [MoSCoW prioritisation](#moscow-prioritisation)
     - [GitHub Projects](#github-projectskanban)
     - [Late Design Changes](#late-design-changes)
 - [Features](#features)
@@ -123,7 +123,7 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
 ### Site Goals
 
 1. Sell coding merchandise to cater to the coding community's needs and interests.
-2. Offer subscription for discounts to incentivize repeat purchases and foster customer loyalty.
+2. Offer subscription for discounts to incentivise repeat purchases and foster customer loyalty.
 3. Provide short online courses to empower users with coding skills and knowledge.
 4. Encourage community engagement and interaction to build a strong coding community.
 5. Curate educational resources and content to support continuous learning and skill development.
@@ -175,7 +175,7 @@ The project combines an online store with an educational hub focusing on coding.
 
 - Enhance user engagement with interactive elements and responsive design for seamless interactions across devices.
 - Improve readability and focus with effective use of whitespace and clear visual hierarchy.
-- Optimize performance to ensure fast loading times, enhancing overall user satisfaction and experience.
+- Optimise performance to ensure fast loading times, enhancing overall user satisfaction and experience.
 
 7. [EPIC - Cart And Checkout:](https://github.com/DarrachBarneveld/ci-swag/milestone/7)
 
@@ -226,7 +226,7 @@ Profile Model: The Profile Model provides a snapshot of each user's presence on 
 
 #### Category Model
 
-The Category Model categorizes products and programs, ensuring users can easily discover relatable products/programs.
+The Category Model categorises products and programs, ensuring users can easily discover relatable products/programs.
 
 #### Product Model
 
@@ -321,4 +321,58 @@ The font used in this project is Segoe UI Roboto, which give a standard feel as 
 </details>
 <details><summary>Courses</summary>
 <img src="./documentation/images/wireframes/mycoursespagemobile.png.png">
+</details>
+
+### Agile Methodology
+
+#### Overview
+
+This project adhered to agile principles, allowing for the meticulous planning of website features through the creation of user stories. Each story included specific acceptance criteria and tasks, facilitating clear objectives. Grouping these stories into EPIC milestones enabled a focused approach to addressing key elements of the site, ensuring necessary prerequisites were distinctly outlined for successful implementation.
+
+#### EPICS - Milestones
+
+In the Agile methodology framework, user stories are categorised into eight EPICs or Milestones. Moreover, an additional set of Milestones, referred to as Error Handling, was established specifically to address any errors encountered during testing, development, or optimisation of site elements with refined code or enhancements.
+
+<details><summary>Milestones</summary>
+<img src="./documentation/images/milestones.png">
+</details>
+
+#### User Stories - Issues
+
+The user story issue format includes the user story, acceptance criteria, and tasks, detailing essential steps for issue resolution. Whenever feasible, commit messages are linked to their respective issues during development, ensuring the significance of each commit and visually tracking progress on project issues. Milestones, Kanban boards, and other Agile tools are employed to monitor these issues effectively.
+
+<details><summary>User Story</summary>
+<img src="./documentation/images/issues.png">
+</details>
+
+#### MoSCoW Prioritisation
+
+The project utilised the "MoSCoW" technique to categorise and prioritise features and requirements effectively. "MoSCoW" represents "Must have, Should have, Could have, and Won't have," aiding in organising and prioritising features. This method guides the development process, ensuring that critical elements are addressed as a top priority.
+
+<details><summary>MoSCoW</summary>
+<img src="./documentation/images/moscow.png">
+</details>
+
+#### GitHub Projects/Kanban
+
+The project implemented a simple Kanban Board structure, comprising columns like Todo, In Progress, and Done. This arrangement offered a well-organized method for monitoring task progress, facilitating visualizing and managing the workflow during development. The GitHub project Kanban was linked to the repository for consistent reference.
+
+<details><summary>Kanban</summary>
+<img src="./documentation/images/kanban.png">
+</details>
+
+## Features
+
+### Navigation Header
+
+The navigation bar is a consistent element across all pages, designed using Bootstrap and optimized for full responsiveness. The left is centered around navigation of content while the right hand side is related to user authentication. Authenticated users can also see create posts and view profile links while unauthenticated users only see a prompt to login/register.
+
+The mobile version of the navbar has all the content rendered when a hamburger icon is clicked. When clicked a dropdown display is rendered showing all navigation links.
+
+<details><summary>Navbar</summary>
+<img src="./documentation/images/features/navbar.png.png">
+</details>
+
+<details><summary>Mobile</summary>
+<img src="./documentation/images/features/navbarmobile.png.png">
 </details>
