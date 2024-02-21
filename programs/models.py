@@ -30,7 +30,7 @@ class Program(models.Model):
         # Return an array of items to be used in the template for looping
         return ['item' for _ in range(round(self.rating))]
 
-        
+   
     @property
     def total_final_price(self):
         discounted_amount = (self.sale / Decimal(100)) * self.price
