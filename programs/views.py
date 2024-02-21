@@ -1,6 +1,7 @@
 """Program Views"""
 
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Program
 
 from products.utils import filter_and_sort_products
@@ -36,6 +37,8 @@ def program_detail(request, program_id):
     """ A view to show individual product details """
     purchased = False
     program = get_object_or_404(Program, pk=program_id)
+    related_programs = Program.objects.filter(category=program.category).exclude(pk=program.id)
+
 
 
     # Loop through orders to check if program has been purchased
@@ -67,8 +70,23 @@ def program_detail(request, program_id):
             if subscription.pk == 54 and not senior_dev_in_cart:
                 purchased = True
 
+
+
+    paginator = Paginator(related_programs, 4)
+    page = request.GET.get('page')
+
+    try:
+        related_programs = paginator.page(page)
+    except PageNotAnInteger:
+        related_programs = paginator.page(1)
+    except EmptyPage:
+        # If empty page deliver last page.
+        related_programs = paginator.page(paginator.num_pages)
+
+
     context = {
         'program': program,
+        'related_programs': related_programs,
         'in_cart': in_cart,
         "purchased" : purchased,
 

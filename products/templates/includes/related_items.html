@@ -14,20 +14,20 @@
             {{related.sale}}% Sale
           </div>
           {% endif %}
-          <!-- Product image-->
+          <!-- Item image-->
           <img class="card-img-top" src="{{ related.image.url }}" alt="{{ related.name }}">
-          <!-- Product details-->
+          <!-- Item details-->
           <div class="card-body p-4">
             <div class="text-center">
-              <!-- Product name-->
+              <!-- Item name-->
               <h5 class="fw-bolder">{{related.name}}</h5>
-              <!-- Product reviews-->
+              <!-- Item reviews-->
               <div class="d-flex justify-content-center small text-warning mb-2">
                 {% for i in related.rating_array %}
                 <i class="fa-solid fa-star text-warning"></i>
                 {% endfor %}
               </div>
-              <!-- Product price-->
+              <!-- Item price-->
               {% if related.sale %}
               <span class="text-decoration-line-through text-danger">${{related.price}}</span>
               <span><strong>${{related.total_final_price}}</strong></span>
@@ -36,7 +36,7 @@
               {% endif %}
             </div>
           </div>
-          <!-- Product actions-->
+          <!-- Item actions-->
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
               <a class="btn btn-outline-dark mt-auto" href="{% url "product_detail" related.id %}">View Product</a>
