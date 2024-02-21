@@ -186,20 +186,8 @@ The project combines an online store with an educational hub focusing on coding.
 - Administration access to view all orders that are logged in the database
 - Handling of both authenticated on anonymous users payments and confirmations of orders
 
-8. [EPIC - Administration:](https://github.com/DarrachBarneveld/ci-swag/milestone/8)
-
-- Admins can perform all CRUD operations on site content from an admin portal
-- Admins must approve user created content before it is live
-- Admins can delete and modify users accounts from the administration portal
-
-8. [EPIC - Enchancements:](https://github.com/DarrachBarneveld/ci-swag/milestone/9)
-
-- Improvements to UI design to simulate more emotional responses
-- Increased navigation capabilities to improve UX
-- Possible additional future features for better UX/UI
-
 Benefits of key features and the EPIC Milestone Approach:
 
-1. Prioritizing User Needs: The platform places the user's requirements at the forefront, streamlining the browsing experience, available posts creation and user communication on such posts.
-2. Streamlined and Easy Navigation: Users can effortlessly move through various website sections, ensuring convenient and hassle-free access. This is performed by using the category selector, related posts sidebar and browsing user profiles.
-3. User Analytics: Users gain valuable insights, allowing them to track and monitor metrics like the number of posts created, comments made, likes received, and favorites accumulated, enhancing their understanding of their contributions and interactions on Cool Coders.
+1. Guided Progress: Each issue is placed into a milestone and the tasks/open issues are tracked
+
+2. Adaptability: This approach promotes flexibility as each issue is clearly linked to a broader scope
