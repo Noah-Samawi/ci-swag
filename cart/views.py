@@ -23,6 +23,11 @@ def add_to_cart(request, item_id):
 
     product = get_item_from_item_id(item_id)
     cart = request.session.get('cart', {})
+    
+    # Server side validation to prevent negative or zero quantities
+    if int(quantity) <= 0:
+        messages.error(request, 'Quantity must be greater than 0')
+        return redirect(redirect_url)
 
 
     # Remove previous subscription from cart if a new subscription is added
@@ -51,6 +56,11 @@ def update_cart(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+
+    # Server side validation to prevent negative or zero quantities
+    if int(quantity) <= 0:
+        messages.error(request, 'Quantity must be greater than 0')
+        return redirect(redirect_url)
 
     cart = request.session.get('cart', {})
 
