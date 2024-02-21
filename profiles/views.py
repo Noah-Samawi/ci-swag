@@ -3,7 +3,9 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.views import View
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 from checkout.models import Order
 from programs.models import Program   
@@ -73,15 +75,19 @@ class ProfileView(LoginRequiredMixin, View):
             if user_form.is_valid():
                 user_form.save()
                 context["user_form"] = user_form
+                messages.success(request, 'User updated successfully')
             else:
                 context['user_form'] = user_form
+                messages.error(request, 'Update failed. Please ensure the forms are valid.')
                 return render(request, self.template_name, context)
         else:
             if profile_form.is_valid():
                 profile_form.save()
                 context["profile_form"] = profile_form
+                messages.success(request, 'Profile updated successfully')
             else:
                 context["profile_form"] = profile_form
+                messages.error(request, 'Update failed. Please ensure the forms are valid.')
 
         return render(request, self.template_name, context)
 
