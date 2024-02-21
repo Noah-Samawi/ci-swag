@@ -191,3 +191,104 @@ Benefits of key features and the EPIC Milestone Approach:
 1. Guided Progress: Each issue is placed into a milestone and the tasks/open issues are tracked
 
 2. Adaptability: This approach promotes flexibility as each issue is clearly linked to a broader scope
+
+## Design
+
+The primary design goal of the CI Swag was to focus clear categorisation of products, programs and memberships. The website must be clearly distinguisted from the ecommerce platform of products to the edu paid courses section.
+
+The primary objective of our website design was to ensure an incredibly user-friendly and efficient navigation experience. This was achieved through an intutive filtering system of products, rendering of related items and a responsive and clean navigation menu. Links in various areas of pages also provide return navigation options.
+
+I wanted clear seperation between authenticated users and non authenticated users. Users can access more content if authenticated and could view order history, enrolled programs and can update fields.
+
+I wanted the design to be consistant though each page to have a unique feel to it. This was acheived through resuable component cards and a consistancy of colour, buttons, forms and other UI elements. I want the user to feel as if using the website was a fun and engaging experience as if browsing a shop in person.
+
+This commitment to intuitive navigation and user-focused design principles remained at the forefront of project's development.
+
+### Colour Scheme
+
+The websites colour theme closly mimics Code Institutes colour theme. The use of orange, black, white and grey are the primary colours to help mimic the feel. Action components such as checkout, pay now or update forms are clearly distinguished with a bold blue or green colour, while all other less important/navigation buttons are consistant with the theme.
+
+![Colour Scheme](./documentation/images/theme/colour-theme.png)
+
+### Database Schema
+
+![Database schema](./documentation/images/database-schema.png)
+
+### Models
+
+#### Allauth User Model
+
+The User model is an integral component of Django Allauth, featuring pre-established fields as part of its standard configuration. Among these fields are username, email, name, password, and others. This model primarily serves the purpose of user authentication, which is why it is not recommended to make direct alterations to it. Furthermore, the User model is linked to the Profile model through a one-to-one relationship, facilitating the management of user-specific data and interactions.
+
+#### Profile Model
+
+Profile Model: The Profile Model provides a snapshot of each user's presence on the platform, encapsulating their user information, delivery information and order history. It is has a one to one relationship with the auth User Model.
+
+#### Category Model
+
+The Category Model categorizes products and programs, ensuring users can easily discover relatable products/programs.
+
+#### Product Model
+
+The Product Model is one of the main models of the application and is closely similar to the program model. It includes image, price, name, description, sku, discounts, sale and rating.
+
+#### Program Model
+
+The program model contains all fields of the product model with extra field such as difficulty, videourl and length that are unique to it.
+
+#### Subscription Model
+
+The subscription model is a model that holds information about a users membership. It has one to many relationship with a userprofile. A subscription contains discounts amounts on products and programs.
+
+#### Order Model
+
+The Order model contains information about a purchase. It contains lineitems of products. Products are based on a generic key type as they can be either products, programs or subscriptions. Its fields are date, lineitems, delivery, user and total cost.
+
+### Fonts
+
+The font used in this project is Segoe UI Roboto, which give a standard feel as mimiced in the CI website. <br>
+![Font](./documentation/images/theme/font-family.png)
+
+### Wireframes
+
+#### Desktop
+
+<details><summary>Home</summary>
+<img src="./documentation/images/wireframes/homepage.png">
+</details>
+<details><summary>Products</summary>
+<img src="./documentation/images/wireframes/productpage.png">
+</details>
+<details><summary>Product Detail</summary>
+<img src="./documentation/images/wireframes/productdetailpage.png">
+</details>
+<details><summary>Programs</summary>
+<img src="./documentation/images/wireframes/programpage.png">
+</details>
+<details><summary>Program Detail</summary>
+<img src="./documentation/images/wireframes/programdetailpage.png">
+</details>
+<details><summary>Subscription</summary>
+<img src="./documentation/images/wireframes/subscriptionpage.png">
+</details>
+<details><summary>Cart</summary>
+<img src="./documentation/images/wireframes/cartpage.png">
+</details>
+<details><summary>Checkout</summary>
+<img src="./documentation/images/wireframes/checkoutpage.png">
+</details>
+<details><summary>Profile</summary>
+<img src="./documentation/images/wireframes/profilepage.png">
+</details>
+<details><summary>Courses</summary>
+<img src="./documentation/images/wireframes/mycoursespage.png">
+</details>
+<details><summary>Login/Register</summary>
+<img src="./documentation/images/wireframes/loginregisterpage.png">
+</details>
+
+#### Mobile
+
+<details><summary>Home</summary>
+
+#### Components/UI

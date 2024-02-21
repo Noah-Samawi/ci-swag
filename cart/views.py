@@ -23,9 +23,9 @@ def add_to_cart(request, item_id):
 
     product = get_item_from_item_id(item_id)
     cart = request.session.get('cart', {})
-    
+
     # Server side validation to prevent negative or zero quantities
-    if int(quantity) <= 0:
+    if int(quantity) <= 0 and isinstance(product, Product):
         messages.error(request, 'Quantity must be greater than 0')
         return redirect(redirect_url)
 
