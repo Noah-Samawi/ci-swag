@@ -504,3 +504,24 @@ Notification messages were user every time the user performs CRUD operation, sig
 <details><summary>Notifications</summary>
 <img src="./documentation/images/features/notifications.png">
 </details>
+
+### Confirmation Modal
+
+This modal appears whenever a users is performing a delete CRUD operation. It ensures the user must confirm their action before the permanent deletion of a subscription
+
+<details><summary>Confirmation Modal</summary>
+<img src="./documentation/images/features/confirmationmodal.png">
+</details>
+
+### Error Pages
+
+Custom Error pages are rendered to show the user what went wrong with their request. These error pages allow the user to redirect to the home page.
+
+Examples below are 403, 404
+
+<details><summary>403</summary>
+<img src="./documentation/images/features/403error.png">
+</details>
+<details><summary>404</summary>
+<img src="./documentation/images/features/404error.png">
+</details>
