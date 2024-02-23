@@ -149,18 +149,133 @@ Go back to [README.md](/README.md)
 
 ### Subscription Page
 
-| Element                     | Action  | Expected Result                                                | Pass/Fail         |
-| --------------------------- | ------- | -------------------------------------------------------------- | ----------------- |
-| Subscribe Button            | Click   | Adds subscription to cart                                      | <mark>Pass</mark> |
-| Subscribe Button            | Click   | If subscription is already in cart it is replaced              | <mark>Pass</mark> |
-| Remove Subscription Button  | Click   | A confirmation modal is displayed                              | <mark>Pass</mark> |
-| Remove Subscription Confirm | Click   | Current active subscription is removed                         | <mark>Pass</mark> |
-| Add / Remove Cart Button    | Click   | Notification appears upon outcome of adding/removing from cart | <mark>Pass</mark> |
-| Non authenticated users     | Visit   | Redirected to Login page                                       | <mark>Pass</mark> |
-| Remove Subscription Button  | Display | If already subscribed remove button rendered and card is grey  | <mark>Pass</mark> |
-| Subscription status         | Display | Current subscription noticed in subheading                     | <mark>Pass</mark> |
+| Element                     | Action      | Expected Result                                                | Pass/Fail         |
+| --------------------------- | ----------- | -------------------------------------------------------------- | ----------------- |
+| Subscribe Button            | Click       | Adds subscription to cart                                      | <mark>Pass</mark> |
+| Subscribe Button            | Click       | If subscription is already in cart it is replaced              | <mark>Pass</mark> |
+| Remove Subscription Button  | Click       | A confirmation modal is displayed                              | <mark>Pass</mark> |
+| Remove Subscription Confirm | Click       | Current active subscription is removed                         | <mark>Pass</mark> |
+| Add / Remove Cart Button    | Click       | Notification appears upon outcome of adding/removing from cart | <mark>Pass</mark> |
+| Non authenticated users     | Visit       | Redirected to Login page                                       | <mark>Pass</mark> |
+| Remove Subscription Button  | Display     | If already subscribed remove button rendered and card is grey  | <mark>Pass</mark> |
+| Subscription status         | Display     | Current subscription noticed in subheading                     | <mark>Pass</mark> |
+| Subscribe Button            | Hover/Focus | Text darkens, border darkens                                   | <mark>Pass</mark> |
+
+### Cart Page
+
+| Element                     | Action      | Expected Result                                                | Pass/Fail         |
+| --------------------------- | ----------- | -------------------------------------------------------------- | ----------------- |
+| Update Cart Button          | Click       | Updates the quantity of product by desired amount              | <mark>Pass</mark> |
+| Remove from Cart Button     | Click       | Removes all quantity of selected item from cart                | <mark>Pass</mark> |
+| Remove Subscription Button  | Click       | A confirmation modal is displayed                              | <mark>Pass</mark> |
+| Remove Subscription Confirm | Click       | Current active subscription is removed                         | <mark>Pass</mark> |
+| Add / Remove Cart Button    | Click       | Notification appears upon outcome of adding/removing from cart | <mark>Pass</mark> |
+| Checkout Button             | Click       | Redirects to checkout page                                     | <mark>Pass</mark> |
+| Continue Shopping Link      | Click       | Redirects to products page                                     | <mark>Pass</mark> |
+| Update Cart Button          | Display     | Only available for products                                    | <mark>Pass</mark> |
+| Discounts                   | Display     | All added discounts are displayed (sale, membership)           | <mark>Pass</mark> |
+| Total Cost                  | Display     | Total cost is accurately displayed with breakdown              | <mark>Pass</mark> |
+| Update Cart Button          | Hover/Focus | Background darkens, text darkens                               | <mark>Pass</mark> |
+| Remove from cart Button     | Hover/Focus | Background darkens, text darkens                               | <mark>Pass</mark> |
+| Checkout Button             | Hover/Focus | Background darkens                                             | <mark>Pass</mark> |
+| Continue Shopping Link      | Hover/Focus | Text darkens                                                   | <mark>Pass</mark> |
+
+### Checkout Page
+
+| Element                    | Action      | Expected Result                                            | Pass/Fail         |
+| -------------------------- | ----------- | ---------------------------------------------------------- | ----------------- |
+| Checkout Form              | Submit      | Checkout form submit user and delivery data to stripe      | <mark>Pass</mark> |
+| Checkout Form              | Submit      | Stripe payment intent, charge and succeeded occurs         | <mark>Pass</mark> |
+| Checkout Form              | Submit      | Non valid form returns context of errors                   | <mark>Pass</mark> |
+| Checkout Form              | Submit      | Successful order redirects to checkout success page        | <mark>Pass</mark> |
+| Checkout Form              | Submit      | Stripe webhooks are logged via stripe listeners            | <mark>Pass</mark> |
+| Checkout Form Save Details | Submit      | Authenticated users details are saved if button is checked | <mark>Pass</mark> |
+| Stripe Payment Element     | Submit      | Stripe payment element renders error context if not valid  | <mark>Pass</mark> |
+| Pay Now Button             | Click       | Submits user/delivery/payment information                  | <mark>Pass</mark> |
+| Continue Shopping Link     | Click       | Redirects to products page                                 | <mark>Pass</mark> |
+| Remove from Cart Button    | Click       | Removes all quantity of selected item from cart            | <mark>Pass</mark> |
+| Loading Spinner            | Display     | A loading spinner is displayed when await payment results  | <mark>Pass</mark> |
+| Cart Items                 | Display     | All Cart items are displayed with a price breakdown        | <mark>Pass</mark> |
+| Total Cost                 | Display     | The total cost is accounted for for a price breakdown      | <mark>Pass</mark> |
+| Pay Now Button             | Hover/Focus | Background darkens                                         | <mark>Pass</mark> |
+| Checkout Form Save Details | Checked     | Background darkens                                         | <mark>Pass</mark> |
+
+### Checkout Success/ Past Order Page
+
+| Element       | Action  | Expected Result                                                     | Pass/Fail         |
+| ------------- | ------- | ------------------------------------------------------------------- | ----------------- |
+| Checkout Form | Display | Checkout form rendered all Order information, price, user, delivery | <mark>Pass</mark> |
+| Checkout Form | Display | Total cost breakdown is displayed for the user                      | <mark>Pass</mark> |
+| Notification  | Display | A Notification appears highlighting the successful order number     | <mark>Pass</mark> |
+
+### Profile Page
+
+| Element                | Action      | Expected Result                                                  | Pass/Fail         |
+| ---------------------- | ----------- | ---------------------------------------------------------------- | ----------------- |
+| User Form              | Submit      | A valid user form updates the users first/last name and username | <mark>Pass</mark> |
+| User Form              | Submit      | Non valid form returns the context of the error                  | <mark>Pass</mark> |
+| User Notification      | Submit      | A Notification appears highlighting outcome of form submission   | <mark>Pass</mark> |
+| Delivery Form          | Submit      | A valid form updates the user delivery information               | <mark>Pass</mark> |
+| Delivery Form          | Submit      | Non valid form returns the context of the error                  | <mark>Pass</mark> |
+| Delivery Notification  | Submit      | A Notification appears highlighting outcome of form submission   | <mark>Pass</mark> |
+| Checkout Form          | Display     | Total cost breakdown is displayed for the user                   | <mark>Pass</mark> |
+| Update Profile Button  | Click       | Submits the user form                                            | <mark>Pass</mark> |
+| Update Delivery Button | Click       | Submits the user profile form for delivery information           | <mark>Pass</mark> |
+| Past Order Link        | Click       | Redirects the user to the checkout success page / past order     | <mark>Pass</mark> |
+| Past Orders            | Display     | Renders all authenticated users past orders                      | <mark>Pass</mark> |
+| Update Profile Button  | Hover/Focus | Background darkens                                               | <mark>Pass</mark> |
+| Update Delivery Button | Hover/Focus | Background darkens                                               | <mark>Pass</mark> |
+| Past Order             | Hover/Focus | Text darkens                                                     | <mark>Pass</mark> |
+
+### My Courses Page
+
+| Element                | Action      | Expected Result                                    | Pass/Fail         |
+| ---------------------- | ----------- | -------------------------------------------------- | ----------------- |
+| Program Cards          | Display     | All enrolled program Cards Rendered in grid layout | <mark>Pass</mark> |
+| Explore Courses Button | Click       | Redirect to programs page                          | <mark>Pass</mark> |
+| Explore Courses Button | Display     | No Courses associated with user                    | <mark>Pass</mark> |
+| Program Card           | Click       | Redirect to program detail page                    | <mark>Pass</mark> |
+| Product Card           | Hover/Focus | Border outline turns blue, cursor is a pointer     | <mark>Pass</mark> |
+| Explore Courses Button | Click       | Background darkens                                 | <mark>Pass</mark> |
+
+### Sign Up Page
+
+| Element       | Action         | Expected Result                             | Pass/Fail         |
+| ------------- | -------------- | ------------------------------------------- | ----------------- |
+| Page          | Authentication | Authenticated users redirected to Home page | <mark>Pass</mark> |
+| Form(Valid)   | Submit         | Redirected to Home page                     | <mark>Pass</mark> |
+| Form(Valid)   | Submit         | Sign up in Notification received            | <mark>Pass</mark> |
+| Form(Invalid) | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
+| Form(Invalid) | Submit         | Error Notification received                 | <mark>Pass</mark> |
+| Login Link    | Click          | Redirect to Login Page                      | <mark>Pass</mark> |
+| Form Button   | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
+| Login Link    | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
+
+### Sign In Page
+
+| Element       | Action         | Expected Result                             | Pass/Fail         |
+| ------------- | -------------- | ------------------------------------------- | ----------------- |
+| Page          | Authentication | Authenticated users redirected to Home page | <mark>Pass</mark> |
+| Form(Valid)   | Submit         | Redirected to Home page                     | <mark>Pass</mark> |
+| Form(Valid)   | Submit         | Sign up in Notification received            | <mark>Pass</mark> |
+| Form(Invalid) | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
+| Form(Invalid) | Submit         | Error Notification received                 | <mark>Pass</mark> |
+| Register Link | Click          | Redirect to Sign In Page                    | <mark>Pass</mark> |
+| Form Button   | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
+| Register Link | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
+
+### Log Out Page
+
+| Element       | Action         | Expected Result                                | Pass/Fail         |
+| ------------- | -------------- | ---------------------------------------------- | ----------------- |
+| Page          | Authentication | Un-authenticated users redirected to Home page | <mark>Pass</mark> |
+| Logout Button | Click          | User session is Logged out                     | <mark>Pass</mark> |
+| Logout Button | Click          | Redirected to Home page                        | <mark>Pass</mark> |
+| Form Button   | Hover/Focus    | Darken Background                              | <mark>Pass</mark> |
 
 ## Automated testing
+
+Automated testing was conducted to verify the accuracy of the page responses and templates. However, due to time constraints, there was no opportunity for further elaboration or expansion. Future features include full automated test coverage.
 
 ## User Story Testing
 
