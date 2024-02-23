@@ -350,22 +350,22 @@ The user story issue format includes the user story, acceptance criteria, and ta
 The project utilised the "MoSCoW" technique to categorise and prioritise features and requirements effectively. "MoSCoW" represents "Must have, Should have, Could have, and Won't have," aiding in organising and prioritising features. This method guides the development process, ensuring that critical elements are addressed as a top priority.
 
 <details><summary>MoSCoW</summary>
-<img src="./documentation/images/moscow.png">
+<img src="./documentation/images/features/moscow.png">
 </details>
 
 #### GitHub Projects/Kanban
 
-The project implemented a simple Kanban Board structure, comprising columns like Todo, In Progress, and Done. This arrangement offered a well-organized method for monitoring task progress, facilitating visualizing and managing the workflow during development. The GitHub project Kanban was linked to the repository for consistent reference.
+The project implemented a simple Kanban Board structure, comprising columns like Todo, In Progress, and Done. This arrangement offered a well-organised method for monitoring task progress, facilitating visualising and managing the workflow during development. The GitHub project Kanban was linked to the repository for consistent reference.
 
 <details><summary>Kanban</summary>
-<img src="./documentation/images/kanban.png">
+<img src="./documentation/images/features/kanban.png">
 </details>
 
 ## Features
 
 ### Navigation Header
 
-The navigation bar is a consistent element across all pages, designed using Bootstrap and optimized for full responsiveness. The left is centered around navigation of content while the right hand side is related to user authentication. Authenticated users can also see create posts and view profile links while unauthenticated users only see a prompt to login/register.
+The navigation bar is a consistent element across all pages, designed using Bootstrap and optimised for full responsiveness. The left is centered around navigation of content while the right hand side is related to user authentication. Authenticated users can also see create posts and view profile links while unauthenticated users only see a prompt to login/register.
 
 The mobile version of the navbar has all the content rendered when a hamburger icon is clicked. When clicked a dropdown display is rendered showing all navigation links.
 
@@ -375,4 +375,132 @@ The mobile version of the navbar has all the content rendered when a hamburger i
 
 <details><summary>Mobile</summary>
 <img src="./documentation/images/features/navbarmobile.png.png">
+</details>
+
+### Home Page
+
+The homepage serves as the central hub of the site, providing visitors with an overview of its offerings, including featured products, testimonials, imagery, and marketing copy. It serves as a gateway to navigate the store sections through shop now navigation links, inviting users to explore further and discover more about the brand's offerings and value propositions. It uses the fold of the screen to showcase branding imagery.
+
+<details><summary>Home</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Products Page
+
+The products page showcases preview cards of various products, each accompanied by basic descriptions and images, offering users a quick overview of available items. A filtering system based on categories, prices, sales, and ratings, so users can refine their search to find desired products. Additionally, a search bar enables users to explore specific items, enhancing their browsing experience and allowing them to refine very specific requests.
+
+<details><summary>Products</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Programs Page
+
+Similar to the products page, the programs page presents preview cards of different educational programs, providing brief descriptions and images to offer users a glimpse into each program's content and offerings. Searchbar and filtering tools remain consistant with the products page
+
+<details><summary>Products</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Programs Page
+
+Similar to the products page, the programs page presents preview cards of different educational programs, providing brief descriptions and images to offer users a glimpse into each program's content and offerings. Searchbar and filtering tools remain consistant with the products page
+
+<details><summary>Products</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Subscriptions Page
+
+The subscription page displays available membership packages, presenting users with a clear overview of the various subscription options offered. Users can easily identify their current membership package, allowing for seamless management and potential upgrades or downgrades as needed. This page provides transparency and accessibility for users to make informed decisions regarding their subscription preferences.
+
+<details><summary>Subscriptions</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Product Detail Page
+
+The product detail page contains information about the selected product, including price, rating, sale status, and SKU. Featuring an image of the product, users can view it before making a purchase decision. Additionally, the page lists related products at the bottom, offering users additional options to explore. With the option to adjust the quantity and an "Add to Cart" button where users can update there cart with a product quantity.
+
+<details><summary>Product Detail</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Program Detail Page
+
+The program detail page provides in-depth information about the selected program, including its name, duration, cost, and a breakdown of modules or sections covered. Users can gain an understanding of the program's content and structure before making a decision. Users must be authenticated before they can enroll in courses and users who have purchased the program, a related video is displayed, offering valuable insights or introductory content to enhance the learning experience.
+
+<details><summary>Program Detail</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Cart Page
+
+The cart page displays a summary of the items currently in the user's cart, presenting essential information such as product details and quantities. Additionally, users can view the total cost of all items in their cart as well as any discounts to certain items. This page serves as a hub users to review and manage their selected items before proceeding to checkout.
+
+<details><summary>Cart</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Checkout Page
+
+The checkout page streamlines the purchasing process, guiding users through the final steps of completing their orders. Users can review their selected items, input shipping and payment information. Users can add email changes and name changes for orders, but this will only affect a singler purpose. The checkout page provides order summary details, ensuring transparency regarding the total cost, including discounts and shipping fees. Stripe payment elements are used to handle the payment processing
+
+<details><summary>Checkout</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Confirmation Page
+
+The thank you and order confirmation page serves as a final acknowledgment of the user's completed purchase, expressing gratitude for their patronage. It provides a summary of the order details, including items purchased, total cost, and shipping information. Additionally, users may receive confirmation numbers or order IDs for reference. This page also serves as the order history page so users can review all orders they have purchased.
+
+<details><summary>Confirmation</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Profile Page
+
+The profile page is where users can easily update their user details such as name and username as well as and edit delivery information. Users can access a overview of their past orders, allowing them to track their purchase history and review previous transactions.
+
+<details><summary>Profile</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### My Course Page
+
+The my course page gives authenticated users quick access to view there total purchased courses. It shows a list of all program preview cards for courses that have been purchased in their order history.
+
+<details><summary>Profile</summary>
+<img src="./documentation/images/features/homepage.png">
+</details>
+
+### Sign In page
+
+This page comprises a form with fields for entering a username and password. Beneath the form is the sign up button which submits the form. Below the form is a redirect to the register page if the user does not have an account. Click the remember me checkbox to remain logged in as a session.
+
+<details><summary>Sign In</summary>
+<img src="./documentation/images/features/signup.png">
+</details>
+
+### Sign Up page
+
+It features a form with fields for inputting name, email, username, password, and password confirmation. Underneath the form, there is a link to log in for users with existing accounts, followed by the signup button. After signup, users receive a welcome email at the provided email address and are then directed to the home page.
+
+<details><summary>Sign Up</summary>
+<img src="./documentation/images/features/signin.png">
+</details>
+
+### Sign out page
+
+Upon clicking the "log out" link in the navigation, users are directed to a confirmation page. This page includes a cautionary message and two buttons: one for returning and one for logging out.
+
+<details><summary>Sign Out</summary>
+<img src="./documentation/images/features/signout.png">
+</details>
+
+### Notification Messages
+
+Notification messages were user every time the user performs CRUD operation, sign in, and sign out.
+
+<details><summary>Notifications</summary>
+<img src="./documentation/images/features/notifications.png">
 </details>
