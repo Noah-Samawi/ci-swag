@@ -287,40 +287,40 @@ The font used in this project is Segoe UI Roboto, which give a standard feel as 
 <img src="./documentation/images/wireframes/loginregisterpage.png">
 </details>
 <details><summary>Thank You</summary>
-<img src="./documentation/images/wireframes/thankyoupage.png.png">
+<img src="./documentation/images/wireframes/thankyoupage.png">
 </details>
 
 #### Mobile
 
 <details><summary>Home</summary>
-<img src="./documentation/images/wireframes/homepagemobile.png.png">
+<img src="./documentation/images/wireframes/homepagemobile.png">
 </details>
 <details><summary>Products</summary>
-<img src="./documentation/images/wireframes/productpagemobile.png.png">
+<img src="./documentation/images/wireframes/productpagemobile.png">
 </details>
 <details><summary>Product Detail</summary>
-<img src="./documentation/images/wireframes/productdetailpagemobile.png.png">
+<img src="./documentation/images/wireframes/productdetailpagemobile.png">
 </details>
 <details><summary>Programs</summary>
-<img src="./documentation/images/wireframes/programpagemobile.png.png">
+<img src="./documentation/images/wireframes/programpagemobile.png">
 </details>
 <details><summary>Program Detail</summary>
-<img src="./documentation/images/wireframes/programdetailpagemobile.png.png">
+<img src="./documentation/images/wireframes/programdetailpagemobile.png">
 </details>
 <details><summary>Subscription</summary>
-<img src="./documentation/images/wireframes/subscriptionpagemobile.png.png">
+<img src="./documentation/images/wireframes/subscriptionpagemobile.png">
 </details>
 <details><summary>Cart</summary>
-<img src="./documentation/images/wireframes/cartpagemobile.png.png">
+<img src="./documentation/images/wireframes/cartpagemobile.png">
 </details>
 <details><summary>Checkout</summary>
-<img src="./documentation/images/wireframes/checkoutpagemobile.png.png">
+<img src="./documentation/images/wireframes/checkoutpagemobile.png">
 </details>
 <details><summary>Profile</summary>
-<img src="./documentation/images/wireframes/productdetailpagemobile.png.png">
+<img src="./documentation/images/wireframes/productdetailpagemobile.png">
 </details>
 <details><summary>Courses</summary>
-<img src="./documentation/images/wireframes/mycoursespagemobile.png.png">
+<img src="./documentation/images/wireframes/mycoursespagemobile.png">
 </details>
 
 ### Agile Methodology
