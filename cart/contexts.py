@@ -81,7 +81,7 @@ def cart_contents(request):
                 sub = request.user.profile.subscription.product_discount
                 total_item_price, members_discount = \
                     apply_subscription_discount(
-                        subscription_discount=sub
+                        subscription_discount=sub,
                         product=product,
                         total_item_price=total_item_price
                     )
