@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from .models import UserProfile, Subscription
 
 
-# Register your models here.
 class ProfileInline(admin.StackedInline):
     """
     Inline representation of user profiles for the admin panel.
@@ -44,7 +43,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
     """
     model = Subscription
 
+
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Subscription, SubscriptionAdmin)
-

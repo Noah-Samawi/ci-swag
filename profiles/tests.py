@@ -1,5 +1,5 @@
 """Profile app tests"""
-# pylint: disable=E1101
+
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -31,7 +31,6 @@ class ProfilePageTests(TestCase):
         user_profile = UserProfile.objects.filter().last()
         self.assertEqual(user_profile.user.username, 'TestUser')
 
-
     def test_profile_page(self):
         '''
         Test if the profile page can be accessed
@@ -41,10 +40,8 @@ class ProfilePageTests(TestCase):
         user = User.objects.get(username='TestUser')
         self.client.force_login(user)
         response = self.client.get(
-            reverse('profile' ))
+            reverse('profile'))
         self.assertTemplateUsed(response, 'profiles/profile.html')
-
-
 
 
 class SubscriptionPageTests(TestCase):

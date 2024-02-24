@@ -6,6 +6,7 @@ from django.urls import reverse
 from products.models import Category
 from .models import Program
 
+
 class ProgramsPageTests(TestCase):
     '''
     Test case class for verifying the functionality of the products page.
@@ -35,10 +36,9 @@ class ProductsDetailPageTests(TestCase):
             sale=10,
             price=20.00,
             image_url='https://testimage.com',
-            image= "beanie.jpg",
+            image="beanie.jpg",
             rating=4.5,
             video_url='https://testvideo.com',
-
         )
 
     def test_program_detail_page(self):
@@ -47,6 +47,5 @@ class ProductsDetailPageTests(TestCase):
         and it returns the correct template
         '''
         response = self.client.get(reverse('program_detail',
-                                kwargs={'program_id': self.program.id}))
+                                   kwargs={'program_id': self.program.id}))
         self.assertTemplateUsed(response, 'programs/program_detail.html')
- 

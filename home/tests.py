@@ -3,6 +3,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 class HomePageTests(TestCase):
     '''
     Test case class for verifying the functionality of the home page.

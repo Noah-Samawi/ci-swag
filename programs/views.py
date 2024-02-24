@@ -8,9 +8,6 @@ from products.utils import filter_and_sort_products
 from cart.contexts import cart_contents
 
 
-
-
-
 # Create your views here.
 def all_programs(request):
     """ A view to show all programs, including sorting and search queries """
@@ -32,14 +29,13 @@ def all_programs(request):
     return render(request, 'programs/programs.html', context)
 
 
-
 def program_detail(request, program_id):
     """ A view to show individual product details """
     purchased = False
     program = get_object_or_404(Program, pk=program_id)
-    related_programs = Program.objects.filter(category=program.category).exclude(pk=program.id)
-
-
+    related_programs = (Program.objects
+                        .filter(category=program.category)
+                        .exclude(pk=program.id))
 
     # Loop through orders to check if program has been purchased
     if request.user.is_authenticated:
@@ -57,20 +53,22 @@ def program_detail(request, program_id):
 
     # check to see if program is in cart
     current_cart = cart_contents(request)
-    in_cart = any(item['product'].id == program.id for item in current_cart['cart_items'])
-
+    in_cart = any(
+        item['product'].id == program.id
+        for item in current_cart['cart_items']
+    )
 
     # check to see if senior dev subscription is in cart
-    senior_dev_in_cart = any(item['product'].id == 54 for item in current_cart['cart_items'])
+    senior_dev_in_cart = any(
+        item['product'].id == 54
+        for item in current_cart['cart_items'])
 
-    # Add purchase to all courses if senior dev subscription active and not in cart
+    # Add purchase if senior dev subscription active and not in cart
     if request.user.is_authenticated:
         subscription = request.user.profile.subscription
         if subscription:
             if subscription.pk == 54 and not senior_dev_in_cart:
                 purchased = True
-
-
 
     paginator = Paginator(related_programs, 4)
     page = request.GET.get('page')
@@ -83,14 +81,11 @@ def program_detail(request, program_id):
         # If empty page deliver last page.
         related_programs = paginator.page(paginator.num_pages)
 
-
     context = {
         'program': program,
         'related_programs': related_programs,
         'in_cart': in_cart,
-        "purchased" : purchased,
-
+        "purchased": purchased
     }
-
 
     return render(request, 'programs/program_detail.html', context)

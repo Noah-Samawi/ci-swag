@@ -45,7 +45,10 @@ def filter_and_sort_products(products, request):
         if sortkey == 'price':
             products = sorted(products, key=lambda p: p.total_final_price)
         if sortkey == '-price':
-            products = sorted(products, key=lambda p: p.total_final_price, reverse=True)
+            products = sorted(
+                        products,
+                        key=lambda p: p.total_final_price,
+                        reverse=True)
         if sortkey == 'sale':
             products = products.filter(sale__gt=0)
 

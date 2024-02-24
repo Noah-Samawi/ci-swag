@@ -8,11 +8,11 @@ from profiles.models import Subscription
 
 from .utils import get_item_from_item_id
 
+
 def view_cart(request):
     """ A view that renders the cart contents page """
 
     return render(request, 'cart/cart.html')
-
 
 
 def add_to_cart(request, item_id):
@@ -26,10 +26,10 @@ def add_to_cart(request, item_id):
     print(isinstance(product, Product))
 
     # Server side validation to prevent negative or zero quantities
-    if quantity is not None and int(quantity) <= 0 and isinstance(product, Product):
+    if quantity is not None and int(quantity) <= 0 \
+            and isinstance(product, Product):
         messages.error(request, 'Quantity must be greater than 0')
         return redirect(redirect_url)
-
 
     # Remove previous subscription from cart if a new subscription is added
     if isinstance(product, Subscription):
@@ -37,20 +37,21 @@ def add_to_cart(request, item_id):
             if int(cart_item_id) >= 51:
                 del cart[cart_item_id]
 
-
     if item_id in list(cart.keys()) and quantity:
         cart[item_id] += int(quantity)
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        messages.success(request,
+                         f'Updated {product.name} quantity to {cart[item_id]}')
     elif quantity:
         cart[item_id] = int(quantity)
-        messages.success(request, f'Added {cart[item_id]} {product.name} to your cart')
+        messages.success(request,
+                         f'Added {cart[item_id]} {product.name} to your cart')
     else:
         cart[item_id] = 1
         messages.success(request, f'Added {product.name} to your cart')
 
-
     request.session['cart'] = cart
     return redirect(redirect_url)
+
 
 def update_cart(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
@@ -69,7 +70,8 @@ def update_cart(request, item_id):
 
     if quantity > 0:
         cart[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {cart[item_id]}')
+        messages.success(request,
+                         f'Updated {product.name} quantity to {cart[item_id]}')
     else:
         cart.pop(item_id)
         messages.success(request, f'Removed {product.name} from your cart')

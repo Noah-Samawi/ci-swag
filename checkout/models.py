@@ -14,14 +14,17 @@ from django_countries.fields import CountryField
 
 from profiles.models import UserProfile
 
+
 class Order(models.Model):
     """
     Model representing an order placed by a customer
     """
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='orders'
+    )
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = PhoneNumberField(blank=True, null=True)
@@ -29,14 +32,24 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    country = CountryField(blank_label='Country *', null=False, blank=False, default='IE')
+    country = CountryField(
+        blank_label='Country *', null=False, blank=False, default='IE'
+    )
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    delivery_cost = models.DecimalField(
+        max_digits=6, decimal_places=2, null=False, default=0
+    )
+    order_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+    )
+    grand_total = models.DecimalField(
+        max_digits=10, decimal_places=2, null=False, default=0
+    )
     original_cart = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default=''
+        )
 
     def _generate_order_number(self):
         """
@@ -49,9 +62,10 @@ class Order(models.Model):
         Update grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.aggregate(
+            Sum('lineitem_total')
+            )['lineitem_total__sum'] or 0
 
-        print(self.user_profile)
         if self.user_profile:
             if self.user_profile.subscription:
                 self.delivery_cost = 0
@@ -62,7 +76,6 @@ class Order(models.Model):
 
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
-
 
     def save(self, *args, **kwargs):
         """
@@ -76,6 +89,7 @@ class Order(models.Model):
     def __str__(self):
         return self.order_number
 
+
 class OrderLineItem(models.Model):
     """
     Model representing a line item within an order.
@@ -83,7 +97,8 @@ class OrderLineItem(models.Model):
     This is achieved using Django's content types framework.
 
     """
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='lineitems')
+    order = models.ForeignKey(Order, on_delete=models.CASCADE,
+                              related_name='lineitems')
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
@@ -98,7 +113,6 @@ class OrderLineItem(models.Model):
         max_digits=6, decimal_places=2, null=False, blank=False,
         default=0)
 
-
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the lineitem total
@@ -110,7 +124,8 @@ class OrderLineItem(models.Model):
 
         # Apply discount if it's not None
         if self.subscription_discount is not None:
-            discount_amount = total_price * (self.subscription_discount / Decimal(100))
+            percent = (self.subscription_discount / Decimal(100))
+            discount_amount = total_price * percent
             total_price -= discount_amount
 
         # Assign the calculated total price to lineitem_total
@@ -121,4 +136,7 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.content_object.sku} on order {self.order.order_number}'
+        return (
+            f'SKU {self.content_object.sku} '
+            f'on order {self.order.order_number}'
+        )

@@ -7,6 +7,7 @@ from .models import Product
 
 from .utils import filter_and_sort_products
 
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -32,8 +33,10 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    related_products = Product.objects.filter(category=product.category).exclude(pk=product.id)
-
+    related_products = (
+        Product.objects.filter(category=product.category)
+        .exclude(pk=product.id)
+    )
     # Create pagination if too many related products
     paginator = Paginator(related_products, 4)
     page = request.GET.get('page')

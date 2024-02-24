@@ -3,6 +3,7 @@
 from django.contrib import admin
 from .models import Category, Product
 
+
 class CategoryAdmin(admin.ModelAdmin):
     """
     Admin configuration for Category model.
@@ -13,6 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
     )
+
 
 class ProductAdmin(admin.ModelAdmin):
     """

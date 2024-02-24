@@ -1,5 +1,4 @@
 """Profile Models"""
-# pylint: disable=E1101
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -31,17 +30,50 @@ class Subscription(models.Model):
         ('senior_dev', 'Senior Dev'),
     ]
 
-    sku = models.CharField(max_length=254, null=True, blank=True)
-    name = models.CharField(max_length=20, choices=SUBSCRIPTION_CHOICES, default='junior_dev')
-    price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
-    mentor = models.BooleanField(default=False)
-    tutor_support = models.CharField(max_length=20, choices=USER_TYPE_CHOICES,  blank=True)
-    color = models.CharField(max_length=20, choices=COLOUR_CHOICES,  default='orange')
-    description = models.TextField(default='Junior Dev monthly subscription package')
-    free_delivery = models.BooleanField(default=True)
-    product_discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-    program_discount = models.DecimalField(max_digits=5, decimal_places=2, default=0)
-
+    sku = models.CharField(
+        max_length=254,
+        null=True,
+        blank=True
+    )
+    name = models.CharField(
+        max_length=20,
+        choices=SUBSCRIPTION_CHOICES,
+        default='junior_dev'
+    )
+    price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        default=0
+    )
+    mentor = models.BooleanField(
+        default=False
+    )
+    tutor_support = models.CharField(
+        max_length=20,
+        choices=USER_TYPE_CHOICES,
+        blank=True
+    )
+    color = models.CharField(
+        max_length=20,
+        choices=COLOUR_CHOICES,
+        default='orange'
+    )
+    description = models.TextField(
+        default='Junior Dev monthly subscription package'
+    )
+    free_delivery = models.BooleanField(
+        default=True
+    )
+    product_discount = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0
+    )
+    program_discount = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0
+    )
 
     @property
     def total_final_price(self):
@@ -50,10 +82,8 @@ class Subscription(models.Model):
         """
         return self.price
 
-
     def __str__(self):
         return str(self.name)
-
 
 
 class UserProfile(models.Model):
@@ -61,20 +91,25 @@ class UserProfile(models.Model):
     A user profile model for maintaining default
     delivery information and order history
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE,
+                                related_name='profile')
     default_phone_number = PhoneNumberField(blank=True, null=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_street_address1 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_street_address2 = models.CharField(max_length=80, null=True,
+                                               blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True,
+                                            blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label='Country', null=True, blank=True)
-    subscription = models.ForeignKey(Subscription, on_delete=models.SET_NULL, null=True, blank=True)
-    active_subscription = models.ForeignKey(
-                                    Subscription,
-                                    on_delete=models.SET_NULL,
-                                    null=True, blank=True,
-                                    related_name='active_subscription')
+    default_country = CountryField(blank_label='Country',
+                                   null=True, blank=True)
+    subscription = models.ForeignKey(Subscription, on_delete=models.SET_NULL,
+                                     null=True, blank=True)
+    active_subscription = models.ForeignKey(Subscription,
+                                            on_delete=models.SET_NULL,
+                                            null=True, blank=True,
+                                            related_name='active_subscription')
 
     def __str__(self):
         return str(self.user)

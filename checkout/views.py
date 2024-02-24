@@ -30,8 +30,6 @@ from .models import Order, OrderLineItem
 from .forms import OrderForm
 
 
-
-
 # Create your views here.
 class CheckoutView(View):
     template_name = 'checkout/checkout.html'
@@ -51,7 +49,7 @@ class CheckoutView(View):
 
         if request.user.is_authenticated:
             try:
-                profile=UserProfile.objects.get(user=request.user)
+                profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -70,7 +68,6 @@ class CheckoutView(View):
 
         if not self.stripe_secret_key:
             return redirect(reverse('home'))
-
 
         stripe.api_key = self.stripe_secret_key
 
@@ -129,24 +126,28 @@ class CheckoutView(View):
             for item_id, item_data in cart.items():
                 # Membership discount
                 discount = 0
-                item =  get_item_from_item_id(item_id)
+                item = get_item_from_item_id(item_id)
                 try:
                     if isinstance(item, Subscription):
-                        content_type = ContentType.objects.get_for_model(Subscription)
+                        content_type = \
+                            ContentType.objects.get_for_model(Subscription)
                         if request.user.is_authenticated:
                             request.user.profile.active_subscription = item
                             request.user.profile.save()
                     elif isinstance(item, Program):
-                        content_type = ContentType.objects.get_for_model(Program)
+                        content_type = \
+                            ContentType.objects.get_for_model(Program)
                         if request.user.is_authenticated:
                             if request.user.profile.subscription:
-                                discount = request.user.profile.subscription.program_discount
+                                sub = request.user.profile.subscription
+                                discount = sub.program_discount
                     else:
-                        content_type = ContentType.objects.get_for_model(Product)
+                        content_type = \
+                            ContentType.objects.get_for_model(Product)
                         if request.user.is_authenticated:
                             if request.user.profile.subscription:
-                                discount = request.user.profile.subscription.product_discount
-
+                                sub = request.user.profile.subscription
+                                discount = sub.product_discount
 
                     order_line_item = OrderLineItem(
                             order=order,
@@ -157,10 +158,10 @@ class CheckoutView(View):
                         )
                     order_line_item.save()
 
-
                 except item.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found in our database."
+                        "One of the products in your"
+                        "cart wasn't found in our database."
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -173,9 +174,10 @@ class CheckoutView(View):
 
             request.session['save_info'] = 'save-info' in request.POST
 
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
 
-        # If form is invalid, store form data in session and redirect to checkout
+        # Form is invalid, store context session data and redirect to checkout
         order_form_data = {
                         'cleaned_data': order_form.cleaned_data,
                         'errors': order_form.errors,
@@ -186,7 +188,6 @@ class CheckoutView(View):
         messages.error(request, 'There was an error with your form. \
             Please double-check your information.')
         return redirect(reverse('checkout'))
-
 
 
 def checkout_success(request, order_number):

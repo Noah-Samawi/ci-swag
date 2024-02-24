@@ -1,4 +1,5 @@
 "Cart context functions"
+
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
@@ -6,6 +7,7 @@ from profiles.models import Subscription
 from programs.models import Program
 
 from .utils import get_item_from_item_id, apply_subscription_discount
+
 
 def cart_contents(request):
     cart_items = []
@@ -16,11 +18,11 @@ def cart_contents(request):
     subscription_exists = False
     delivery_cost = settings.DELIVERY_COST
 
-
-    #Set active subscription and set it as the current subscription
+    # Set active subscription and set it as the current subscription
     if request.user.is_authenticated:
         if request.user.profile.active_subscription:
-            request.user.profile.subscription = request.user.profile.active_subscription
+            request.user.profile.subscription = \
+                request.user.profile.active_subscription
             request.user.profile.save()
             subscription_exists = True
 
@@ -35,7 +37,8 @@ def cart_contents(request):
                     request.user.profile.subscription = product
                     request.user.profile.save()
                 else:
-                    request.user.profile.subscription = request.user.profile.active_subscription
+                    sub = request.user.profile.active_subscription
+                    request.user.profile.subscription = sub
                     request.user.profile.save()
             else:
                 request.user.profile.subscription = product
@@ -63,24 +66,27 @@ def cart_contents(request):
         elif isinstance(product, Program):
             total_item_price = item_data * product.total_final_price
             if subscription_exists:
-                total_item_price, members_discount = apply_subscription_discount(
-                    subscription_discount=request.user.profile.subscription.program_discount,
-                    product=product,
-                    total_item_price=total_item_price
-                )
+                sub = request.user.profile.subscription.program_discount
+                total_item_price, members_discount = \
+                    apply_subscription_discount(
+                        subscription_discount=sub,
+                        product=product,
+                        total_item_price=total_item_price
+                    )
                 total_members_discount += members_discount
             total += total_item_price
         else:
             total_item_price = item_data * product.total_final_price
             if subscription_exists:
-                total_item_price, members_discount = apply_subscription_discount(
-                    subscription_discount=request.user.profile.subscription.product_discount,
-                    product=product,
-                    total_item_price=total_item_price
-                )
+                sub = request.user.profile.subscription.product_discount
+                total_item_price, members_discount = \
+                    apply_subscription_discount(
+                        subscription_discount=sub
+                        product=product,
+                        total_item_price=total_item_price
+                    )
                 total_members_discount += members_discount
             total += total_item_price
-
 
         product_count += item_data
         cart_items.append({

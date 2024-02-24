@@ -17,6 +17,5 @@ class ProgramAdmin(admin.ModelAdmin):
     ordering = ('sku',)
 
 
-
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Module)

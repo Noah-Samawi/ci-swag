@@ -3,6 +3,7 @@
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
+
 class OrderLineItemAdminInline(admin.TabularInline):
     """
     Inline admin class for displaying order line items in the admin panel.
@@ -10,8 +11,8 @@ class OrderLineItemAdminInline(admin.TabularInline):
     """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',
-                        'get_content_object_name','content_type', 
-                        'object_id', 'quantity', 'subscription_discount', )
+                       'get_content_object_name', 'content_type',
+                       'object_id', 'quantity', 'subscription_discount')
     extra = 0
 
     def get_content_object_name(self, obj):
@@ -20,6 +21,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
 
         """
         return obj.content_object.name
+
 
 class OrderAdmin(admin.ModelAdmin):
     """
@@ -44,5 +46,6 @@ class OrderAdmin(admin.ModelAdmin):
                     'grand_total',)
 
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

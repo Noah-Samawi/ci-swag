@@ -1,5 +1,5 @@
 """Profile views."""
-# pylint: disable=E1101
+
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.views import View
@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from checkout.models import Order
-from programs.models import Program   
+from programs.models import Program
 
 
 from .models import Subscription, UserProfile
@@ -58,7 +58,6 @@ class ProfileView(LoginRequiredMixin, View):
         context = self.get_context_data()
         return render(request, self.template_name, context)
 
-
     def post(self, request, *args, **kwargs):
         """
         Handles HTTP POST requests for updated the profile models in database.
@@ -69,7 +68,6 @@ class ProfileView(LoginRequiredMixin, View):
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(request.POST, instance=profile)
 
-
         if "user_form" in request.POST:
             if user_form.is_valid():
                 user_form.save()
@@ -77,16 +75,20 @@ class ProfileView(LoginRequiredMixin, View):
                 messages.success(request, 'User updated successfully')
             else:
                 context['user_form'] = user_form
-                messages.error(request, 'Update failed. Please ensure the forms are valid.')
+                messages.error(request, 'Update failed. '
+                               'Please ensure the forms are valid.')
                 return render(request, self.template_name, context)
         else:
             if profile_form.is_valid():
                 profile_form.save()
                 context["profile_form"] = profile_form
-                messages.success(request, 'Profile updated successfully')
+                messages.success(request,
+                                 'Profile updated successfully')
             else:
                 context["profile_form"] = profile_form
-                messages.error(request, 'Update failed. Please ensure the forms are valid.')
+                messages.error(
+                    request,
+                    'Update failed. Please ensure the forms are valid.')
 
         return render(request, self.template_name, context)
 
@@ -99,21 +101,21 @@ class SubscriptionsView(LoginRequiredMixin, View):
 
     template_name = 'profiles/subscriptions.html'
 
-
     def get(self, request):
         """
         Retrieves all subscriptions from the database and orders them by price.
         If the current user has an active subscription, marks the corresponding
         subscription as 'current' in the context.
-        
         """
         subscriptions = Subscription.objects.all().order_by('price')
-        if request.user.profile.active_subscription:
-            for subscription in subscriptions:
-                if subscription.id == request.user.profile.active_subscription.id:
-                    subscription.current = True
-                else:
-                    subscription.current = False
+
+        active_subscription_id = (
+            request.user.profile.active_subscription.id
+            if request.user.profile.active_subscription
+            else None
+        )
+        for subscription in subscriptions:
+            subscription.current = subscription.id == active_subscription_id
 
         context = {
             'subscriptions': subscriptions,
@@ -128,9 +130,11 @@ def remove_subscription(request):
     redirect_url = request.POST.get('redirect_url')
 
     try:
-        messages.success(request,
-        f'Your {request.user.profile.active_subscription.name} membership was cancelled')
-
+        messages.success(
+            request,
+            f'Your {request.user.profile.active_subscription.name} '
+            f'membership was cancelled'
+        )
         request.user.profile.active_subscription = None
         request.user.profile.subscription = None
         request.user.profile.save()
