@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Sitemap: https://ci-swag-e9f8de0bed4b.herokuapp.com/sitemap.xml
