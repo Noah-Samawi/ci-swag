@@ -133,7 +133,7 @@
                 </ol>
                 <div class="row my-4">
                   <div class="col">
-                    <a href="{% url "products" %}">
+                    <a href={% url "products" %}>
                       <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a
                     >
                   </div>
@@ -145,7 +145,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
               </form>
             </div>
           </div>
@@ -165,9 +164,9 @@
                 <div class="row">
                   <div class="col-3 p-0">
                     {% if item.product.image.url %}
-                    <img class="avatar-lg"  src="{{item.product.image.url}}" style='object-fit: cover;' />
+                    <img class="avatar-lg"  src="{{item.product.image.url}}" alt='{{item.product.name}} product photo' style='object-fit: cover;' >
                     {% else %}
-                    <img class="avatar-lg bg-{{item.product.color}}"   alt="product image"  src="{% static "images/award-placeholder.webp" %}" style='object-fit: cover;' />
+                    <img class="avatar-lg bg-{{item.product.color}}"   alt='{{item.product.name}} product photo'  src="{% static "images/award-placeholder.webp" %}" style='object-fit: cover;' >
                     {% endif %}
                   </div>
                   <div class="col-6">
@@ -192,7 +191,7 @@
                 {% endfor %}
 
 
-                <hr />
+                <hr >
                 <div class="row mb-2">
                   <div class="col"><b> Shipping/Admin Charge:</b></div>
                   <div class="col-auto d-flex justify-content-end"><b>${{ delivery_cost|floatformat:2 }}</b></div>
@@ -212,6 +211,8 @@
           </div>
         </div>
       </div>
+      </div>
+    </div>
   </section>
 
   <div id="loading-overlay">

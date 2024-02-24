@@ -7,16 +7,20 @@
   <div class="container px-4 px-lg-5 my-5">
     <div class="text-center text-white">
       <h1 class="display-4 fw-bolder">Profile</h1>
-        {% if  request.user.profile.active_subscription %}
-        <p class="lead fw-normal text-white-50 mb-0">Your membership is <span class="fw-bold text-{{request.user.profile.active_subscription.color}} font-weight-bold text-capitalize">{{request.user.profile.active_subscription}}</span></p>
-        {% endif %}
+      {% if request.user.profile.active_subscription %}
+      <p class="lead fw-normal text-white-50 mb-0">
+        Your membership is
+        <span
+          class="fw-bold text-{{request.user.profile.active_subscription.color}} font-weight-bold text-capitalize"
+          >{{request.user.profile.active_subscription}}</span
+        >
+      </p>
+      {% endif %}
     </div>
   </div>
 </header>
 
 {% endblock %}
-
-
 
 <!--  -->
 
@@ -32,66 +36,60 @@
                 <i class="fa-solid fa-user"></i>
               </div>
             </div>
-            <div class="feed-item-list">
-              <form action="#" method="POST">
-                {% csrf_token %}
-                <h5 class="font-size-16 mb-1">User Info</h5>
-                <p class="text-muted text-truncate mb-4">
-                 Your profile details
-                </p>
-                <div class="mb-3">
-                  <div>
-                    <div class="row">
-                      <div class="col-lg-4">
-                        <div class="mb-3">
-                          {{ user_form.first_name | as_crispy_field }}
-                        </div>
+            <form action="#" method="POST">
+              {% csrf_token %}
+              <h5 class="font-size-16 mb-1">User Info</h5>
+              <p class="text-muted text-truncate mb-4">Your profile details</p>
+              <div class="mb-3">
+                <div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="mb-3">
+                        {{ user_form.first_name | as_crispy_field }}
                       </div>
-                      <div class="col-lg-4">
-                        <div class="mb-3">
-                          {{ user_form.last_name | as_crispy_field }}
-                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="mb-3">
+                        {{ user_form.last_name | as_crispy_field }}
                       </div>
-                      <div class="col-lg-4">
-                        <div class="mb-3">
-                          {{ user_form.username | as_crispy_field }}
-                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="mb-3">
+                        {{ user_form.username | as_crispy_field }}
                       </div>
                     </div>
                   </div>
                 </div>
-                <button class="my-4 btn btn-primary float-right" name='user_form'>
-                  Update Profile
-                </button>
-              </form>
-            </div>
+              </div>
+              <button class="my-4 btn btn-primary float-right" name="user_form">
+                Update Profile
+              </button>
+            </form>
           </li>
 
-          <form
-            class="mt-3"
-            action="#"
-            method="POST"
-            id="profile-update-form"
-          >
-            {% csrf_token %}
-            <li class="checkout-item">
-              <div class="avatar checkout-icon p-1">
-                <div class="avatar-title rounded-circle bg-primary">
-                  <i class="fa-solid fa-truck text-white"></i>
-                </div>
+          <li class="checkout-item">
+            <div class="avatar checkout-icon p-1">
+              <div class="avatar-title rounded-circle bg-primary">
+                <i class="fa-solid fa-truck text-white"></i>
               </div>
+            </div>
+            <form
+              class="mt-3"
+              action="#"
+              method="POST"
+              id="profile-update-form"
+            >
+              {% csrf_token %}
               <h5 class="font-size-16 mb-1">Delivery Info</h5>
-              <p class="text-muted text-truncate mb-4">
-                Your delivery details
-              </p>
-              <div class="feed-item-list mb-3">
-                {{profile_form | crispy}}
-              </div>
-            </li>
-            <button class="my-4 btn btn-primary float-right">
-              Update Delivery
-            </button>
-          </form>
+              <p class="text-muted text-truncate mb-4">Your delivery details</p>
+
+              <div class="feed-item-list mb-3">{{profile_form | crispy}}</div>
+
+              <button type="submit" class="my-4 btn btn-primary float-right">
+                Update Delivery
+              </button>
+            </form>
+          </li>
         </ol>
       </div>
     </div>
@@ -114,17 +112,15 @@
             <tr>
               <td>
                 <a
-                href="{% url 'order_history' order.order_number %}"
-                title="{{ order.order_number }}"
+                  href="{% url 'order_history' order.order_number %}"
+                  title="{{ order.order_number }}"
                 >
                   {{ order.order_number|truncatechars:6 }}
                 </a>
               </td>
               <td>{{ order.date }}</td>
               <td>
-                  <small class="small">
-                    x{{ order.total_items }} 
-                  </small>
+                <small class="small"> x{{ order.total_items }} </small>
               </td>
               <td>${{ order.grand_total }}</td>
             </tr>
@@ -134,5 +130,5 @@
       </div>
     </div>
   </div>
-  {% endblock %}
 </div>
+{% endblock %}

@@ -1,12 +1,12 @@
 <div class="col">
-    <a class="card program-card shadow border-grey overflow-hidden" href="{% url 'program_detail' program.id %}" alt='Link to {{program.name}}'>
+    <a class="card program-card shadow border-grey overflow-hidden" href="{% url 'program_detail' program.id %}" title='Link to {{program.name}}'>
       <div class="row">
         <div class="col-lg-4 order-lg-2 bg-dark p-0">
           <img
             src="{{ program.image.url }}"
             class="card-image"
             alt="Image"
-          />
+          >
         </div>
         <div class="col-lg-8">
           <div class="card-body">

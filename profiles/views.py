@@ -1,9 +1,8 @@
 """Profile views."""
-
+# pylint: disable=E1101
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.views import View
-from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -92,8 +91,6 @@ class ProfileView(LoginRequiredMixin, View):
         return render(request, self.template_name, context)
 
 
-
-
 class SubscriptionsView(LoginRequiredMixin, View):
     """
     View for displaying user subscriptions.
@@ -131,7 +128,9 @@ def remove_subscription(request):
     redirect_url = request.POST.get('redirect_url')
 
     try:
-        messages.success(request, f'Your {request.user.profile.active_subscription.name} membership was cancelled')
+        messages.success(request,
+        f'Your {request.user.profile.active_subscription.name} membership was cancelled')
+
         request.user.profile.active_subscription = None
         request.user.profile.subscription = None
         request.user.profile.save()

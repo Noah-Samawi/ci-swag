@@ -1,4 +1,5 @@
 """Profile Models"""
+# pylint: disable=E1101
 
 from django.db import models
 from django.contrib.auth.models import User

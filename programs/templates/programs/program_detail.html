@@ -4,7 +4,7 @@
 
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'programs/css/programs.css' %}" />
+<link rel="stylesheet" href="{% static 'programs/css/programs.css' %}">
 {% endblock %}
 
 
@@ -29,7 +29,7 @@
       <div class="row gx-4 gx-lg-5 align-items-center">
         <div class="col-md-6">
           <div class="small mb-1">SKU: {{program.sku}}</div>
-          <h1 class="display-5 fw-bolder">{{program.name}}</h1>
+          <h2 class="display-5 fw-bolder">{{program.name}}</h2>
           <div class="fs-5 mb-3">
             {% if program.sale %}
             <p class='h5'><span class="badge bg-success">{{program.sale}}% Sale
@@ -158,7 +158,7 @@
                   >
                   <strong>
                     {{ module.title }}
-                    </strong
+                  </strong>
                   </button>
                 </h2>
                 <div
@@ -188,14 +188,13 @@
     <section class="bg-dark container pb-5 rounded-3">
       <h2 class="text-light text-center p-5">{{program.name}}</h2>
       <div class="mx-auto video-container">
-        {% video program.video_url '100% x 100%' %}
+        {% video program.video_url %}
       </div>
     </section>
     {% endif %}
 
    <!-- Related Item Section -->
    {% include "includes/related_items.html" with related_items=related_programs item="prog" %}
-
 
 {% endblock %}
 

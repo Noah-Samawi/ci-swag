@@ -1,6 +1,8 @@
-<form method='GET' action='{{ products_url }}' class='p-1 mx-auto d-flex justify-content-center search-container'>
-    <div class="search"> <input type="text" class="search-input" placeholder="Search products" name="q" value={% if query %}{{query}}{% endif %}> 
-      <button type='submit' class="search-icon btn-primary border-0"> <i class="fa fa-search"></i> </a></div>
+<form method='GET' action='{{ url }}' class='p-1 mx-auto d-flex justify-content-center search-container'>
+    <div class="search"> <input type="text" class="search-input" placeholder="Search products" name="q" value={% if query %}{{query}} {% else %}" "{% endif %}> 
+      <button type='submit' class="search-icon btn-primary border-0"> <i class="fa fa-search"></i> 
+      </button>
+    </div>
     
     <button type="submit" class='btn btn-outline-dark align-items-center d-flex justify-content-center' name="sort" value="price">
         <i class="fa-solid fa-money-bill text-success"></i>
