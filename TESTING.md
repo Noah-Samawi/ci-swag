@@ -19,15 +19,35 @@ Go back to [README.md](/README.md)
 
 ### HTML
 
+| Page | Validator | Result |
+| ---- | --------- | ------ |
+
 ### CSS
+
+| File | Validator | Result |
+| ---- | --------- | ------ |
 
 ## JavaScript
 
+| File | Validator | Result | Comment |
+| ---- | --------- | ------ | ------- |
+
 ## Python
+
+| File | App | Image | Result | Comment |
+| ---- | --- | ----- | ------ | ------- |
 
 ## Responsiveness
 
+The responsiveness of the website was thoroughly tested on various devices, including a MacBook Pro 15-inch, a Huawei P30 Pro, and a 24-inch monitor. Across all devices, the elements displayed cleanly and were well-organized, ensuring a consistent and user-friendly experience.
+
 ## Browser Compatibility
+
+| Browser       | Result                                                     | Pass/Fail         |
+| ------------- | ---------------------------------------------------------- | ----------------- |
+| Google Chrome | All pages, load as expected. All features work as expected | <mark>Pass</mark> |
+| Firefox       | All pages, load as expected. All features work as expected | <mark>Pass</mark> |
+| Edge          | All pages, load as expected. All features work as expected | <mark>Pass</mark> |
 
 ## Lighthouse
 
@@ -332,3 +352,15 @@ Automated testing was conducted to verify the accuracy of the page responses and
 | As a User, I can see error pages (such as 400, 403, 404, 500) so that I am informed and guided appropriately when unexpected issues arise during my interaction with the website.                      | <mark>PASS<mark>                                                                                                       |
 
 ## Stripe
+
+- Order created successfully
+
+![Order](./assets/readme-images/order.PNG)
+
+- Stripe webhooks
+
+![Webhook](./assets/readme-images/webhooks.PNG)
+
+- Stripe Events
+
+![Events](./assets/readme-images/events.PNG)
