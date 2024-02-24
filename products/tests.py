@@ -39,10 +39,11 @@ class ProductsDetailPageTests(TestCase):
 
         )
 
-    def test_all_products_page(self):
+    def test_product_detail_page(self):
         '''
         Test if all products page can be accessed
         and it returns the correct template
         '''
-        response = self.client.get(reverse('products'))
-        self.assertTemplateUsed(response, 'products/products.html')
+        response = self.client.get(reverse('product_detail',
+                                kwargs={'product_id': self.product.id}))
+        self.assertTemplateUsed(response, 'products/product_detail.html')
