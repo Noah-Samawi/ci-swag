@@ -204,6 +204,8 @@ I wanted the design to be consistant though each page to have a unique feel to i
 
 This commitment to intuitive navigation and user-focused design principles remained at the forefront of project's development.
 
+In order to enhance development style I researched different styling options via Bootstrap template examples and was greatly inspired by [StartBootstrap](https://startbootstrap.com/templates/ecommerce)
+
 ### Colour Scheme
 
 The websites colour theme closly mimics Code Institutes colour theme. The use of orange, black, white and grey are the primary colours to help mimic the feel. Action components such as checkout, pay now or update forms are clearly distinguished with a bold blue or green colour, while all other less important/navigation buttons are consistant with the theme.
@@ -350,7 +352,7 @@ The user story issue format includes the user story, acceptance criteria, and ta
 The project utilised the "MoSCoW" technique to categorise and prioritise features and requirements effectively. "MoSCoW" represents "Must have, Should have, Could have, and Won't have," aiding in organising and prioritising features. This method guides the development process, ensuring that critical elements are addressed as a top priority.
 
 <details><summary>MoSCoW</summary>
-<img src="./documentation/images/features/moscow.png">
+<img src="./documentation/images/moscow.png">
 </details>
 
 #### GitHub Projects/Kanban
@@ -358,7 +360,7 @@ The project utilised the "MoSCoW" technique to categorise and prioritise feature
 The project implemented a simple Kanban Board structure, comprising columns like Todo, In Progress, and Done. This arrangement offered a well-organised method for monitoring task progress, facilitating visualising and managing the workflow during development. The GitHub project Kanban was linked to the repository for consistent reference.
 
 <details><summary>Kanban</summary>
-<img src="./documentation/images/features/kanban.png">
+<img src="./documentation/images/kanban.png">
 </details>
 
 ## Features
@@ -370,11 +372,11 @@ The navigation bar is a consistent element across all pages, designed using Boot
 The mobile version of the navbar has all the content rendered when a hamburger icon is clicked. When clicked a dropdown display is rendered showing all navigation links.
 
 <details><summary>Navbar</summary>
-<img src="./documentation/images/features/navbar.png.png">
+<img src="./documentation/images/features/navbar.png">
 </details>
 
 <details><summary>Mobile</summary>
-<img src="./documentation/images/features/navbarmobile.png.png">
+<img src="./documentation/images/features/navbarmobile.png">
 </details>
 
 ### Home Page
@@ -779,10 +781,14 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 
 ### Media
 
+All Media images on this website were created using [Leondardo AI](https://leonardo.ai/)
+[Hero Image](https://www.linkedin.com/posts/melinda-zhang-2020_the-weekend-ended-with-a-blast-our-activity-6975486245997056001-W-_I/)
+
 ### Code
 
 - Boutique Ado CI Walkthrough was used for the base of this project
+- [Content Type Framework](https://docs.djangoproject.com/en/5.0/ref/contrib/contenttypes/)
+- [Bootstrap Templates](https://startbootstrap.com/templates/ecommerce)
+- [Local Stripe Webhook Testing](https://www.youtube.com/watch?v=q33qN2zz4E4&t=453s)
 
 ### Acknowledgements
-
-### Comments
