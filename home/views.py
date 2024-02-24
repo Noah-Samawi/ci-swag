@@ -8,6 +8,13 @@ def home(request):
 
     return render(request, 'home/home.html')
 
+
+def privacy(request):
+    """ A view to return the home page """
+
+    return render(request, 'home/privacy.html')
+
+
 # Error handling views
 
 
