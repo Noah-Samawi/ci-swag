@@ -75,7 +75,6 @@ class UserProfile(models.Model):
                                     null=True, blank=True,
                                     related_name='active_subscription')
 
-
     def __str__(self):
         return str(self.user)
 

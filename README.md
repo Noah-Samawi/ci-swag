@@ -7,7 +7,7 @@
 <hr>
 CiSwag is an online product shop and course enrollment platform, built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe.
 
-![CI SWAG STORE PREVIEW](./assets/readme-images/responsive.PNG)
+![CI SWAG STORE PREVIEW](./documentation/images/features/homepage.png)
 
 # Table Of Content
 
@@ -208,11 +208,11 @@ This commitment to intuitive navigation and user-focused design principles remai
 
 The websites colour theme closly mimics Code Institutes colour theme. The use of orange, black, white and grey are the primary colours to help mimic the feel. Action components such as checkout, pay now or update forms are clearly distinguished with a bold blue or green colour, while all other less important/navigation buttons are consistant with the theme.
 
-![Colour Scheme](./documentation/images/theme/colour-theme.png)
+![Colour Scheme](./documentation/images/colour%20theme.png)
 
 ### Database Schema
 
-![Database schema](./documentation/images/database-schema.png)
+![Database schema](./documentation/images/dbdiagram.png)
 
 ### Models
 
@@ -247,7 +247,7 @@ The Order model contains information about a purchase. It contains lineitems of 
 ### Fonts
 
 The font used in this project is Segoe UI Roboto, which give a standard feel as mimiced in the CI website. <br>
-![Font](./documentation/images/theme/font-family.png)
+![Font](./documentation/images/font-family.png)
 
 ### Wireframes
 
@@ -390,23 +390,15 @@ The homepage serves as the central hub of the site, providing visitors with an o
 The products page showcases preview cards of various products, each accompanied by basic descriptions and images, offering users a quick overview of available items. A filtering system based on categories, prices, sales, and ratings, so users can refine their search to find desired products. Additionally, a search bar enables users to explore specific items, enhancing their browsing experience and allowing them to refine very specific requests.
 
 <details><summary>Products</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/productspage.png">
 </details>
 
 ### Programs Page
 
 Similar to the products page, the programs page presents preview cards of different educational programs, providing brief descriptions and images to offer users a glimpse into each program's content and offerings. Searchbar and filtering tools remain consistant with the products page
 
-<details><summary>Products</summary>
-<img src="./documentation/images/features/homepage.png">
-</details>
-
-### Programs Page
-
-Similar to the products page, the programs page presents preview cards of different educational programs, providing brief descriptions and images to offer users a glimpse into each program's content and offerings. Searchbar and filtering tools remain consistant with the products page
-
-<details><summary>Products</summary>
-<img src="./documentation/images/features/homepage.png">
+<details><summary>Programs</summary>
+<img src="./documentation/images/features/programspage.png">
 </details>
 
 ### Subscriptions Page
@@ -414,7 +406,7 @@ Similar to the products page, the programs page presents preview cards of differ
 The subscription page displays available membership packages, presenting users with a clear overview of the various subscription options offered. Users can easily identify their current membership package, allowing for seamless management and potential upgrades or downgrades as needed. This page provides transparency and accessibility for users to make informed decisions regarding their subscription preferences.
 
 <details><summary>Subscriptions</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/subscriptions.png">
 </details>
 
 ### Product Detail Page
@@ -422,7 +414,7 @@ The subscription page displays available membership packages, presenting users w
 The product detail page contains information about the selected product, including price, rating, sale status, and SKU. Featuring an image of the product, users can view it before making a purchase decision. Additionally, the page lists related products at the bottom, offering users additional options to explore. With the option to adjust the quantity and an "Add to Cart" button where users can update there cart with a product quantity.
 
 <details><summary>Product Detail</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/productdetail.png">
 </details>
 
 ### Program Detail Page
@@ -430,7 +422,7 @@ The product detail page contains information about the selected product, includi
 The program detail page provides in-depth information about the selected program, including its name, duration, cost, and a breakdown of modules or sections covered. Users can gain an understanding of the program's content and structure before making a decision. Users must be authenticated before they can enroll in courses and users who have purchased the program, a related video is displayed, offering valuable insights or introductory content to enhance the learning experience.
 
 <details><summary>Program Detail</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/programdetail.png">
 </details>
 
 ### Cart Page
@@ -438,7 +430,7 @@ The program detail page provides in-depth information about the selected program
 The cart page displays a summary of the items currently in the user's cart, presenting essential information such as product details and quantities. Additionally, users can view the total cost of all items in their cart as well as any discounts to certain items. This page serves as a hub users to review and manage their selected items before proceeding to checkout.
 
 <details><summary>Cart</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/cartpage.png">
 </details>
 
 ### Checkout Page
@@ -446,7 +438,7 @@ The cart page displays a summary of the items currently in the user's cart, pres
 The checkout page streamlines the purchasing process, guiding users through the final steps of completing their orders. Users can review their selected items, input shipping and payment information. Users can add email changes and name changes for orders, but this will only affect a singler purpose. The checkout page provides order summary details, ensuring transparency regarding the total cost, including discounts and shipping fees. Stripe payment elements are used to handle the payment processing
 
 <details><summary>Checkout</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/checkoutpage.png">
 </details>
 
 ### Confirmation Page
@@ -454,7 +446,7 @@ The checkout page streamlines the purchasing process, guiding users through the 
 The thank you and order confirmation page serves as a final acknowledgment of the user's completed purchase, expressing gratitude for their patronage. It provides a summary of the order details, including items purchased, total cost, and shipping information. Additionally, users may receive confirmation numbers or order IDs for reference. This page also serves as the order history page so users can review all orders they have purchased.
 
 <details><summary>Confirmation</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/checkoutsuccess.png">
 </details>
 
 ### Profile Page
@@ -462,7 +454,7 @@ The thank you and order confirmation page serves as a final acknowledgment of th
 The profile page is where users can easily update their user details such as name and username as well as and edit delivery information. Users can access a overview of their past orders, allowing them to track their purchase history and review previous transactions.
 
 <details><summary>Profile</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/profilepage.png">
 </details>
 
 ### My Course Page
@@ -470,7 +462,7 @@ The profile page is where users can easily update their user details such as nam
 The my course page gives authenticated users quick access to view there total purchased courses. It shows a list of all program preview cards for courses that have been purchased in their order history.
 
 <details><summary>Profile</summary>
-<img src="./documentation/images/features/homepage.png">
+<img src="./documentation/images/features/mycourses.png">
 </details>
 
 ### Sign In page
@@ -478,7 +470,7 @@ The my course page gives authenticated users quick access to view there total pu
 This page comprises a form with fields for entering a username and password. Beneath the form is the sign up button which submits the form. Below the form is a redirect to the register page if the user does not have an account. Click the remember me checkbox to remain logged in as a session.
 
 <details><summary>Sign In</summary>
-<img src="./documentation/images/features/signup.png">
+<img src="./documentation/images/features/login.png">
 </details>
 
 ### Sign Up page
@@ -486,7 +478,7 @@ This page comprises a form with fields for entering a username and password. Ben
 It features a form with fields for inputting name, email, username, password, and password confirmation. Underneath the form, there is a link to log in for users with existing accounts, followed by the signup button. After signup, users receive a welcome email at the provided email address and are then directed to the home page.
 
 <details><summary>Sign Up</summary>
-<img src="./documentation/images/features/signin.png">
+<img src="./documentation/images/features/register.png">
 </details>
 
 ### Sign out page
@@ -494,7 +486,7 @@ It features a form with fields for inputting name, email, username, password, an
 Upon clicking the "log out" link in the navigation, users are directed to a confirmation page. This page includes a cautionary message and two buttons: one for returning and one for logging out.
 
 <details><summary>Sign Out</summary>
-<img src="./documentation/images/features/signout.png">
+<img src="./documentation/images/features/logout.png">
 </details>
 
 ### Notification Messages
@@ -510,20 +502,17 @@ Notification messages were user every time the user performs CRUD operation, sig
 This modal appears whenever a users is performing a delete CRUD operation. It ensures the user must confirm their action before the permanent deletion of a subscription
 
 <details><summary>Confirmation Modal</summary>
-<img src="./documentation/images/features/confirmationmodal.png">
+<img src="./documentation/images/features/confirmmodal.png">
 </details>
 
 ### Error Pages
 
 Custom Error pages are rendered to show the user what went wrong with their request. These error pages allow the user to redirect to the home page.
 
-Examples below are 403, 404
+An Example below is the 400 page
 
-<details><summary>403</summary>
-<img src="./documentation/images/features/403error.png">
-</details>
-<details><summary>404</summary>
-<img src="./documentation/images/features/404error.png">
+<details><summary>400</summary>
+<img src="./documentation/images/features/errorpage.png">
 </details>
 
 ## Future Features
@@ -548,18 +537,11 @@ In depth testing documentation can be found [here.](./TESTING.md)
 
 Here is a list of all the major bugs encountered throughout development. Links to specific issues provide a more in depth analysis of how they were identified and resolved. This can also be found documented in [TESTING.md](./TESTING.md)
 
-| Bug                                                                                                                        | Status |
-| -------------------------------------------------------------------------------------------------------------------------- | ------ |
-| [Profile routing based on slug errors #31](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/31)                   | Closed |
-| [UpdateView Profile throwing errors with multiple forms #32](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/32) | Closed |
-| [Content creating widget not responsive #37](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/37)                 | Closed |
-| [Pagination on profile page renders only first results #38](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/38)  | Closed |
-| [Lighthouse Performance Scores #41](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/41)                          | Closed |
-| [User Edit Profile Form Autofocus #42](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/42)                       | Closed |
-| [UX/UI Final Sweep #44](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/44)                                      | Closed |
-| [Refresh Routing on changed Username #47](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/47)                    | Open   |
-| [Env File not properly ignored #54](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/54)                          | Closed |
-| [User Account Updated #55](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/55)                                   | Closed |
+| Bug                                                                                            | Status |
+| ---------------------------------------------------------------------------------------------- | ------ |
+| [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)            | Closed |
+| [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59) | Closed |
+| [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)  | Closed |
 
 ## Technologies And Languages
 
