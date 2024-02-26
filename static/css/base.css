@@ -92,9 +92,8 @@ a:link {
   border-radius: 0.5rem;
 }
 
-.nav-link :hover,
-.nav-link :focus {
-  /* filter: brightness(0.6); */
+.nav-link.text-orange-secondary :hover,
+.nav-link.text-orange-secondary :focus {
   filter: saturate(10);
 }
 
@@ -107,6 +106,11 @@ a:link {
 
 .logo img {
   height: 60px;
+}
+
+.cart-length-badge {
+  position: absolute;
+  top: -10px;
 }
 
 /* ALLAUTH FORMS */

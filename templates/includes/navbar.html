@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link text-orange-secondary" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="text-orange-secondary fw-bold">Swag <i class="fa-solid fa-store text-orange-secondary"></i>
               </span>
             </a>
@@ -41,7 +41,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link text-orange-secondary" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="text-orange-secondary fw-bold">Courses <i class="fa-solid fa-graduation-cap text-orange-secondary"></i>
               </span>
             </a>
@@ -71,7 +71,7 @@
        
         {%  if request.user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url "subscriptions" %}">
+            <a class="nav-link text-orange-secondary" href="{% url "subscriptions" %}">
               <span class="text-orange-secondary fw-bold">Subscriptions <i class="fa-solid fa-trophy text-orange-secondary"></i>
               </span>
             </a>
@@ -125,15 +125,19 @@
                 </li>
     
                 <li class="nav-item">
-                  <a class="nav-link text-secondary m-0" href="{% url "view_cart" %}" aria-expanded="false">
-                    <span class='text-orange-secondary fw-bold d-md-none'>Cart</span>
-                    <i class="fas fa-shopping-cart fa-lg position-relative h5">
+                  <a class="nav-link m-0" href="{% url "view_cart" %}" aria-expanded="false">
+                    <p class='p-0 m-0'> 
+                      <span class='fw-bold d-md-none'>Cart                       
+                      <i class="fas fa-shopping-cart fa-lg position-relative h5">
+                      </span>  
                       {% if cart_items|length > 0 %}
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
+                      <span class="cart-length-badge translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
                         {{ cart_items|length }}
                       </span>
                       {% endif %}
-                    </i>
+                    </i></p>
+                   
+                  
                   </a>
                 </li>
             

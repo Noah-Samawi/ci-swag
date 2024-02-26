@@ -33,9 +33,9 @@
 
         <div class="col-sm-4">
             <div class="subscription card text-center">
-                <div class="header {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %}">
-                    <h2>${{subscription.price}} <small>| mo</small></h2>
-                    <div class="title">{{subscription.name}}</div>
+                <div class="header {% if subscription.current %} text-white bg-secondary {% else %} bg-{{subscription.color}} {% endif %}">
+                    <h2 class='fw-bolder'>${{subscription.price}} <small>| mo</small></h2>
+                    <div class="title fw-bolder">{{subscription.name}}</div>
 
                     {% if subscription.current %}
                     <span class='position-absolute top-0 right-0 translate-middle badge rounded-pill bg-danger'>Current Membership</span>
@@ -44,18 +44,18 @@
         
                 <ul class="list-group list-group-flush text-start">
                     <li class="list-group-item">
-                        <p><i class="fa-solid fa-tags me-2 {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %} text-white"></i> Store Discount: <span class="fw-bold">{{subscription.product_discount}}%</span></p>
+                        <p><i class="fa-solid fa-tags me-2 {% if subscription.current %}bg-secondary text-white {% else %} bg-{{subscription.color}} {% endif %}  "></i> Store Discount: <span class="fw-bold">{{subscription.product_discount}}%</span></p>
 
                     </li>
                     <li class="list-group-item">
-                        <p><i class="fa-solid fa-school me-2 {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %} text-white"></i> Course Discount: <span class="fw-bold">{{subscription.program_discount}}%</span></p>
+                        <p><i class="fa-solid fa-school me-2 {% if subscription.current %}bg-secondary text-white {% else %} bg-{{subscription.color}} {% endif %} "></i> Course Discount: <span class="fw-bold">{{subscription.program_discount}}%</span></p>
                     </li>
                     <li class="list-group-item">
-                        <p><i class="fa-solid fa-truck me-2 {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %} text-white"></i>Delivery/Admin: <span class="fw-bold">Free</span> </p>
+                        <p><i class="fa-solid fa-truck me-2 {% if subscription.current %}bg-secondary text-white{% else %} bg-{{subscription.color}} {% endif %} "></i>Delivery/Admin: <span class="fw-bold">Free</span> </p>
                     </li>
                     {% if subscription.tutor_support %}
                     <li class="list-group-item">
-                        <p><i class="fa-solid fa-headphones-simple me-2 {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %} text-white"></i> 
+                        <p><i class="fa-solid fa-headphones-simple me-2 {% if subscription.current %}bg-secondary text-white {% else %} bg-{{subscription.color}} {% endif %} "></i> 
                             {% if subscription.tutor_support == 'priority' %}Priority{% endif %}
                             Tutor Support </p>
                      
@@ -64,7 +64,7 @@
 
                     {% if subscription.mentor %}
                     <li class="list-group-item">
-                        <p><i class="fa-solid fa-person-chalkboard me-2 {% if subscription.current %}bg-secondary {% else %} bg-{{subscription.color}} {% endif %} text-white"></i> Personal Mentor </p>
+                        <p><i class="fa-solid fa-person-chalkboard me-2 {% if subscription.current %}bg-secondary text-white {% else %} bg-{{subscription.color}} {% endif %} "></i> Personal Mentor </p>
                     </li>
                     {% endif %}
                    
@@ -79,7 +79,8 @@
                     data-bs-toggle="modal"
                     data-bs-target="#subscriptionModal"
                    >
-                   <i class="fa fa-close"></i>
+                   <i class="fa fa-close" aria-hidden="true"></i>
+                   <span class="visually-hidden">Remove subscription</span>
 
                    </button>
                    {% include "includes/confirm_modal.html" %}
@@ -92,7 +93,8 @@
                     >
                     {% csrf_token %}
                         <button type="submit" class="bg-{{subscription.color}} form-btn">
-                        <i class="fa fa-check"></i>
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        <span class="visually-hidden">Add to Cart</span>
                         </button>
                         <input type="hidden" name="item_type" value="subscription" />
                         <input
