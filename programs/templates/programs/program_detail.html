@@ -2,6 +2,7 @@
 {% load static %}
 {% load embed_video_tags %}
 
+{% block extra_title %}{{program.name}}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'programs/css/programs.css' %}">

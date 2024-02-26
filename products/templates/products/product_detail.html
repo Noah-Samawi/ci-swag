@@ -1,6 +1,9 @@
 {% extends "base.html" %} 
 {% load static %} 
 
+
+{% block extra_title %}{{product.name}}{% endblock %}
+
 {% block page_header %}
 <header class="bg-dark">
   <div class="container px-4 px-lg-5 my-5">
