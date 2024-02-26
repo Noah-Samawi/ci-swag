@@ -23,11 +23,6 @@
   border-radius: 50%;
 }
 
-.testimonial {
-  max-width: 600px;
-  font-size: 0.9rem;
-}
-
 .carousel-indicators button {
   border-radius: 50%;
   aspect-ratio: 1 / 1;
@@ -41,4 +36,12 @@
 
 .carousel-indicators .active {
   background-color: var(--primary-orange);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 576px) {
+}
+
+@media screen and (max-width: 400px) {
 }
