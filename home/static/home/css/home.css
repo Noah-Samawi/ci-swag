@@ -37,3 +37,11 @@
 .carousel-indicators .active {
   background-color: var(--primary-orange);
 }
+
+/* MAILCHIMP */
+
+#mc_embed_signup {
+  background: transparent;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 600px;
+}

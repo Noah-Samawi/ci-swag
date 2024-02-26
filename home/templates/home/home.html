@@ -3,6 +3,8 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+
 {% endblock %}
 
 
@@ -166,9 +168,96 @@
               New products and courses every year.
             </div>
             <div class="text-white">
-              Sign up to our <a class='fw-bolder text-decoration-underline' href="#">Memberships</a> for exclusive offers.
+              Sign up to our newsletter for exclusive offers and updates.
             </div>
           </div>
+          <div id="mc_embed_shell">
+            <div id="mc_embed_signup">
+              <form
+                action="https://herokuapp.us11.list-manage.com/subscribe/post?u=d4616ca128cb857ad279711e3&amp;id=d8a843f98b&amp;f_id=00aab1e0f0"
+                method="post"
+                id="mc-embedded-subscribe-form"
+                name="mc-embedded-subscribe-form"
+                class="validate"
+                target="_blank"
+              >
+                <div id="mc_embed_signup_scroll">
+                  <div class="indicates-required text-white">
+                    <span class="asterisk">*</span> indicates required
+                  </div>
+                  <div class="mc-field-group text-white">
+                    <label for="mce-EMAIL"
+                      >Email Address <span class="asterisk">*</span></label
+                    ><input
+                      type="email"
+                      name="EMAIL"
+                      class="required email"
+                      id="mce-EMAIL"
+                      required=""
+                      value=""
+                    /><span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+                  </div>
+                  <div id="mce-responses" class="clear foot">
+                    <div
+                      class="response"
+                      id="mce-error-response"
+                      style="display: none"
+                    ></div>
+                    <div
+                      class="response"
+                      id="mce-success-response"
+                      style="display: none"
+                    ></div>
+                  </div>
+                  <div aria-hidden="true" style="position: absolute; left: -5000px">
+                    /* real people should not fill this in and expect good things - do not
+                    remove this or risk form bot signups */
+                    <label for="bot-signup-input" style="display: none;">Bot Signup Input</label>
+                    <input type="text" name="b_d4616ca128cb857ad279711e3_d8a843f98b" id="bot-signup-input" tabindex="-1" value="" aria-hidden="true" />
+
+                  </div>
+                  <div class="optionalParent">
+                    <div class="clear foot">
+                      <input
+                        type="submit"
+                        name="subscribe"
+                        id="mc-embedded-subscribe"
+                        class="button"
+                        value="Subscribe"
+                      />
+                      <p style="margin: 0px auto">
+                        <a
+                          href="http://eepurl.com/iKSbOE"
+                          title="Mailchimp - email marketing made easy and fun"
+                          ><span
+                            style="
+                              display: inline-block;
+                              background-color: transparent;
+                              border-radius: 4px;
+                            "
+                            ><img
+                              class="refferal_badge"
+                              src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg"
+                              alt="Intuit Mailchimp"
+                              style="
+                                width: 220px;
+                                height: 40px;
+                                display: flex;
+                                padding: 2px 0px;
+                                justify-content: center;
+                                align-items: center;
+                              " /></span
+                        ></a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+      </div>
+      
             <div class="small text-white">
               We care about privacy, and will never share your data.
             </div>
@@ -176,4 +265,30 @@
       </aside>
     </div>
   </section>
+{% endblock %}
+
+
+{% block postloadjs %}
+{{ block.super }}
+<script  src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script>
+  (function ($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = "EMAIL";
+    ftypes[0] = "email";
+    fnames[1] = "FNAME";
+    ftypes[1] = "text";
+    fnames[2] = "LNAME";
+    ftypes[2] = "text";
+    fnames[3] = "ADDRESS";
+    ftypes[3] = "address";
+    fnames[4] = "PHONE";
+    ftypes[4] = "phone";
+    fnames[5] = "BIRTHDAY";
+    ftypes[5] = "birthday";
+  })(jQuery);
+  var $mcj = jQuery.noConflict(true);
+</script>
+
 {% endblock %}
