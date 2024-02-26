@@ -7,7 +7,7 @@
       >
       {% for related in related_items  %}
       <div class="col mb-4">
-        <div class="card h-100">
+        <article class="card h-100">
           <!-- Sale badge-->
           {% if related.sale %}
           <div class="badge bg-success text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
@@ -48,7 +48,7 @@
             </div>
 
           </div>
-        </div>
+        </article>
       </div>
       {% endfor %}
       </div>

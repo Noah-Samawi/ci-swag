@@ -1,3 +1,10 @@
+.btn.bg-orange:hover,
+.btn.bg-orange:focus {
+  background: var(--secondary-orange);
+  color: #fff;
+  outline: 1px solid white;
+}
+
 .feature {
   display: inline-flex;
   align-items: center;

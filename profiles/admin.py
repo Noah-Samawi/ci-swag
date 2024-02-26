@@ -32,7 +32,7 @@ class UserAdmin(admin.ModelAdmin):
     """
 
     model = User
-    fields = ("username", "first_name", "last_name", "email",)
+    fields = ("username", "first_name", "last_name", "email", 'is_superuser')
     inlines = [ProfileInline]
 
 

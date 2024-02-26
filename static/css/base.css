@@ -1,5 +1,6 @@
 :root {
-  --primary-orange: #ff451e;
+  --primary-orange: #ef5d10;
+  --secondary-orange: #8f390a;
   --primary-amber: #ffc107;
   --primary-green: #4caf50;
   --primary-cyan: #00bcd4;
@@ -29,6 +30,20 @@ a:link {
   text-decoration: none;
 }
 
+.membership {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  border: 2px solid;
+}
+
+.link-light:hover,
+.link-light:focus {
+  text-decoration: underline;
+}
+
 /* CUSTOM BOOTSTRAP INLINE THEMES */
 
 .bg-orange {
@@ -37,6 +52,14 @@ a:link {
 
 .text-orange {
   color: var(--primary-orange);
+}
+
+.bg-orange-secondary {
+  background: var(--secondary-orange);
+}
+
+.text-orange-secondary {
+  color: var(--secondary-orange);
 }
 
 .bg-amber {
@@ -69,8 +92,10 @@ a:link {
   border-radius: 0.5rem;
 }
 
-.nav-link :hover {
-  filter: brightness(0.6);
+.nav-link :hover,
+.nav-link :focus {
+  /* filter: brightness(0.6); */
+  filter: saturate(10);
 }
 
 .logo {

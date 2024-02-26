@@ -1,8 +1,8 @@
 {% load static %}
 
 
-<div class="m-0 pb-3 pt-lg-1">
-  <nav class="container sticky-top sticky-nav navbar navbar-expand-lg navbar-light bg-light p-0">
+<div class="m-0 pb-3 pt-lg-1 position-relative">
+  <nav class="container sticky-nav navbar navbar-expand-lg navbar-light bg-light p-0">
     <div class="container-fluid">
       <a class="navbar-brand fw-bolder logo" href="{% url 'home' %}">
         <img src="{% static 'images/logo.png' %}" alt="code institute swag logo">
@@ -22,7 +22,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="text-orange fw-bold">Swag <i class="fa-solid fa-store text-orange"></i>
+              <span class="text-orange-secondary fw-bold">Swag <i class="fa-solid fa-store text-orange-secondary"></i>
               </span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="productDropdown">
@@ -42,7 +42,7 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="text-orange fw-bold">Courses <i class="fa-solid fa-graduation-cap text-orange"></i>
+              <span class="text-orange-secondary fw-bold">Courses <i class="fa-solid fa-graduation-cap text-orange-secondary"></i>
               </span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="courseDropdown">
@@ -72,7 +72,7 @@
         {%  if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url "subscriptions" %}">
-              <span class="text-orange fw-bold">Subscriptions <i class="fa-solid fa-certificate text-orange"></i>
+              <span class="text-orange-secondary fw-bold">Subscriptions <i class="fa-solid fa-trophy text-orange-secondary"></i>
               </span>
             </a>
           </li> 
@@ -83,20 +83,18 @@
 
         <div class="">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
                 <li class="nav-item dropdown">
                   <a class="nav-link text-capitalize" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     
                     {% if request.user.is_authenticated %}
-                    {% if request.user.profile.active_subscription %}
-                    <span class="fw-bold text-{{request.user.profile.active_subscription.color}}">{{request.user.username}} <i class="fa-solid fa-user fa-lg"></i>
-                    </span>
-                    {% else %}
+
                     <span class="fw-bold">{{request.user.username}} <i class="fa-solid fa-user fa-lg"></i>
                     </span>
-                    {% endif %}
                  
                     {% else %}
-                    <i class="fa-solid fa-user fa-lg"></i>
+                  <span class="text">Profile</span> 
+                 <i class="fa-solid fa-user fa-lg"></i>
                     {% endif %}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="profileDropdown">
@@ -128,7 +126,7 @@
     
                 <li class="nav-item">
                   <a class="nav-link text-secondary m-0" href="{% url "view_cart" %}" aria-expanded="false">
-                    <span class='text-orange fw-bold d-md-none'>Cart</span>
+                    <span class='text-orange-secondary fw-bold d-md-none'>Cart</span>
                     <i class="fas fa-shopping-cart fa-lg position-relative h5">
                       {% if cart_items|length > 0 %}
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
@@ -145,4 +143,13 @@
       </div>
     </div>
   </nav>
+  {% if request.user %}
+  {% if request.user.profile.active_subscription %}
+  <span class='membership bg-dark badge rounded-pill text-{{request.user.profile.active_subscription.color}}'> <i class="fa-solid fa-trophy me-2"></i>{{request.user.profile.subscription}} Member</span>
+  {% endif %}
+  {% endif %}
 </div>
+
+
+
+
