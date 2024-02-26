@@ -128,14 +128,14 @@
                   <a class="nav-link m-0" href="{% url "view_cart" %}" aria-expanded="false">
                     <p class='p-0 m-0'> 
                       <span class='fw-bold d-md-none'>Cart                       
-                      <i class="fas fa-shopping-cart fa-lg position-relative h5">
+                      <i class="fas fa-shopping-cart fa-lg position-relative h5"></i>
                       </span>  
                       {% if cart_items|length > 0 %}
                       <span class="cart-length-badge translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
                         {{ cart_items|length }}
                       </span>
                       {% endif %}
-                    </i></p>
+                   </p>
                    
                   
                   </a>

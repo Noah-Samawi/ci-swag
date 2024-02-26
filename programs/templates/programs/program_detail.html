@@ -135,11 +135,12 @@
           <hr>
 
         </div>
+      </div>
 
         <div class="col-md-6">
             <h2 class="text-center">What you will learn</h2>
     
-            <p class='text-center fw-bolder text-decoration-underline text-primary'>Modules {{ program.modules.all|length }}</p>
+            <p class='text-center fw-bolder text-primary'>Modules {{ program.modules.all|length }}</p>
             <div class="accordion" id="accordionPanelsStayOpenExample">
               {{program.module.all}} {% for module in program.modules.all %}
     
