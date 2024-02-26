@@ -3,7 +3,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from .models import UserProfile
 
@@ -16,7 +15,8 @@ class UserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['default_phone_number'].widget = PhoneNumberPrefixWidget()
+        self.fields['default_phone_number'].label = "Phone Number - *Include country code"
+
 
 
     class Meta:
@@ -24,6 +24,7 @@ class UserProfileForm(forms.ModelForm):
 
         model = UserProfile
         exclude = ('user', 'active_subscription', 'subscription')
+      
 
 
 class UpdateUserForm(UserChangeForm):

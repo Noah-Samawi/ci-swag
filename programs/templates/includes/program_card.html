@@ -6,7 +6,7 @@
   >
     <article class="row">
       <div class="col-lg-4 order-lg-2 bg-dark p-0">
-        <img src="{{ program.image.url }}" class="card-image" alt="{{program.name}} image">
+        <img src="{{ program.image.url }}" class="card-image" alt="Program {{program.name}}">
       </div>
       <div class="col-lg-8">
         <div class="card-body">
@@ -18,7 +18,7 @@
               {{program.sale}}% Sale
             </span>
           {% endif %}
-          <h5 class="text-primary fw-bold title border-bottom p-0 mb-1">{{program.name}}</h5>
+          <h2 class="h5 text-primary fw-bold title border-bottom p-0 mb-1">{{program.name}}</h2>
           <p class="text-secondary p-2 border-bottom">
             {{program.description}}
           </p>
