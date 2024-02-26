@@ -37,11 +37,3 @@
 .carousel-indicators .active {
   background-color: var(--primary-orange);
 }
-
-/* MEDIA QUERIES */
-
-@media screen and (max-width: 576px) {
-}
-
-@media screen and (max-width: 400px) {
-}
