@@ -3,6 +3,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+
 from .models import UserProfile
 
 
@@ -11,6 +13,12 @@ class UserProfileForm(forms.ModelForm):
     Form for updating user profile information.
 
     """
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['default_phone_number'].widget = PhoneNumberPrefixWidget()
+
+
     class Meta:
         """Get UserProfile model, choose fields to display"""
 
