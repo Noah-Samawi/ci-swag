@@ -1,7 +1,6 @@
 """Checkout Forms"""
 
 from django import forms
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from .models import Order
 
@@ -10,10 +9,6 @@ class OrderForm(forms.ModelForm):
     """
     Form for collecting user information for placing an order.
     """
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['phone_number'].widget = PhoneNumberPrefixWidget()
 
     class Meta:
         """

@@ -1,7 +1,7 @@
 <div class="col">
     <a class="card program-card shadow border-grey overflow-hidden" href="{% url 'program_detail' program.id %}" title='Link to {{program.name}}'>
       <div class="row">
-        <div class="col-lg-4 order-lg-2 bg-dark p-0">
+        <article class="col-lg-4 order-lg-2 bg-dark p-0">
           <img
             src="{{ program.image.url }}"
             class="card-image"
@@ -50,10 +50,9 @@
                     {% endif %}
               </div>         
             </div>
+          </div>    
           </div>
-            
-          </div>
-        </div>
+        </article>
       </div>
     </a>
   </div>

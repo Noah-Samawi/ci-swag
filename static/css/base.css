@@ -65,13 +65,12 @@ a:link {
 
 /* NAVIGATION BAR */
 
-.nav-container {
-  padding-top: 0.25rem;
-  padding-bottom: 1rem;
-}
-
 .sticky-nav {
   border-radius: 0.5rem;
+}
+
+.nav-link :hover {
+  filter: brightness(0.6);
 }
 
 .logo {
@@ -318,5 +317,12 @@ a:link {
 
   .widget-list-inline li a {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .sticky-nav {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
   }
 }

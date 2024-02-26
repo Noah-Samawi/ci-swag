@@ -1,8 +1,8 @@
 {% load static %}
 
 
-<div class="nav-container m-0">
-  <nav class="container sticky-top sticky-nav navbar navbar-expand-lg navbar-light bg-light p-0 ">
+<div class="m-0 pb-3 pt-lg-1">
+  <nav class="container sticky-top sticky-nav navbar navbar-expand-lg navbar-light bg-light p-0">
     <div class="container-fluid">
       <a class="navbar-brand fw-bolder logo" href="{% url 'home' %}">
         <img src="{% static 'images/logo.png' %}" alt="code institute swag logo">
@@ -69,12 +69,14 @@
             </ul>
           </li>
        
+        {%  if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url "subscriptions" %}">
               <span class="text-orange fw-bold">Subscriptions <i class="fa-solid fa-certificate text-orange"></i>
               </span>
             </a>
           </li> 
+        {% endif %}
         </ul>
 
 
@@ -127,7 +129,7 @@
                 <li class="nav-item">
                   <a class="nav-link text-secondary m-0" href="{% url "view_cart" %}" aria-expanded="false">
                     <span class='text-orange fw-bold d-md-none'>Cart</span>
-                    <i class="fas fa-shopping-bag fa-lg position-relative h5">
+                    <i class="fas fa-shopping-cart fa-lg position-relative h5">
                       {% if cart_items|length > 0 %}
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: x-small;">
                         {{ cart_items|length }}

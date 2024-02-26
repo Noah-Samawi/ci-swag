@@ -9,7 +9,7 @@
 {% block page_header %}
 <header class="bg-dark">
   <div class="container px-4 px-lg-5 my-5">
-    <div class="text-center text-white">
+    <article class="text-center text-white">
       <h1 class="display-4 fw-bolder">Subscriptions</h1>
       {% if request.user.profile.active_subscription %}
       <p class="lead fw-normal text-white-50 mb-0">Your membership is <span class="fw-bold text-{{request.user.profile.active_subscription.color}} font-weight-bold text-capitalize">{{request.user.profile.active_subscription}}</span></p>
@@ -19,7 +19,7 @@
         Become a member of <span class="text-info font-weight-bold">CI Swag</span> and enjoy the benefits!
     </p>
     {% endif %}
-    </div>
+    </article>
   </div>
 </header>
 

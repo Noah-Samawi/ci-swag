@@ -9,6 +9,10 @@
   border: 1px solid #0275d8;
 }
 
+.program-card .title {
+  min-height: 3.5ch;
+}
+
 /* VIDEO  */
 
 iframe {
