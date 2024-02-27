@@ -445,14 +445,14 @@ Automated testing was conducted to verify the accuracy of the page responses and
 
 ## Stripe
 
-- Order created successfully
+- Payment Element
 
-![Order](./assets/readme-images/order.PNG)
+![Order](./documentation/images/testing/stripecardelement.png)
 
 - Stripe webhooks
 
-![Webhook](./assets/readme-images/webhooks.PNG)
+![Webhook](./documentation/images/testing/stripewh.png)
 
-- Stripe Events
+- Stripe Events/Payments
 
-![Events](./assets/readme-images/events.PNG)
+![Events](./documentation/images/testing/stripepayments.png)
