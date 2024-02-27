@@ -48,6 +48,8 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
   - [Pending Post](#pending-post)
   - [Error Pages](#comment-form)
   - [Future Features](#future-features)
+- [Marketing](#marketing)
+- [Search Engine Optimization SEO](#search-engine-optimization-seo)
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Technologies and Languages](#technologies-and-languages)
@@ -530,6 +532,47 @@ Allow users to easily update their email addresses associated with their account
 ### Course Tracker
 
 Implement a tracker that monitors users' progress through online courses based on completed modules. This feature provides users with a visual representation of their learning journey, helping them stay motivated and track their advancement towards course completion.
+
+## Marketing
+
+CI Swag's marketing strategy will focus on online channels to boost traffic and engagement. There will be an initial setup as seen in this project followed by the hypothesis of a marketing strategy that can be used when payments/business accounts are installed.
+
+### Initial Plan
+
+Facebook will serve as the primary platform, with a dedicated business page promoting products and fostering customer interaction. Posts will be made on the business page as well as information pertaining to the website. A automated bot will be setup to answer FAQ questions.
+
+Additionally, Mailchimp will be utilized for weekly newsletters, updating subscribers on new offerings, promotions, and site enhancements. Emails of users can then be input into FB, google and other online providers to build an audience list.
+
+By combining social media outreach with targeted email marketing, CI Swag aims to effectively engage its audience, drive website traffic, and enhance brand visibility in the competitive ecommerce landscape.
+
+![Facebook Banner](./documentation/images/fbbanner.png)
+![Facebook Page](./documentation/images/fbpage.png)
+![Facebook Banner](./documentation/images/fbfaq.png)
+![Facebook Banner](./documentation/images/fbreply.png)
+
+### Paid Business Plan
+
+Hypthoesis of a marketing plan for paid business. This will be broken down into 3 keys online providers. This will required GDPR considerations as well as a verified business.
+
+#### Facebook
+
+1. Boosted posts on the business homepage to extend reach
+2. Installation of FB pixel throughout the website to capture analytics - CTR - Add To Cart, Purchase
+3. Targeted add campaigns based on audience demographics and LLA audience modelling
+
+#### Instagram
+
+1. Reels and Shorts created to showcase products and testimonials
+2. Linked to FB pixel for tracking performance metrics
+
+### Google
+
+1. Creating a google business account and updating business directory
+2. Google ads for targeting audiences with banner ads and promoted search results
+3. Analytics for understanding traffic and audience
+4. Installing pixel throughout the website for key metrics
+
+## Search Engine Optimization SEO
 
 ## Testing
 
