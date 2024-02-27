@@ -18,6 +18,7 @@
         </p>
       </div>
 
+      <!-- Navigation Widgets -->
       <ul class="list-inline widget-list-inline text-center my-3">
         <li class="list-inline-item m-1">
           <a href="{% url 'programs' %}">All</a>
@@ -49,6 +50,7 @@
     <!-- Program Info Section -->
     <section class="py-3 bg-white">
 
+        <!-- Search Bar -->
         {% url 'programs' as url %}
         {% with url=url %}
             {% include "includes/searchbar.html" %}
@@ -60,6 +62,7 @@
             class="row row-cols-lg-2 g-3"
           >
           {% for program in programs  %}
+            <!-- Program Preview Card -->
 
           {% include "includes/program_card.html" with program=program %}
 
