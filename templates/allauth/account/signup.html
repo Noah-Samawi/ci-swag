@@ -14,7 +14,7 @@
 <form class="signup card-body cardbody-color p-lg-5 mx-auto" id="signup_form" method="post" action="{% url 'account_signup' %}">
   <div class="text-center">
     <img src="{% static 'images/logo.png' %}" class="img-fluid profile-image-pic img-thumbnail rounded-circle mb-2"
-      width="200px" alt="profile">
+      alt="profile">
   </div>
   {% csrf_token %}
   {{ form|crispy }}

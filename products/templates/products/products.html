@@ -40,8 +40,10 @@
 {% endblock %}
 
 {% block content %}
-    <!-- Section-->
+    <!-- Product-->
     <section class="py-3 bg-white">
+      <!-- Heading for accessibility-->
+      <h2 class='visually-hidden'>Products</h2> 
 
         {% url 'products' as url %}
         {% with url=url %}

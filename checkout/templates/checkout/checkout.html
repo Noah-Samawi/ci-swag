@@ -106,7 +106,7 @@
                           id="id-save-info"
                           name="save-info"
                           checked
-                        />
+                        >
                         {% else %}
                         <label class="form-check-label" for="id-save-info">
                           <a class="text-info" href="{% url 'account_signup' %}"
@@ -153,7 +153,7 @@
                         type="hidden"
                         value="{{ client_secret }}"
                         name="client_secret"
-                      />
+                      >
                     </fieldset>
                   </li>
                 </ol>
@@ -196,7 +196,7 @@
                       src="{{item.product.image.url}}"
                       alt="{{item.product.name}} product photo"
                       style="object-fit: cover"
-                    />
+                    >
                     {% else %} <img class="avatar-lg bg-{{item.product.color}}"
                     alt='{{item.product.name}} product photo' 
                     src="{% static "images/award-placeholder.webp" %}" style='object-fit: cover;' >
@@ -223,7 +223,7 @@
                 </div>
                 {% endfor %}
       
-                <hr />
+                <hr>
                 <div class="row mb-2">
                   <div class="col"><b> Shipping/Admin Charge:</b></div>
                   <div class="col-auto d-flex justify-content-end">
