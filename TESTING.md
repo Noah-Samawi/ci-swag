@@ -59,43 +59,41 @@ Go back to [README.md](/README.md)
 
 ## Python
 
-| File     | App      | Image                                                                     | Result           | Comment |
-| -------- | -------- | ------------------------------------------------------------------------- | ---------------- | ------- |
-| views    | home     | ![views](./documentation/images/testing/python/homeviewspy.png)           | <mark>PASS<mark> |         |
-| urls     | home     | ![urls](./documentation/images/testing/python/homeurlspy.png)             | <mark>PASS<mark> |         |
-| tests    | home     | ![test](./documentation/images/testing/python/hometestspy.png)            | <mark>PASS<mark> |         |
-| views    | products | ![views](./documentation/images/testing/python/productsviewspy.png)       | <mark>PASS<mark> |         |
-| utils    | products | ![utils](./documentation/images/testing/python/productsutilspy.png)       | <mark>PASS<mark> |         |
-| urls     | products | ![urls](./documentation/images/testing/python/productsurlspy.png)         | <mark>PASS<mark> |         |
-| tests    | products | ![tests](./documentation/images/testing/python/productstestspy.png)       | <mark>PASS<mark> |         |
-| models   | products | ![models](./documentation/images/testing/python/productsmodelspy.png)     | <mark>PASS<mark> |         |
-| admin    | products | ![admin](./documentation/images/testing/python/productsadminpy.png)       | <mark>PASS<mark> |         |
-| views    | programs | ![views](./documentation/images/testing/python/programsviewspy.png)       | <mark>PASS<mark> |         |
-| urls     | programs | ![urls](./documentation/images/testing/python/programsurlspy.png)         | <mark>PASS<mark> |         |
-| tests    | programs | ![tests](./documentation/images/testing/python/programstestspy.png)       | <mark>PASS<mark> |         |
-| models   | programs | ![models](./documentation/images/testing/python/programsmodelspy.png)     | <mark>PASS<mark> |         |
-| admin    | programs | ![admin](./documentation/images/testing/python/programsadminpy.png)       | <mark>PASS<mark> |         |
-| views    | profiles | ![views](./documentation/images/testing/python/profilesviewspy.png)       | <mark>PASS<mark> |         |
-| urls     | profiles | ![urls](./documentation/images/testing/python/profilesurlspy.png)         | <mark>PASS<mark> |         |
-| tests    | profiles | ![tests](./documentation/images/testing/python/profilestestspy.png)       | <mark>PASS<mark> |         |
-| models   | profiles | ![models](./documentation/images/testing/python/profilesmodelspy.png)     | <mark>PASS<mark> |         |
-| forms    | profiles | ![forms](./documentation/images/testing/python/profilesformspy.png)       | <mark>PASS<mark> |         |
-| admin    | profiles | ![admin](./documentation/images/testing/python/profilesadminpy.png)       | <mark>PASS<mark> |         |
-| webhooks | checkout | ![webhooks](./documentation/images/testing/python/checkoutwebhookspy.png) | <mark>PASS<mark> |         |
-| handler  | checkout | ![handler](./documentation/images/testing/python/checkouthandlerpy.png)   | <mark>PASS<mark> |         |
-| view     | checkout | ![view](./documentation/images/testing/python/checkoutviewspy.png)        | <mark>PASS<mark> |         |
-| urls     | checkout | ![urls](./documentation/images/testing/python/checkouturlspy.png)         | <mark>PASS<mark> |         |
-| signals  | checkout | ![signals](./documentation/images/testing/python/checkoutsignalspy.png)   | <mark>PASS<mark> |         |
-| models   | checkout | ![models](./documentation/images/testing/python/checkoutmodelspy.png)     | <mark>PASS<mark> |         |
-| forms    | checkout | ![forms](./documentation/images/testing/python/checkoutformspy.png)       | <mark>PASS<mark> |         |
-| admin    | checkout | ![admin](./documentation/images/testing/python/checkoutadminpy.png)       | <mark>PASS<mark> |         |
-| views    | cart     | ![views](./documentation/images/testing/python/cartviewspy.png)           | <mark>PASS<mark> |         |
-| utils    | cart     | ![utils](./documentation/images/testing/python/cartutilspy.png)           | <mark>PASS<mark> |         |
-| urls     | cart     | ![urls](./documentation/images/testing/python/carturlspy.png)             | <mark>PASS<mark> |         |
-| tests    | cart     | ![tests](./documentation/images/testing/python/carttestspy.png)           | <mark>PASS<mark> |         |
-| context  | cart     | ![context](./documentation/images/testing/python/cartcontextpy.png)       | <mark>PASS<mark> |         |
-
-Line too long - code from CI walkthrough on webhook - left unedited
+| File     | App      | Image                                                                     | Result           | Comment                                                             |
+| -------- | -------- | ------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------- |
+| views    | home     | ![views](./documentation/images/testing/python/homeviewspy.png)           | <mark>PASS<mark> |                                                                     |
+| urls     | home     | ![urls](./documentation/images/testing/python/homeurlspy.png)             | <mark>PASS<mark> |                                                                     |
+| tests    | home     | ![test](./documentation/images/testing/python/hometestspy.png)            | <mark>PASS<mark> |                                                                     |
+| views    | products | ![views](./documentation/images/testing/python/productsviewspy.png)       | <mark>PASS<mark> |                                                                     |
+| utils    | products | ![utils](./documentation/images/testing/python/productsutilspy.png)       | <mark>PASS<mark> |                                                                     |
+| urls     | products | ![urls](./documentation/images/testing/python/productsurlspy.png)         | <mark>PASS<mark> |                                                                     |
+| tests    | products | ![tests](./documentation/images/testing/python/productstestspy.png)       | <mark>PASS<mark> |                                                                     |
+| models   | products | ![models](./documentation/images/testing/python/productsmodelspy.png)     | <mark>PASS<mark> |                                                                     |
+| admin    | products | ![admin](./documentation/images/testing/python/productsadminpy.png)       | <mark>PASS<mark> |                                                                     |
+| views    | programs | ![views](./documentation/images/testing/python/programsviewspy.png)       | <mark>PASS<mark> |                                                                     |
+| urls     | programs | ![urls](./documentation/images/testing/python/programsurlspy.png)         | <mark>PASS<mark> |                                                                     |
+| tests    | programs | ![tests](./documentation/images/testing/python/programstestspy.png)       | <mark>PASS<mark> |                                                                     |
+| models   | programs | ![models](./documentation/images/testing/python/programsmodelspy.png)     | <mark>PASS<mark> |                                                                     |
+| admin    | programs | ![admin](./documentation/images/testing/python/programsadminpy.png)       | <mark>PASS<mark> |                                                                     |
+| views    | profiles | ![views](./documentation/images/testing/python/profilesviewspy.png)       | <mark>PASS<mark> |                                                                     |
+| urls     | profiles | ![urls](./documentation/images/testing/python/profilesurlspy.png)         | <mark>PASS<mark> |                                                                     |
+| tests    | profiles | ![tests](./documentation/images/testing/python/profilestestspy.png)       | <mark>PASS<mark> |                                                                     |
+| models   | profiles | ![models](./documentation/images/testing/python/profilesmodelspy.png)     | <mark>PASS<mark> |                                                                     |
+| forms    | profiles | ![forms](./documentation/images/testing/python/profilesformspy.png)       | <mark>PASS<mark> |                                                                     |
+| admin    | profiles | ![admin](./documentation/images/testing/python/profilesadminpy.png)       | <mark>PASS<mark> |                                                                     |
+| webhooks | checkout | ![webhooks](./documentation/images/testing/python/checkoutwebhookspy.png) | <mark>PASS<mark> | Line too long - code from CI walkthrough on webhook - left unedited |
+| handler  | checkout | ![handler](./documentation/images/testing/python/checkouthandlerpy.png)   | <mark>PASS<mark> |                                                                     |
+| view     | checkout | ![view](./documentation/images/testing/python/checkoutviewspy.png)        | <mark>PASS<mark> |                                                                     |
+| urls     | checkout | ![urls](./documentation/images/testing/python/checkouturlspy.png)         | <mark>PASS<mark> |                                                                     |
+| signals  | checkout | ![signals](./documentation/images/testing/python/checkoutsignalspy.png)   | <mark>PASS<mark> |                                                                     |
+| models   | checkout | ![models](./documentation/images/testing/python/checkoutmodelspy.png)     | <mark>PASS<mark> |                                                                     |
+| forms    | checkout | ![forms](./documentation/images/testing/python/checkoutformspy.png)       | <mark>PASS<mark> |                                                                     |
+| admin    | checkout | ![admin](./documentation/images/testing/python/checkoutadminpy.png)       | <mark>PASS<mark> |                                                                     |
+| views    | cart     | ![views](./documentation/images/testing/python/cartviewspy.png)           | <mark>PASS<mark> |                                                                     |
+| utils    | cart     | ![utils](./documentation/images/testing/python/cartutilspy.png)           | <mark>PASS<mark> |                                                                     |
+| urls     | cart     | ![urls](./documentation/images/testing/python/carturlspy.png)             | <mark>PASS<mark> |                                                                     |
+| tests    | cart     | ![tests](./documentation/images/testing/python/carttestspy.png)           | <mark>PASS<mark> |                                                                     |
+| context  | cart     | ![context](./documentation/images/testing/python/cartcontextpy.png)       | <mark>PASS<mark> |                                                                     |
 
 ## Responsiveness
 
@@ -111,6 +109,9 @@ The responsiveness of the website was thoroughly tested on various devices, incl
 | Safari        | All pages, load as expected. All features work as expected | <mark>Pass</mark> |
 
 ## Lighthouse
+
+| Page | Validator | Result |
+| ---- | --------- | ------ |
 
 ## Manual Testing
 

@@ -12,8 +12,8 @@
       "rating": 4.5,
       "difficulty": 1,
       "length": "2:15:00",
-      "image_url": "http://example.com/semantic_accessibility.jpg",
-      "image": "semantic.jpg"
+      "image_url": "http://example.com/semantic_accessibility.webp",
+      "image": "semantic.webp"
     }
   },
   {
@@ -29,8 +29,8 @@
       "rating": 4.8,
       "difficulty": 1,
       "length": "1:20:00",
-      "image_url": "http://example.com/design_principles.jpg",
-      "image": "ux.jpg"
+      "image_url": "http://example.com/design_principles.webp",
+      "image": "ux.webp"
     }
   },
   {
@@ -46,8 +46,8 @@
       "rating": 4.5,
       "difficulty": 2,
       "length": "2:40:00",
-      "image_url": "http://example.com/devops_fundamentals.jpg",
-      "image": "devops.png"
+      "image_url": "http://example.com/devops_fundamentals.webp",
+      "image": "devops.webp"
     }
   },
   {
@@ -63,8 +63,8 @@
       "rating": 4.3,
       "difficulty": 3,
       "length": "4:40:00",
-      "image_url": "http://example.com/cloud_computing.jpg",
-      "image": "cloud.png"
+      "image_url": "http://example.com/cloud_computing.webp",
+      "image": "cloud.webp"
     }
   },
   {
@@ -80,8 +80,8 @@
       "rating": 4.6,
       "difficulty": 2,
       "length": "0:45:00",
-      "image_url": "http://example.com/continuous_delivery.jpg",
-      "image": "delivery.png"
+      "image_url": "http://example.com/continuous_delivery.webp",
+      "image": "delivery.webp"
     }
   },
   {
@@ -97,8 +97,8 @@
       "rating": 4.7,
       "difficulty": 3,
       "length": "1:15:00",
-      "image_url": "http://example.com/machine_learning.jpg",
-      "image": "machine_learning.png"
+      "image_url": "http://example.com/machine_learning.webp",
+      "image": "machine_learning.webp"
     }
   },
   {
@@ -114,8 +114,8 @@
       "rating": 4.5,
       "difficulty": 1,
       "length": "1:55:00",
-      "image_url": "http://example.com/data_visualization.jpg",
-      "image": "data_visualization.png"
+      "image_url": "http://example.com/data_visualization.webp",
+      "image": "data_visualization.webp"
     }
   },
   {
@@ -131,8 +131,8 @@
       "rating": 4.2,
       "difficulty": 1,
       "length": "3:30:00",
-      "image_url": "http://example.com/data_structures.jpg",
-      "image": "data_structures.jpg"
+      "image_url": "http://example.com/data_structures.webp",
+      "image": "data_structures.webp"
     }
   },
   {
@@ -148,7 +148,7 @@
       "rating": 4.0,
       "difficulty": 1,
       "length": "1:50:00",
-      "image_url": "http://example.com/r_programming.jpg",
+      "image_url": "http://example.com/r_programming.webp",
       "image": "r_programming.webp"
     }
   },
@@ -165,8 +165,8 @@
       "rating": 4.8,
       "difficulty": 3,
       "length": "7:10:00",
-      "image_url": "http://example.com/javascript_libraries.jpg",
-      "image": "js_libraries.png"
+      "image_url": "http://example.com/javascript_libraries.webp",
+      "image": "js_libraries.webp"
     }
   },
   {
@@ -182,8 +182,8 @@
       "rating": 4.6,
       "difficulty": 2,
       "length": "2:30:00",
-      "image_url": "http://example.com/game_dev_libraries.jpg",
-      "image": "kaboom.png"
+      "image_url": "http://example.com/game_dev_libraries.webp",
+      "image": "kaboom.webp"
     }
   },
   {
@@ -199,8 +199,8 @@
       "rating": 4.9,
       "difficulty": 2,
       "length": "4:20:00",
-      "image_url": "http://example.com/unity_game_engine.jpg",
-      "image": "unity.jpg"
+      "image_url": "http://example.com/unity_game_engine.webp",
+      "image": "unity.webp"
     }
   },
   {
@@ -216,8 +216,8 @@
       "rating": 4.7,
       "difficulty": 2,
       "length": "2:35:00",
-      "image_url": "http://example.com/blender_3d_modeling.jpg",
-      "image": "blender.png"
+      "image_url": "http://example.com/blender_3d_modeling.webp",
+      "image": "blender.webp"
     }
   },
   {
@@ -233,8 +233,8 @@
       "rating": 4.5,
       "difficulty": 1,
       "length": "2:00:00",
-      "image_url": "http://example.com/react_native_basics.jpg",
-      "image": "react_native.png"
+      "image_url": "http://example.com/react_native_basics.webp",
+      "image": "react_native.webp"
     }
   },
   {
@@ -250,8 +250,8 @@
       "rating": 4.7,
       "difficulty": 2,
       "length": "2:25:00",
-      "image_url": "http://example.com/flutter_google_apps.jpg",
-      "image": "flutter.jpg"
+      "image_url": "http://example.com/flutter_google_apps.webp",
+      "image": "flutter.webp"
     }
   },
   {
@@ -267,7 +267,7 @@
       "rating": 4.8,
       "difficulty": 2,
       "length": "1:15:00",
-      "image_url": "http://example.com/ios_app_dev_essentials.jpg",
+      "image_url": "http://example.com/ios_app_dev_essentials.webp",
       "image": "ios_dev.webp"
     }
   },
@@ -284,8 +284,8 @@
       "rating": 4.9,
       "difficulty": 1,
       "length": "2:05:00",
-      "image_url": "http://example.com/apple_dev_package.jpg",
-      "image": "apple.png"
+      "image_url": "http://example.com/apple_dev_package.webp",
+      "image": "apple.webp"
     }
   },
   {
@@ -301,8 +301,8 @@
       "rating": 4.5,
       "difficulty": 1,
       "length": "0:60:00",
-      "image_url": "http://example.com/js_array_methods.jpg",
-      "image": "js_methods.jpg"
+      "image_url": "http://example.com/js_array_methods.webp",
+      "image": "js_methods.webp"
     }
   },
   {
@@ -318,8 +318,8 @@
       "rating": 4.8,
       "difficulty": 2,
       "length": "0:45:00",
-      "image_url": "http://example.com/python_list_comprehension.jpg",
-      "image": "python_list.png"
+      "image_url": "http://example.com/python_list_comprehension.webp",
+      "image": "python_list.webp"
     }
   },
   {
@@ -335,8 +335,8 @@
       "rating": 4.6,
       "difficulty": 2,
       "length": "4:00:00",
-      "image_url": "http://example.com/nodejs_backend.jpg",
-      "image": "nodejs.jpg"
+      "image_url": "http://example.com/nodejs_backend.webp",
+      "image": "nodejs.webp"
     }
   },
   {
@@ -352,8 +352,8 @@
       "rating": 4.3,
       "difficulty": 3,
       "length": "3:10:00",
-      "image_url": "http://example.com/js_bundlers.jpg",
-      "image": "bundlers.jpg"
+      "image_url": "http://example.com/js_bundlers.webp",
+      "image": "bundlers.webp"
     }
   },
   {
@@ -369,8 +369,8 @@
       "rating": 4.7,
       "difficulty": 1,
       "length": "1:35:00",
-      "image_url": "http://example.com/flexbox_grid.jpg",
-      "image": "flex.png"
+      "image_url": "http://example.com/flexbox_grid.webp",
+      "image": "flex.webp"
     }
   }
 ]
