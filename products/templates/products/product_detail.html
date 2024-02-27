@@ -54,6 +54,7 @@
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="d-flex">
+                <label for="inputQuantity" class="visually-hidden">Quantity</label>
                 <input
                     name="quantity"
                     class="form-control text-center me-3"
