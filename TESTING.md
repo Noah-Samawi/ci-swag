@@ -110,8 +110,28 @@ The responsiveness of the website was thoroughly tested on various devices, incl
 
 ## Lighthouse
 
-| Page | Validator | Result |
-| ---- | --------- | ------ |
+| Page                   | Validator                                                                                     | Result                 |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ---------------------- |
+| Home                   | ![home](./documentation/images/testing/lighthouse/home.png)                                   | <mark>Excellent</mark> |
+| Home Mobile            | ![home mobile](./documentation/images/testing/lighthouse/homemobile.png)                      | <mark>Excellent</mark> |
+| Products               | ![products](./documentation/images/testing/lighthouse/products.png)                           | <mark>Excellent</mark> |
+| Product Mobile         | ![products mobile](./documentation/images/testing/lighthouse/productsmobile.png)              | <mark>Excellent</mark> |
+| Product Detail         | ![product detail](./documentation/images/testing/lighthouse/productdetail.png)                | <mark>Excellent</mark> |
+| Product Detail Mobile  | ![product detail mobile](./documentation/images/testing/lighthouse/productdetailmobile.png)   | <mark>Excellent</mark> |
+| Programs               | ![programs](./documentation/images/testing/lighthouse/programs.png)                           | <mark>Excellent</mark> |
+| Programs Mobile        | ![programs mobile](./documentation/images/testing/lighthouse/programsmobile.png)              | <mark>Excellent</mark> |
+| Programs Detail        | ![programs detail](./documentation/images/testing/lighthouse/programsdetail.png)              | <mark>Excellent</mark> |
+| Programs Detail Mobile | ![programs detail mobile](./documentation/images/testing/lighthouse/programsdetailmobile.png) | <mark>Excellent</mark> |
+| Cart                   | ![cart](./documentation/images/testing/lighthouse/cart.png)                                   | <mark>Good</mark>      |
+| Cart Mobile            | ![cart mobile](./documentation/images/testing/lighthouse/cartmobile.png)                      | <mark>Pass</mark>      |
+| Checkout               | ![checkout](./documentation/images/testing/lighthouse/checkout.png)                           | <mark>Pass</mark>      |
+| Checkout Mobile        | ![checkout mobile](./documentation/images/testing/lighthouse/checkoutmobile.png)              | <mark>Pass</mark>      |
+| Confirmation           | ![confirmation](./documentation/images/testing/lighthouse/confirmation.png)                   | <mark>Excellent</mark> |
+| Confirmation Mobile    | ![confirmation mobile](./documentation/images/testing/lighthouse/confirmationmobile.png)      | <mark>Excellent</mark> |
+| Subscription           | ![subscription](./documentation/images/testing/lighthouse/subscription.png)                   | <mark>Excellent</mark> |
+| Subscription Mobile    | ![subscription mobile](./documentation/images/testing/lighthouse/subscriptionmobile.png)      | <mark>Pass</mark>      |
+| My courses             | ![my courses](./documentation/images/testing/lighthouse/mycourses.png)                        | <mark>Excellent</mark> |
+| My courses Mobile      | ![my courses mobile](./documentation/images/testing/lighthouse/mycoursesmobile.png)           | <mark>Excellent</mark> |
 
 ## Manual Testing
 
