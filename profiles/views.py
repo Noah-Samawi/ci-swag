@@ -109,11 +109,13 @@ class SubscriptionsView(LoginRequiredMixin, View):
         """
         subscriptions = Subscription.objects.all().order_by('price')
 
+
         active_subscription_id = (
             request.user.profile.active_subscription.id
             if request.user.profile.active_subscription
             else None
         )
+        # Add current subscription id to context
         for subscription in subscriptions:
             subscription.current = subscription.id == active_subscription_id
 
@@ -157,6 +159,7 @@ class MyCoursesView(LoginRequiredMixin, View):
         if request.user.profile.active_subscription:
             if request.user.profile.active_subscription.id == 54:
                 programs = Program.objects.all()
+            # Check if user has a profile and orders
             else:
                 if hasattr(request.user, 'profile'):
                     orders = request.user.profile.orders.all() or []

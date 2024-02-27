@@ -41,7 +41,7 @@ def filter_and_sort_products(products, request):
             if direction == 'desc':
                 sortkey = f'-{sortkey}'
         products = products.order_by(sortkey)
-
+        # Sort key based on total final price not price
         if sortkey == 'price':
             products = sorted(products, key=lambda p: p.total_final_price)
         if sortkey == '-price':

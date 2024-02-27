@@ -41,6 +41,7 @@ class CheckoutView(View):
         current_cart = cart_contents(request)
         total = current_cart['total']
 
+        # Return if no items in cart
         if len(current_cart['cart_items']) == 0:
             messages.error(request, "There are no items in your cart")
             return redirect(reverse('view_cart'))
@@ -78,10 +79,12 @@ class CheckoutView(View):
 
         order_form_data = request.session.get('order_form_data')
 
+        # Render error context if form data is present
         if order_form_data:
             order_form = OrderForm(initial=order_form_data['cleaned_data'])
             order_form._errors = order_form_data['errors']
             del request.session['order_form_data']
+
 
         context = {
             'order_form': order_form,
@@ -127,6 +130,8 @@ class CheckoutView(View):
                 # Membership discount
                 discount = 0
                 item = get_item_from_item_id(item_id)
+
+                # Apply discounts to products if user has a subscription    
                 try:
                     if isinstance(item, Subscription):
                         content_type = \
@@ -149,6 +154,7 @@ class CheckoutView(View):
                                 sub = request.user.profile.subscription
                                 discount = sub.product_discount
 
+                    # Create order line item from generic item     
                     order_line_item = OrderLineItem(
                             order=order,
                             content_type=content_type,
