@@ -128,11 +128,12 @@
                     {% endif %}
                   </ul>
                 </li>
-                <!-- Cart Link Dropdown-->
+                <!-- Cart Link-->
                 <li class="nav-item">
-                  <a class="nav-link m-0" href="{% url "view_cart" %}" aria-expanded="false">
+                  <a class="nav-link m-0" href="{% url "view_cart" %}" aria-label="View Cart" aria-expanded="false">
                     <p class='p-0 m-0'> 
-                      <span class='fw-bold d-md-none'>Cart</span>  
+                      <span class='fw-bold d-md-none'>Cart</span> 
+                      
                       
                       <i class="fas fa-shopping-cart fa-lg position-relative h5">
                       {% if cart_items|length > 0 %}
