@@ -19,13 +19,33 @@ Go back to [README.md](/README.md)
 
 ### HTML
 
-| Page | Validator | Result |
-| ---- | --------- | ------ |
+| Page               | Validator                                                                            | Result           | Comment |
+| ------------------ | ------------------------------------------------------------------------------------ | ---------------- | ------- |
+| Home               | ![home](./documentation/images/testing/html/homepagehtml.png)                        | <mark>PASS<mark> |         |
+| Products           | ![products](./documentation/images/testing/html/productshtml.png)                    | <mark>PASS<mark> |         |
+| Product Detail     | ![product detail](./documentation/images/testing/html/productdetailhtml.png)         | <mark>PASS<mark> |         |
+| Programs           | ![programs](./documentation/images/testing/html/programspagehtml.png)                | <mark>PASS<mark> |         |
+| Program Detail     | ![program detail](./documentation/images/testing/html/programdetailpagehtml.png)     | <mark>PASS<mark> |         |
+| Cart               | ![cart](./documentation/images/testing/html/carthtml.png)                            | <mark>PASS<mark> |         |
+| Checkout           | ![checkout](./documentation/images/testing/html/checkouthtml.png.png)                | <mark>PASS<mark> |         |
+| Subscription       | ![subscription](./documentation/images/testing/html/subscriptionhtml.png)            | <mark>PASS<mark> |         |
+| Profile            | ![profile](./documentation/images/testing/html/profilehtml.png)                      | <mark>PASS<mark> |         |
+| Order Confirmation | ![order confirmation](./documentation/images/testing/html/orderconfirmationhtml.png) | <mark>PASS<mark> |         |
+| My Courses         | ![my courses](./documentation/images/testing/html/mycourseshtml.png)                 | <mark>PASS<mark> |         |
+| Logout             | ![logout](./documentation/images/testing/html/logouthtml.png)                        | <mark>PASS<mark> |         |
+| Login              | ![login](./documentation/images/testing/html/loginhtml.png)                          | <mark>PASS<mark> |         |
+| Home               | ![home](./documentation/images/testing/html/homepagehtml.png)                        | <mark>PASS<mark> |         |
 
 ### CSS
 
-| File | Validator | Result |
-| ---- | --------- | ------ |
+| File     | Validator                                                       | Result           |
+| -------- | --------------------------------------------------------------- | ---------------- |
+| Base     | ![base](./documentation/images/testing/css/basecss.png)         | <mark>PASS<mark> |
+| Program  | ![program](./documentation/images/testing/css/programcss.png)   | <mark>PASS<mark> |
+| Profile  | ![profile](./documentation/images/testing/css/profilecss.png)   | <mark>PASS<mark> |
+| Product  | ![product](./documentation/images/testing/css/productcss.png)   | <mark>PASS<mark> |
+| Checkout | ![checkout](./documentation/images/testing/css/checkoutcss.png) | <mark>PASS<mark> |
+| Cart     | ![cart](./documentation/images/testing/css/cartcss.png)         | <mark>PASS<mark> |
 
 ## JavaScript
 
