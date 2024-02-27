@@ -109,7 +109,6 @@ class SubscriptionsView(LoginRequiredMixin, View):
         """
         subscriptions = Subscription.objects.all().order_by('price')
 
-
         active_subscription_id = (
             request.user.profile.active_subscription.id
             if request.user.profile.active_subscription

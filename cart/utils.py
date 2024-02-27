@@ -9,7 +9,7 @@ from profiles.models import Subscription
 
 def get_item_from_item_id(item_id):
     """Get the item from the item_id."""
-    
+
     try:
         # Check if item_id exists in Product
         if Product.objects.filter(pk=item_id).exists():

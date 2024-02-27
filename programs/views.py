@@ -8,7 +8,6 @@ from products.utils import filter_and_sort_products
 from cart.contexts import cart_contents
 
 
-# Create your views here.
 def all_programs(request):
     """ A view to show all programs, including sorting and search queries """
     programs = Program.objects.all()

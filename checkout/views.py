@@ -85,7 +85,6 @@ class CheckoutView(View):
             order_form._errors = order_form_data['errors']
             del request.session['order_form_data']
 
-
         context = {
             'order_form': order_form,
             'stripe_public_key': self.stripe_public_key,
@@ -131,7 +130,7 @@ class CheckoutView(View):
                 discount = 0
                 item = get_item_from_item_id(item_id)
 
-                # Apply discounts to products if user has a subscription    
+                # Apply discounts to products if user has a subscription
                 try:
                     if isinstance(item, Subscription):
                         content_type = \
@@ -154,7 +153,7 @@ class CheckoutView(View):
                                 sub = request.user.profile.subscription
                                 discount = sub.product_discount
 
-                    # Create order line item from generic item     
+                    # Create order line item from generic item
                     order_line_item = OrderLineItem(
                             order=order,
                             content_type=content_type,
@@ -229,6 +228,7 @@ def checkout_success(request, order_number):
                 for field, errors in user_profile_form.errors.items():
                     print(f'Field: {field}, Errors: {", ".join(errors)}')
 
+    # Delete the user's cart session
     if 'cart' in request.session:
         del request.session['cart']
 

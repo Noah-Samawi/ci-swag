@@ -15,16 +15,14 @@ class UserProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['default_phone_number'].label = "Phone Number - *Include country code"
-
-
+        self.fields['default_phone_number'].label = \
+        "Phone Number - *Include country code"
 
     class Meta:
         """Get UserProfile model, choose fields to display"""
 
         model = UserProfile
         exclude = ('user', 'active_subscription', 'subscription')
-      
 
 
 class UpdateUserForm(UserChangeForm):
