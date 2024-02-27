@@ -1,3 +1,5 @@
+/* All Base CSS Styles */
+
 :root {
   --primary-orange: #ef5d10;
   --secondary-orange: #8f390a;
@@ -30,22 +32,12 @@ a:link {
   text-decoration: none;
 }
 
-.membership {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1rem;
-  border: 2px solid;
-}
-
 .link-light:hover,
 .link-light:focus {
   text-decoration: underline;
 }
 
 /* CUSTOM BOOTSTRAP INLINE THEMES */
-
 .bg-orange {
   background: var(--primary-orange);
 }
@@ -315,6 +307,16 @@ a:link {
 
 .loading-spinner .icon i {
   font-size: 5rem;
+}
+
+/* Membership Badge */
+.membership {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  border: 2px solid;
 }
 
 /* BOOTSTRAP TOASTS */

@@ -38,6 +38,8 @@
       <p>${{item.product.price}}</p>
       {% endif %}
       {% if item.product.sale %}<span class='badge bg-success'>%{{item.product.sale}} Sale</span> {% endif %}
+
+      <!--User Member Discounts-->
       {% if request.user.is_authenticated %}
       {% if request.user.profile.subscription and item.product.discount != None %}
        <p class='badge bg-{{request.user.profile.subscription.color}} text-wrap'>
@@ -48,6 +50,7 @@
       {% endif %}
   
     </td>
+      <!--Update Product Form if Product -->
     <td data-th="Quantity">
       {% if item.product.id < 31 %}
       <form
@@ -69,6 +72,7 @@
       </button>
       <input type="hidden" name="redirect_url" value="{{ request.path }}" >
     </form>
+          <!--Remove Product Form -->
       {% endif %}
         <form
         class="form text-center"

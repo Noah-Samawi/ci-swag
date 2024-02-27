@@ -32,7 +32,7 @@
 
 
 {% block content %}
-    <!-- Section-->
+    <!-- Cart Section-->
     <section class="pt-5 pb-5">
         <div class="container p-0">
           <div class="row mx-0">
@@ -51,6 +51,7 @@
               </thead>
               <tbody>
                 {% for item in cart_items %}
+                <!--Cart Item Cards -->
                 {% include "includes/cart_item.html" with item=item  %}
                 {% endfor %}
               </tbody>

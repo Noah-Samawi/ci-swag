@@ -1,5 +1,4 @@
 /* SUBSCRIPTION CARDS */
-
 .subscription .header {
   padding: 45px 10px 70px;
   position: relative;
@@ -37,6 +36,7 @@
 .subscription .footer {
   padding: 10px 20px 30px;
 }
+
 .form-btn {
   width: 60px;
   height: 60px;

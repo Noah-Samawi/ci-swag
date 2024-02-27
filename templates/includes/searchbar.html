@@ -1,11 +1,14 @@
 <form method='GET' action='{{ url }}' class='p-1 mx-auto d-flex justify-content-center search-container'>
+
+   <!-- Search Query-->
     <div class="search"> 
-        <label for="search-input" class="visually-hidden">Search products</label>
-        <input id='search-input' type="text" class="search-input" placeholder="Search products" name="q" value={% if query %}{{query}} {% else %}" "{% endif %}> 
+        <label for="search-input" class="visually-hidden">Search items</label>
+        <input id='search-input' type="text" class="search-input" name="q" value={% if query %}{{query}} {% else %}" "{% endif %}> 
       <button type='submit' class="search-icon btn-primary border-0" aria-label="Submit search"> <i class="fa fa-search" aria-hidden="true"></i> 
       </button>
     </div>
     
+    <!-- Filter Price-->
     <button type="submit" class='btn btn-outline-dark align-items-center d-flex justify-content-center' name="sort" value="price">
         <small class='text-muted me-1'>Price</small> 
         <i class="fa-solid fa-money-bill text-success"></i>
@@ -20,6 +23,7 @@
         {% endif %}
     </button>
 
+    <!-- Filter Rating-->
     <button type="submit" class='text-center btn btn-outline-dark align-items-center d-flex justify-content-center' name="sort" value="rating">
         <small class='text-muted me-1'>Rating</small>
         <i class="fa-solid fa-star text-warning"></i>
@@ -34,6 +38,8 @@
       {% else %}
       {% endif %}
     </button>
+
+        <!-- Filter Sale -->
 
     <button type="submit" class='btn btn-outline-dark align-items-center d-flex justify-content-center' name="sort" value="sale">
     <small class='text-muted me-1'>Sale</small> 

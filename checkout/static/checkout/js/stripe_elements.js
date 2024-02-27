@@ -25,7 +25,7 @@ const style = {
     iconColor: "#dc3545",
   },
 };
-const card = elements.create("card", { style: style });
+const card = elements.create("card", { style: style, disableLink: true });
 card.mount("#card-element");
 
 // Handle realtime validation errors on the card element

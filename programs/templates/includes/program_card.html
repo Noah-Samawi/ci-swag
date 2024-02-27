@@ -10,6 +10,7 @@
       </div>
       <div class="col-lg-8">
         <div class="card-body">
+          <!-- Program Sale Check  -->
           {% if program.sale %}
             <span
               class="badge bg-success text-white position-absolute"
@@ -47,6 +48,8 @@
                 <strong class="text-dark">{{program.length}}</strong>
               </div>
               <div>
+                <!-- Program Difficulty Check  -->
+
                 <i class="fa-solid fa-chart-line text-danger"></i>
                 {% if program.difficulty == 1 %}
                 <span class="badge bg-success">Beginner</span>

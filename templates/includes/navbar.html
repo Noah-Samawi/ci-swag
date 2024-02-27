@@ -20,6 +20,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Product Dropdown-->
           <li class="nav-item dropdown">
             <a class="nav-link text-orange-secondary" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="text-orange-secondary fw-bold">Swag <i class="fa-solid fa-store text-orange-secondary"></i>
@@ -40,6 +42,7 @@
             </ul>
           </li>
 
+          <!-- Programs Dropdown-->
           <li class="nav-item dropdown">
             <a class="nav-link text-orange-secondary" href="#" id="courseDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <span class="text-orange-secondary fw-bold">Courses <i class="fa-solid fa-graduation-cap text-orange-secondary"></i>
@@ -69,6 +72,7 @@
             </ul>
           </li>
        
+          <!-- Subscription Link -->
         {%  if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link text-orange-secondary" href="{% url "subscriptions" %}">
@@ -83,7 +87,8 @@
 
         <div class="">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-  
+                <!-- Profile/Auth Dropdown-->
+
                 <li class="nav-item dropdown">
                   <a class="nav-link text-capitalize" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     
@@ -123,7 +128,7 @@
                     {% endif %}
                   </ul>
                 </li>
-    
+                <!-- Cart Link Dropdown-->
                 <li class="nav-item">
                   <a class="nav-link m-0" href="{% url "view_cart" %}" aria-expanded="false">
                     <p class='p-0 m-0'> 
