@@ -228,6 +228,10 @@ def checkout_success(request, order_number):
                 for field, errors in user_profile_form.errors.items():
                     print(f'Field: {field}, Errors: {", ".join(errors)}')
 
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
     # Delete the user's cart session
     if 'cart' in request.session:
         del request.session['cart']
