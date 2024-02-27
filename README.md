@@ -535,6 +535,10 @@ Implement a tracker that monitors users' progress through online courses based o
 
 ## Marketing
 
+The B2C (Business-to-Consumer) ecommerce model is adopted for CISwag as it is an online merchandise and edu platform platform catering to individual consumers looking to purchase a wide array of coding related products or enroll in supplementary education courses.
+
+The main target audience will be software engineering students or existing developers.
+
 CI Swag's marketing strategy will focus on online channels to boost traffic and engagement. There will be an initial setup as seen in this project followed by the hypothesis of a marketing strategy that can be used when payments/business accounts are installed.
 
 ### Initial Plan
@@ -549,6 +553,7 @@ By combining social media outreach with targeted email marketing, CI Swag aims t
 ![Facebook Page](./documentation/images/fbpage.png)
 ![Facebook Banner](./documentation/images/fbfaq.png)
 ![Facebook Banner](./documentation/images/fbreply.png)
+![Newsletter](./documentation/images/features/newsletter.png)
 
 ### Paid Business Plan
 
@@ -573,6 +578,12 @@ Hypthoesis of a marketing plan for paid business. This will be broken down into 
 4. Installing pixel throughout the website for key metrics
 
 ## Search Engine Optimization SEO
+
+1. Descriptive meta tags were added to the main template, including title, description and keywords.
+2. A sitemap was generated using [xml-sitemaps](https://www.xml-sitemaps.com/) This was generated using the deployed website. The file is included in the root level of the project.
+3. Robots.txt file was created at the root level of the project. This file tells the search engine crawlers which URLs they can access on the website.
+
+Future creation of a Google business account will improve SEO performance and website ratings.
 
 ## Testing
 
@@ -826,6 +837,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 
 All Media images on this website were created using [Leondardo AI](https://leonardo.ai/)
 [Hero Image](https://www.linkedin.com/posts/melinda-zhang-2020_the-weekend-ended-with-a-blast-our-activity-6975486245997056001-W-_I/)
+Additionaly copy for the website was prompted with use of [ChatGPT](https://chat.openai.com/)
 
 ### Code
 
@@ -833,5 +845,8 @@ All Media images on this website were created using [Leondardo AI](https://leona
 - [Content Type Framework](https://docs.djangoproject.com/en/5.0/ref/contrib/contenttypes/)
 - [Bootstrap Templates](https://startbootstrap.com/templates/ecommerce)
 - [Local Stripe Webhook Testing](https://www.youtube.com/watch?v=q33qN2zz4E4&t=453s)
+- [Basic Automated Tests](https://learndjango.com/tutorials/django-testing-tutorial)
 
 ### Acknowledgements
+
+I would personally like to thank all people who underwent testing for this website. The critial feedback was instrumental in providing a good user experience, finding edge case errors and generally keeping me motivated to improve the website. John Paul Larkin, Megan ODonohoe, Juan Boccia, Izabella Lopes, Gary Donlan, Alan Bushell.
