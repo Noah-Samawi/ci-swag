@@ -43,6 +43,13 @@ class ProfilePageTests(TestCase):
             reverse('profile'))
         self.assertTemplateUsed(response, 'profiles/profile.html')
 
+    def test_profile_requires_login(self):
+        '''
+        Test if profile page requires user to be logged in
+        '''
+        response = self.client.get(reverse('profile'))
+        self.assertRedirects(response, '/accounts/login/?next=/profile/')
+
 
 class SubscriptionPageTests(TestCase):
     '''
@@ -72,6 +79,14 @@ class SubscriptionPageTests(TestCase):
         response = self.client.get(reverse('subscriptions'))
         self.assertTemplateUsed(response, 'profiles/subscriptions.html')
 
+    def test_subscription_page_requires_login(self):
+        '''
+        Test if subscription page requires user to be logged in
+        '''
+        response = self.client.get(reverse('subscriptions'))
+        self.assertRedirects(response,
+                             '/accounts/login/?next=/profile/subscriptions')
+
 
 class MyCoursesPageTests(TestCase):
     '''
@@ -100,3 +115,11 @@ class MyCoursesPageTests(TestCase):
         self.client.force_login(user)
         response = self.client.get(reverse('my_courses'))
         self.assertTemplateUsed(response, 'profiles/my_courses.html')
+
+    def test_my_courses_page_requires_login(self):
+        '''
+        Test if my courses page requires user to be logged in
+        '''
+        response = self.client.get(reverse('my_courses'))
+        self.assertRedirects(response,
+                             '/accounts/login/?next=/profile/my_courses')
