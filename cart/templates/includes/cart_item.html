@@ -34,6 +34,7 @@
     <td data-th="Price">
       {% if item.product.sale or item.product.discount %}
       <p class='text-decoration-line-through text-danger'>${{item.product.price}}</p>
+      <p>${{item.product.total_final_price}}</p>
       {% else %}
       <p>${{item.product.price}}</p>
       {% endif %}
