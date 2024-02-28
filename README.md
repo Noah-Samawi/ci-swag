@@ -18,6 +18,7 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
 - [Design](#design)
   - [Colour Scheme](#colour-scheme)
   - [Database Schema](#database-schema)
+  - [Models](#models)
   - [Fonts](#fonts)
   - [Wireframes](#wireframes)
   - [Agile Methodology](#agile-methodology)
@@ -28,27 +29,37 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
     - [GitHub Projects](#github-projectskanban)
     - [Late Design Changes](#late-design-changes)
 - [Features](#features)
+
   - [Navigation Header](#navigation-header)
   - [Footer](#footer)
   - [Home Page](#home-page)
-  - [Post Detail Page](#post-detail-page)
+  - [Products Page](#products-page)
+  - [Programs Page](#programs-page)
+  - [Subscriptions Page](#subscriptions-page)
+  - [Product Detail Page](#product-detail-page)
+  - [Program Detail Page](#program-detail-page)
+  - [Cart Page](#cart-page)
+  - [Checkout Page](#checkout-page)
+  - [Confirmation Page](#confirmation-page)
   - [Profile Page](#profile-page)
-  - [Edit/Add Post Page](#addedit-post-page)
-  - [Edit Profile Page](#edit-profile-page)
-  - [Code of Conduct Page](#code-of-conduct-page)
-  - [Sign Up Page](#sign-up-page)
+  - [My Courses Page](#my-courses-page)
   - [Sign In Page](#sign-in-page)
+  - [Sign Up Page](#sign-up-page)
   - [Sign Out Page](#sign-out-page)
-  - [Article Preview Card](#article-preview-card)
+  - [Newsletter](#newsletter)
   - [Notification Messages](#notification-messages)
   - [Confirmation Modal](#confirmation-modal)
-  - [Toggle Favourites](#toggle-favourites)
-  - [Comment Card](#comment-card)
-  - [Comment Form](#comment-form)
-  - [Pending Post](#pending-post)
-  - [Error Pages](#comment-form)
+  - [Error Pages](#error-pages)
+  - [Password Reset Page](€)
+  - [Password Change Page](€)
+  - [Order Email Confirm](€)
+  - [Email Verification](€)
+  - [Password Reset Email ](€)
   - [Future Features](#future-features)
+
 - [Marketing](#marketing)
+  - [Initial Plan](#initial-plan)
+  - [Paid Business Plan](#paid-business-plan)
 - [Search Engine Optimization SEO](#search-engine-optimization-seo)
 - [Testing](#testing)
 - [Bugs](#bugs)
@@ -58,7 +69,9 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
   - [Technologies and programs](#technologies-and-programs)
 - [Deployment](#deployment)
   - [Pre Deployment](#pre-deployment)
-  - [Deploying on Heroku](#deploying-on-heroku)
+    - [Stripe Setup](#stripe-setup)
+    - [AWS Setup](#aws-setup)
+  - [Deployment on Heroku](#deployment-on-heroku)
   - [Fork the Repository](#fork-the-repository)
   - [Clone the Repository](#clone-the-repository)
   - [Run the Repository Locally](#run-the-repository-locally)
@@ -267,6 +280,10 @@ The Product Model is one of the main models of the application and is closely si
 
 The program model contains all fields of the product model with extra field such as difficulty, videourl and length that are unique to it.
 
+#### Module Model
+
+The moduel model is linked closely to the program model. A module contains a tile and description and is linked to a program
+
 #### Subscription Model
 
 The subscription model is a model that holds information about a users membership. It has one to many relationship with a userprofile. A subscription contains discounts amounts on products and programs.
@@ -274,6 +291,10 @@ The subscription model is a model that holds information about a users membershi
 #### Order Model
 
 The Order model contains information about a purchase. It contains lineitems of products. Products are based on a generic key type as they can be either products, programs or subscriptions. Its fields are date, lineitems, delivery, user and total cost.
+
+#### OrderLine Item
+
+The Order Line Item model is linked to the Order Model. Its fields are an FK to an order, the content_type, object_id, content_object, quantity, total, discount and item total.
 
 ### Fonts
 
@@ -392,6 +413,10 @@ The project implemented a simple Kanban Board structure, comprising columns like
 <img src="./documentation/images/kanban.png">
 </details>
 
+#### Late Design Changes
+
+A key late design change was to alter the Phonenumber field within the Profile model. This was both linked to orders and user profiles. An issue was dealing with accessibiliy of the country selector phone number code and the entry of the number in a standardised format to the Order model. The result was removing this feature and instead prompting the user to fill in an international number with error context rendered.
+
 ## Features
 
 ### Navigation Header
@@ -490,9 +515,9 @@ The profile page is where users can easily update their user details such as nam
 <img src="./documentation/images/features/profilepage.png">
 </details>
 
-### My Course Page
+### My Courses Page
 
-The my course page gives authenticated users quick access to view there total purchased courses. It shows a list of all program preview cards for courses that have been purchased in their order history.
+The my courses page gives authenticated users quick access to view there total purchased courses. It shows a list of all program preview cards for courses that have been purchased in their order history.
 
 <details><summary>Profile</summary>
 <img src="./documentation/images/features/mycourses.png">
@@ -698,6 +723,7 @@ Here is a list of all the major bugs encountered throughout development. Links t
 - [Stripe](https://stripe.com/) was used to handle all payment processing
 - [AWS](https://aws.amazon.com/) was used host all static and media files for the site.
 - [Coolors.co](https://coolors.co/) was used to display the colour scheme.
+- [Pixelied](https://pixelied.com/convert/png-converter/png-to-webp) was used to convert images into nextgen formats
 - [DBDiagram](https://dbdiagram.io/) was used to visually create the database structure and schemas
 - [PostGresSQl](https://www.postgresql.org/) was used in development to store the database information locally
 - [ElephantSQL](https://www.elephantsql.com/) was the database hosting provider for the production app
@@ -705,7 +731,7 @@ Here is a list of all the major bugs encountered throughout development. Links t
 
 ## Deployment
 
-### Before Deployment
+### Pre Deployment
 
 To ensure the application is deployed correctly on Heroku it is mandatory to update the requirements.txt. This is a list of requirements that the application needs in order to run.
 
@@ -856,7 +882,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 - The deployment method for this project is GitHub. Once selected, confirm that we want to connect to GitHub, search for the repository name, and click connect to connect the Heroku app to our GitHub code.
 - Scroll further down to the deploy section where automatic deploys can be enabled, which means that the app will update every time code is pushed to GitHub. Click deploy and wait for the app to be built. Once this is done, a message should appear letting us know that the app was successfully deployed with a view button to see the app.
 
-### Creating a fork
+### Fork the Repository
 
 1. Navigate to the [repository](https://github.com/Dayana-N/Book-Heaven-PP5)
 2. In the top-right corner of the page click on the fork button and select create a fork.
@@ -864,7 +890,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 4. Choose to copy only the main branch or all branches to the new fork.
 5. Click Create a Fork. A repository should appear in your GitHub
 
-### Cloning Repository
+### Clone the Repository
 
 1. Navigate to the [repository](https://github.com/Dayana-N/Book-Heaven-PP5)
 2. Click on the Code button on top of the repository and copy the link.
@@ -872,14 +898,28 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 4. Type git clone and then paste the link.
 5. Press Enter to create your local clone.
 
+### Run The Repository Locally
+
+1. Go to the GitHub repository
+2. Locate the green Code button above the list of files and click it
+3. From the dropdown menu select download Zip.
+4. Download and open the zip file to run in an editor
+5. Create an env.py file and input the environment variables
+6. Ensure [PostgreSQL](https://www.postgresql.org/) is install on your computer and ports are open
+7. Create a virtual environment for installing the python modules in the pip file.
+8. Run python3 makemigrations, migrate and runserver
+
 ## Credits
+
+### Content
+
+Additionaly copy for the website was prompted with use of [ChatGPT](https://chat.openai.com/)
+For Readme/Testing templates inspiration and guidance from [BookHeaven](https://github.com/Dayana-N/Book-Heaven-PP5/blob/main/README.md)
 
 ### Media
 
 All Media images on this website were created using [Leondardo AI](https://leonardo.ai/)
 [Hero Image](https://www.linkedin.com/posts/melinda-zhang-2020_the-weekend-ended-with-a-blast-our-activity-6975486245997056001-W-_I/)
-Additionaly copy for the website was prompted with use of [ChatGPT](https://chat.openai.com/)
-For Readme/Testing templates inspiration and guidance from [BookHeaven](https://github.com/Dayana-N/Book-Heaven-PP5/blob/main/README.md)
 
 ### Code
 
