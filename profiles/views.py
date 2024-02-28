@@ -68,6 +68,21 @@ class ProfileView(LoginRequiredMixin, View):
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(request.POST, instance=profile)
 
+        # Delete user from database
+        if "delete_account" in request.POST:
+            try:
+                user = request.user
+                user.delete()
+                messages.success(request, "Account Deleted.")
+                return redirect("home")
+
+            except Exception as e:
+                messages.error(
+                    request,
+                    f"There was an error deleting your account.{e}")
+
+            return redirect("home")
+
         if "user_form" in request.POST:
             if user_form.is_valid():
                 user_form.save()

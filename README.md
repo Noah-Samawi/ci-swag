@@ -5,7 +5,7 @@
 [Link to deployed site](https://ci-swag-e9f8de0bed4b.herokuapp.com/)
 
 <hr>
-CiSwag is an online product shop and course enrollment platform, built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe.
+CiSwag is an online merchandise store catering specifically to software developers. It also is an edu platform where users can enroll in extra online courses and subscribe to memberships. Built using Python, Django, HTML, CSS, JavaScript, Amazon S3 and Stripe.
 
 ![CI SWAG STORE PREVIEW](./documentation/images/features/homepage.png)
 
@@ -144,9 +144,9 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
 
 1. Sell coding merchandise to cater to the coding community's needs and interests.
 2. Offer subscription for discounts to incentivise repeat purchases and foster customer loyalty.
-3. Provide short online courses to empower users with coding skills and knowledge.
-4. Encourage community engagement and interaction to build a strong coding community.
-5. Curate educational resources and content to support continuous learning and skill development.
+3. Provide short online courses allowing authenticated users to supplement their knowledge.
+4. Encourage community engagement and interaction to build a strong coding community through newsletters and marketing pages.
+5. Curate educational resources and content to support developers continuous learning and skill development needs.
 6. Execute effective marketing and promotion strategies to attract and retain customers.
 
 ### Scope
