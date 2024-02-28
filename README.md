@@ -121,6 +121,12 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
 47. As a User, I can see my current membership level so that I know what discounts I can avail of [#49](https://github.com/DarrachBarneveld/ci-swag/issues/49)
 48. As a User, I can access a short video on the program page if I am enrolled in a course, so that I can get a mock studying experience. [#50](https://github.com/DarrachBarneveld/ci-swag/issues/50)
 49. As a User, I can discover related products and programs on the program page, so that I can explore additional resources or offerings that complement my current selection. [#51](https://github.com/DarrachBarneveld/ci-swag/issues/51)
+50. As a User, I can discover related products and programs on the program page, so that I can explore additional resources or offerings that complement my current selection. [#51](https://github.com/DarrachBarneveld/ci-swag/issues/51)
+51. As a User, I can see error pages (such as 400, 403, 404, 500) so that I am informed and guided appropriately when unexpected issues arise during my interaction with the website. [#54](https://github.com/DarrachBarneveld/ci-swag/issues/54)
+52. As a User, I can access the Privacy Policy page so that I understand how my personal information is collected, used, and protected. [#62](https://github.com/DarrachBarneveld/ci-swag/issues/62)
+53. As a User, I can sign up for the newslette so that I stay updated with the latest news and offerings. [#65](https://github.com/DarrachBarneveld/ci-swag/issues/65)
+54. As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose [#68](https://github.com/DarrachBarneveld/ci-swag/issues/68)
+55. As a User, I can reset my password if I forget it, so that I can regain access to my account. [#69](https://github.com/DarrachBarneveld/ci-swag/issues/69)
 
 ### Site Goals
 
@@ -187,6 +193,27 @@ The project combines an online store with an educational hub focusing on coding.
 - Order processing and storage within user models and database
 - Administration access to view all orders that are logged in the database
 - Handling of both authenticated on anonymous users payments and confirmations of orders
+
+8. [EPIC - Bug Fixes:](https://github.com/DarrachBarneveld/ci-swag/milestone/8)
+
+- All Errors in coding logic handled
+- Documentation of bugs and solutions
+- All unhandled errors listed with efforts to solve
+- Defensive programming
+
+9. [EPIC - Documentation:](https://github.com/DarrachBarneveld/ci-swag/milestone/9)
+
+- Documentation of the development processes
+- Planning and structure of the application as well as purpose
+- Extensive testing and results of validation
+
+10. [EPIC - Marketing and SEO](https://github.com/DarrachBarneveld/ci-swag/milestone/10)
+
+- Marketing of website through email newsletter
+- Planning of business model and strategies
+- Online marketing through FB and Google business pages
+- Inclusion of meta descriptions, keywords and semantic structure
+- Necessary SEO files - robots, sitemap etc.
 
 Benefits of key features and the EPIC Milestone Approach:
 
@@ -425,6 +452,8 @@ The product detail page contains information about the selected product, includi
 
 The program detail page provides in-depth information about the selected program, including its name, duration, cost, and a breakdown of modules or sections covered. Users can gain an understanding of the program's content and structure before making a decision. Users must be authenticated before they can enroll in courses and users who have purchased the program, a related video is displayed, offering valuable insights or introductory content to enhance the learning experience.
 
+In the future users will have videos relating to the courses and can track progress, however for the initial build there is just the dummy education video loaded.
+
 <details><summary>Program Detail</summary>
 <img src="./documentation/images/features/programdetail.png">
 </details>
@@ -491,6 +520,14 @@ Upon clicking the "log out" link in the navigation, users are directed to a conf
 
 <details><summary>Sign Out</summary>
 <img src="./documentation/images/features/logout.png">
+</details>
+
+### Newsletter
+
+An area where users can input there email to sign up to a newsletter. Users dont have to be authenticated to signup to the newsletter
+
+<details><summary>Newsletter</summary>
+<img src="./documentation/images/features/newsletter.png">
 </details>
 
 ### Notification Messages
@@ -598,6 +635,10 @@ Here is a list of all the major bugs encountered throughout development. Links t
 | [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)            | Closed |
 | [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59) | Closed |
 | [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)  | Closed |
+| [Bug: PhoneNumber Order Widget #63](https://github.com/DarrachBarneveld/ci-swag/issues/63)     | Closed |
+| [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)              | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
 
 ## Technologies And Languages
 
@@ -838,6 +879,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 All Media images on this website were created using [Leondardo AI](https://leonardo.ai/)
 [Hero Image](https://www.linkedin.com/posts/melinda-zhang-2020_the-weekend-ended-with-a-blast-our-activity-6975486245997056001-W-_I/)
 Additionaly copy for the website was prompted with use of [ChatGPT](https://chat.openai.com/)
+For Readme/Testing templates inspiration and guidance from [BookHeaven](https://github.com/Dayana-N/Book-Heaven-PP5/blob/main/README.md)
 
 ### Code
 
@@ -849,4 +891,4 @@ Additionaly copy for the website was prompted with use of [ChatGPT](https://chat
 
 ### Acknowledgements
 
-I would personally like to thank all people who underwent testing for this website. The critial feedback was instrumental in providing a good user experience, finding edge case errors and generally keeping me motivated to improve the website. John Paul Larkin, Megan ODonohoe, Juan Boccia, Izabella Lopes, Gary Donlan, Alan Bushell.
+I would personally like to thank all people who underwent testing for this website. The critial feedback was instrumental in providing a good user experience, finding edge case errors and generally keeping me motivated to improve the website. John Paul Larkin, Megan ODonohoe, Juan Boccia, Izabella Lopes, Gary Donlan, Alan Bushell and Dayana.
