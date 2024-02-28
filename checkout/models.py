@@ -137,6 +137,6 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return (
-            f'SKU {self.content_object.sku} '
-            f'on order {self.order.order_number}'
+            f'SKU {self.content_object.sku}:'
+            f'{self.content_object.name}'
         )
