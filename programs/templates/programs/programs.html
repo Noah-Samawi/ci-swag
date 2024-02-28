@@ -14,30 +14,31 @@
       <div class="text-center text-white">
         <h1 class="display-4 fw-bolder">Expand your knowledge</h1>
         <p class="lead fw-normal text-white-50 mb-0">
-            Elevate your expertise with our courses.
+          Elevate your expertise with our {% if current_categories %}<em class='text-info'> {{current_categories.friendly_name}} </em>{% endif %}courses!        
         </p>
       </div>
 
       <!-- Navigation Widgets -->
       <ul class="list-inline widget-list-inline text-center my-3">
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if not category %}active{% endif %}">
           <a href="{% url 'programs' %}">All</a>
         </li>
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if category == 'fullstack' %}active{% endif %}">
           <a href="{% url 'programs' %}?category=fullstack">Full-Stack</a>
         </li>
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if category == 'ui_ux_design' %}active{% endif %}">
           <a href="{% url 'programs' %}?category=ui_ux_design">UI/UX Design</a>
         </li>
-        <li class="list-inline-item m-1">
-          <a class="" href="{% url 'programs' %}?category=devops">DevOps</a> </li>
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if category == 'devops' %}active{% endif %}">
+          <a class="" href="{% url 'programs' %}?category=devops">DevOps</a>
+        </li>
+        <li class="list-inline-item m-1 {% if category == 'data_science' %}active{% endif %}">
           <a class="" href="{% url 'programs' %}?category=data_science">Data Science</a>
         </li>
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if category == 'game_dev' %}active{% endif %}">
           <a class="" href="{% url 'programs' %}?category=game_dev">Game Dev</a>
         </li>
-        <li class="list-inline-item m-1">
+        <li class="list-inline-item m-1 {% if category == 'mobile_app' %}active{% endif %}">
           <a class="" href='{% url 'programs' %}?category=mobile_app'>Mobile App</a>
         </li>
     </ul>

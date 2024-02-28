@@ -14,26 +14,25 @@
     <div class="text-center text-white">
       <h1 class="display-4 fw-bolder">Shop in style</h1>
       <p class="lead fw-normal text-white-50 mb-0">
-
-        
         Choose from our extensive {% if current_categories %}<em class='text-info'> {{current_categories.friendly_name}}</em>{% endif %} products!
       </p>
     </div>
 
     <ul class="list-inline widget-list-inline text-center my-3">
-      <li class="list-inline-item m-1">
+      <li class="list-inline-item m-1 {% if not category %}active{% endif %}">
         <a href="{% url 'products' %}">All</a>
       </li>
-      <li class="list-inline-item m-1">
+      <li class="list-inline-item m-1 {% if category == 'clothing' %}active{% endif %}">
         <a href="{% url 'products' %}?category=clothing">Clothing</a>
       </li>
-      <li class="list-inline-item m-1">
+      <li class="list-inline-item m-1 {% if category == 'stationary' %}active{% endif %}">
         <a href="{% url 'products' %}?category=stationary">Stationary</a>
       </li>
-      <li class="list-inline-item m-1">
+      <li class="list-inline-item m-1 {% if category == 'miscellaneous' %}active{% endif %}">
         <a class="" href="{% url 'products' %}?category=miscellaneous">Miscellaneous</a>
       </li>
   </ul>
+
   </div>
 </header>  
 

@@ -206,6 +206,11 @@ a:link {
   color: white;
 }
 
+.widget-list-inline li.active a {
+  background: var(--primary-orange);
+  color: white;
+}
+
 /* PROFILE/DELIVERY FORM */
 
 .avatar {

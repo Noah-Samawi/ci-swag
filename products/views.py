@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Product
+from .models import Product, Category
 
 
 from .utils import filter_and_sort_products
