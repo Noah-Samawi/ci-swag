@@ -87,7 +87,7 @@ class ProfileView(LoginRequiredMixin, View):
             if user_form.is_valid():
                 user_form.save()
                 context["user_form"] = user_form
-                messages.success(request, 'User updated successfully')
+                messages.success(request, 'User information updated.')
             else:
                 context['user_form'] = user_form
                 messages.error(request, 'Update failed. '
@@ -98,7 +98,7 @@ class ProfileView(LoginRequiredMixin, View):
                 profile_form.save()
                 context["profile_form"] = profile_form
                 messages.success(request,
-                                 'Profile updated successfully')
+                                 'Delivery Information successfully')
             else:
                 context["profile_form"] = profile_form
                 messages.error(

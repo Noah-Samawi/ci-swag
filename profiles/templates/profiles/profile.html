@@ -99,8 +99,8 @@
             </form>
           </li>
 
-          <hr>
           <li class="checkout-item">
+            <hr>
             <div class="avatar checkout-icon p-1">
               <div class="avatar-title rounded-circle bg-danger">
                 <i class="fa-solid fa-trash text-white"></i>
@@ -114,13 +114,13 @@
             type="button"
             class="btn btn-danger"
             data-bs-toggle="modal"
-            data-bs-target="#deleteAccountModal"
+            data-bs-target="#deleteAccountPopup"
           >
             Delete Account
           </button>
           <div
             class="modal fade"
-            id="deleteAccountModal"
+            id="deleteAccountPopup"
             tabindex="-1"
             aria-labelledby="deleteAccountModal"
             aria-hidden="true"
@@ -157,11 +157,10 @@
       </div>
     </div>
 
-
     <!-- User Orders -->
-
     <div class="col-12 col-lg-6">
-      <p><strong>Order History</strong></p>
+      <h2 class='my-4
+      '><strong>Order History</strong></h2>
       <p class="text-muted">Total Orders: {{orders|length}}</p>
       <div class="order-history table-responsive">
         <table class="table table-sm table-borderless">
