@@ -49,12 +49,12 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
   - [Newsletter](#newsletter)
   - [Notification Messages](#notification-messages)
   - [Confirmation Modal](#confirmation-modal)
+  - [Password Reset Page](#password-reset-page)
+  - [Password Change Page](#password-change-page)
+  - [Email Verification](#email-verification)
+  - [Order Confirmation Email](#order-confirmation-email)
+  - [Password Reset Email ](#password-reset-email)
   - [Error Pages](#error-pages)
-  - [Password Reset Page](€)
-  - [Password Change Page](€)
-  - [Order Email Confirm](€)
-  - [Email Verification](€)
-  - [Password Reset Email ](€)
   - [Future Features](#future-features)
 
 - [Marketing](#marketing)
@@ -569,6 +569,46 @@ This modal appears whenever a users is performing a delete CRUD operation. It en
 
 <details><summary>Confirmation Modal</summary>
 <img src="./documentation/images/features/confirmmodal.png">
+</details>
+
+### Password Reset Page
+
+This page is for users that which to request a password reset verification link to an email
+
+<details><summary>Password Reset Page</summary>
+<img src="./documentation/images/features/passwordreset.png">
+</details>
+
+### Password Change Page
+
+This page is for users that clicked the verification link in their email to change a password. Once password is updated they are redirected to sign in again
+
+<details><summary>Password Change Page</summary>
+<img src="./documentation/images/features/changepassword.png">
+</details>
+
+### Email Verification
+
+An email is sent to a users selected email address on sign up requesting the verification of that email
+
+<details><summary>Email Verification</summary>
+<img src="./documentation/images/features/emailverification.png">
+</details>
+
+### Order Confirmation Email
+
+An email is sent to both authnetication and non authenticated users upon the completion of a successful purchase from the store
+
+<details><summary>Order Confirmation Email</summary>
+<img src="./documentation/images/features/orderconfirmationemail.png">
+</details>
+
+### Password Reset Email
+
+The Email template sent to a users inbox when they used the forgot password reset feature
+
+<details><summary>Password Reset Email</summary>
+<img src="./documentation/images/features/passwordresetemail.png">
 </details>
 
 ### Error Pages
