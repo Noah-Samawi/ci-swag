@@ -6,6 +6,7 @@
   --primary-amber: #ffc107;
   --primary-green: #4caf50;
   --primary-cyan: #00bcd4;
+  --primary-blue: #0d6efd;
   --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --btn-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -149,6 +150,10 @@ a:link {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.search:focus-within {
+  outline: 2px solid var(--primary-blue);
+}
+
 .search-input {
   color: white;
   border: 0;
@@ -165,7 +170,7 @@ a:link {
 .search .search-input {
   padding: 0 10px;
   width: 100%;
-  caret-color: #536bf6;
+  caret-color: var(--primary-blue);
   font-size: 19px;
   font-weight: 300;
   color: black;
@@ -228,7 +233,7 @@ a:link {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #3b76e1;
+  background-color: var(--primary-blue);
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;

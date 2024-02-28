@@ -18,5 +18,5 @@
 }
 
 .activity-checkout .checkout-item {
-  border-color: #3b76e1;
+  border-color: var(--primary-blue);
 }
