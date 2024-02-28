@@ -142,6 +142,8 @@ Signficant optimisation practices were used to try and increase the Largest Cont
 Main issues that could not be resolved which drastically reduced the LCP and performance score was server delays from Heroku which impacted the first byte load.
 After must research I could not find a solution to this issue. I will continue to try optimise and research best practices but for now I need further guidance.
 
+### Heroku Server Delay Issue
+
 ![Server Delay](./documentation/images/testing/lighthouse/serverdelay.png)
 
 ## Manual Testing
@@ -167,6 +169,9 @@ After must research I could not find a solution to this issue. I will continue t
 | Privacy and Policy Link  | Click       | Redirect to privacy policy page                         | <mark>Pass</mark> |
 | About Page               | Click       | Redirect to about page                                  | <mark>Pass</mark> |
 | Footer Email             | Click       | Open up an email provider with developer email attached | <mark>Pass</mark> |
+| Newsletter Input Valid   | Submit      | User email logged in mailchimp                          | <mark>Pass</mark> |
+| Newsletter Input Valid   | Submit      | User notified of success                                | <mark>Pass</mark> |
+| Newsletter Input Invalid | Submit      | Error context displayed to UI                           | <mark>Pass</mark> |
 | Register Link            | Display     | Render for non authenticated users                      | <mark>Pass</mark> |
 | Log in Link              | Display     | Render for non authenticated users                      | <mark>Pass</mark> |
 | Log out Link             | Display     | Render only if user is authenticated                    | <mark>Pass</mark> |
@@ -364,16 +369,18 @@ After must research I could not find a solution to this issue. I will continue t
 
 ### Sign In Page
 
-| Element       | Action         | Expected Result                             | Pass/Fail         |
-| ------------- | -------------- | ------------------------------------------- | ----------------- |
-| Page          | Authentication | Authenticated users redirected to Home page | <mark>Pass</mark> |
-| Form(Valid)   | Submit         | Redirected to Home page                     | <mark>Pass</mark> |
-| Form(Valid)   | Submit         | Sign up in Notification received            | <mark>Pass</mark> |
-| Form(Invalid) | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
-| Form(Invalid) | Submit         | Error Notification received                 | <mark>Pass</mark> |
-| Register Link | Click          | Redirect to Sign In Page                    | <mark>Pass</mark> |
-| Form Button   | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
-| Register Link | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
+| Element              | Action         | Expected Result                             | Pass/Fail         |
+| -------------------- | -------------- | ------------------------------------------- | ----------------- |
+| Page                 | Authentication | Authenticated users redirected to Home page | <mark>Pass</mark> |
+| Form(Valid)          | Submit         | Redirected to Home page                     | <mark>Pass</mark> |
+| Form(Valid)          | Submit         | Sign up in Notification received            | <mark>Pass</mark> |
+| Form(Invalid)        | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
+| Form(Invalid)        | Submit         | Error Notification received                 | <mark>Pass</mark> |
+| Register Link        | Click          | Redirect to Sign In Page                    | <mark>Pass</mark> |
+| Forgot Password Link | Click          | Redirect to Password Reset Page             | <mark>Pass</mark> |
+| Form Button          | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
+| Register Link        | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
+| Forgot Password Link | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
 
 ### Log Out Page
 
@@ -384,9 +391,62 @@ After must research I could not find a solution to this issue. I will continue t
 | Logout Button | Click          | Redirected to Home page                        | <mark>Pass</mark> |
 | Form Button   | Hover/Focus    | Darken Background                              | <mark>Pass</mark> |
 
+### Password Reset Page
+
+| Element           | Action      | Expected Result                                   | Pass/Fail         |
+| ----------------- | ----------- | ------------------------------------------------- | ----------------- |
+| Email Input Valid | Submit      | Sends An Email with a reset link to entered email | <mark>Pass</mark> |
+| Login Button      | Click       | Redirects to login page                           | <mark>Pass</mark> |
+| Reset Button      | Click       | Sends An Email with a reset link to entered email | <mark>Pass</mark> |
+| Login Button      | Hover/Focus | Darken Background                                 | <mark>Pass</mark> |
+| Reset Button      | Hover/Focus | Darken Background                                 | <mark>Pass</mark> |
+
+### Password Reset Email
+
+| Element    | Action | Expected Result                                   | Pass/Fail         |
+| ---------- | ------ | ------------------------------------------------- | ----------------- |
+| Email Link | Submit | Link directs the user to the password change form | <mark>Pass</mark> |
+
+### Password Change Page
+
+| Element       | Action      | Expected Result                       | Pass/Fail         |
+| ------------- | ----------- | ------------------------------------- | ----------------- |
+| Form Valid    | Submit      | Updates the users password            | <mark>Pass</mark> |
+| Form Valid    | Submit      | Redirects to password updated page    | <mark>Pass</mark> |
+| Form(Valid)   | Submit      | Change Password Notification received | <mark>Pass</mark> |
+| Form(Invalid) | Submit      | Error Notification received           | <mark>Pass</mark> |
+| Form Invalid  | Submit      | Renders the error context to the user | <mark>Pass</mark> |
+| Reset Button  | Click       | Updates the users password            | <mark>Pass</mark> |
+| Reset Button  | Hover/Focus | Darken Background                     | <mark>Pass</mark> |
+
+### Django Administration Panel
+
+| Element            | Action | Expected Result                           | Pass/Fail         |
+| ------------------ | ------ | ----------------------------------------- | ----------------- |
+| Product Model      | Create | Admins can create new products            | <mark>Pass</mark> |
+| Program Model      | Create | Admins can create new programs            | <mark>Pass</mark> |
+| Subscription Model | Create | Admins can create new subscriptions       | <mark>Pass</mark> |
+| Module Model       | Create | Admins can create new modules             | <mark>Pass</mark> |
+| Category Model     | Create | Admins can create new Categories          | <mark>Pass</mark> |
+| Order Model        | Create | Admins can create new Orders              | <mark>Pass</mark> |
+| Product Model      | Update | Admins can update exisiting products      | <mark>Pass</mark> |
+| Program Model      | Update | Admins can update exisiting programs      | <mark>Pass</mark> |
+| Subscription Model | Update | Admins can update exisiting subscriptions | <mark>Pass</mark> |
+| Module Model       | Update | Admins can update exisiting modules       | <mark>Pass</mark> |
+| Category Model     | Update | Admins can update exisiting Categories    | <mark>Pass</mark> |
+| Order Model        | Update | Admins can update exisiting Orders        | <mark>Pass</mark> |
+| Product Model      | Delete | Admins can delete exisiting products      | <mark>Pass</mark> |
+| Program Model      | Delete | Admins can delete exisiting programs      | <mark>Pass</mark> |
+| Subscription Model | Delete | Admins can delete exisiting subscriptions | <mark>Pass</mark> |
+| Module Model       | Delete | Admins can delete exisiting modules       | <mark>Pass</mark> |
+| Category Model     | Delete | Admins can delete exisiting Categories    | <mark>Pass</mark> |
+| Order Model        | Delete | Admins can delete exisiting Orders        | <mark>Pass</mark> |
+
 ## Automated testing
 
 Automated testing was conducted to verify the accuracy of the page responses and templates. However, due to time constraints, there was no opportunity for further elaboration or expansion. Future features include full automated test coverage.
+
+All automated tests are documented in test.py files and pass without error.
 
 ## User Story Testing
 
@@ -424,24 +484,27 @@ Automated testing was conducted to verify the accuracy of the page responses and
 | As a User, I can easily identify and interact with individual items in my shopping cart through standardised cart item cards, so that I can quickly review and manage my selections.                   | <details><summary>Cart Card</summary><img src="./documentation/images/features/cartcard.png"></details>                     | <mark>PASS<mark> |
 | As a User, I can receive notification messages whenever a CRUD (Create, Read, Update, Delete) action is taken, so that I am informed about the outcome of my actions and any relevant changes.         | <details><summary>Notifications</summary><img src="./documentation/images/features/notifications.png"></details>            | <mark>PASS<mark> |
 | As a User, I can visit the subscription page so that I can view all subscriptions available                                                                                                            | <details><summary>Subscriptions</summary><img src="./documentation/images/features/subscriptions.png"></details>            | <mark>PASS<mark> |
-| As a User, I can view a checkout page so that I can get a run down of items and my total charge                                                                                                        | Home page exists as the root url, shows relevant data                                                                       | <mark>PASS<mark> |
-| As a developer, I can view and manage line items within orders to track my purchase accurately and efficiently.                                                                                        | Home page exists as the root url, shows relevant data                                                                       | <mark>PASS<mark> |
+| As a User, I can view a checkout page so that I can get a run down of items and my total charge                                                                                                        | <details><summary>Subscriptions</summary><img src="./documentation/images/features/checkoutpage.png"></details>             | <mark>PASS<mark> |
+| As a developer, I can view and manage line items within orders to track my purchase accurately and efficiently.                                                                                        | Line items are editable with adding products to orders from backend. Only certain desired fields                            | <mark>PASS<mark> |
 | As a User, I can securely process my order based on the checkout so that I can buy products from the store                                                                                             | <details><summary>Checkout</summary><img src="./documentation/images/features/checkoutpage.png"></details>                  | <mark>PASS<mark> |
-| As a Developer, I can securely complete my payment using Stripe integration with webhooks, ensuring that my transaction is protected and verified.                                                     | Home page exists as the root url, shows relevant data                                                                       | <mark>PASS<mark> |
+| As a Developer, I can securely complete my payment using Stripe integration with webhooks, ensuring that my transaction is protected and verified.                                                     | <details><summary>Checkout</summary><img src="./documentation/images/testing/stripewh.png"></details>                       | <mark>PASS<mark> |
 | As a User, I can get sales and member discounts so that I can get items at a better price                                                                                                              | <details><summary>Discounts</summary><img src="./documentation/images/features/discounts.png"></details>                    | <mark>PASS<mark> |
 | As a User, I can remove my active membership so that I can opt out of payments                                                                                                                         | <details><summary>Remove Membership</summary><img src="./documentation/images/features/confirmmodal.png"></details>         | <mark>PASS<mark> |
 | As a User, I can visit a profile page so that I can view my personal details and update them                                                                                                           | <details><summary>Profile Page</summary><img src="./documentation/images/features/profilepage.png"></details>               | <mark>PASS<mark> |
 | As a User, I can view my past orders on the profile page so that I can track my purchase history and review previous transactions.                                                                     | <details><summary>Profile Page</summary><img src="./documentation/images/features/profilepage.png"></details>               | <mark>PASS<mark> |
 | As a User, I can view the order confirmation page to see the details of my recent order so that I can verify the items purchased and their prices.                                                     | <details><summary>Checkout Success</summary><img src="./documentation/images/features/checkoutsuccess.png"></details>       | <mark>PASS<mark> |
 | As a User, I can access a my courses page where I can view all the courses I have bought or enrolled in, so that I can easily track my learning progress and access course materials.                  | <details><summary>My Courses</summary><img src="./documentation/images/features/mycourses.png"></details>                   | <mark>PASS<mark> |
-| As a User, I want to receive a confirmation email after registering for an account, so that I can verify my email address and activate my account.                                                     | <mark>PASS<mark>                                                                                                            |
-| As a User, I can receive an order confirmation emails after successfully completing a purchase, so that I have a record of the transaction and can review the details of my order.                     | <mark>PASS<mark>                                                                                                            |
+| As a User, I want to receive a confirmation email after registering for an account, so that I can verify my email address and activate my account.                                                     | <details><summary>Checkout</summary><img src="./documentation/images/features/emailverification.png"></details>             | <mark>PASS<mark> |
+| As a User, I can receive an order confirmation emails after successfully completing a purchase, so that I have a record of the transaction and can review the details of my order.                     | <details><summary>Checkout</summary><img src="./documentation/images/features/orderconfirmationemail.png"></details>        | <mark>PASS<mark> |
 | As a User, I can see a loading spinner so that I know my actions were registered and a result in pending                                                                                               | <details><summary>Loading Spinner</summary><img src="./documentation/images/features/loading.png"></details>                | <mark>PASS<mark> |
 | As a User, I can see my current membership level so that I know what discounts I can avail                                                                                                             | <details><summary>Current Membership</summary><img src="./documentation/images/features/subscriptionlevel.png"></details>of | <mark>PASS<mark> |
 | As a User, I can access a short video on the program page if I am enrolled in a course, so that I can get a mock studying experience.                                                                  | <details><summary>Enrolled Video</summary><img src="./documentation/images/features/programvideo.png"></details>of          | <mark>PASS<mark> |
 | As a User, I can discover related products and programs on the program page, so that I can explore additional resources or offerings that complement my current selection.                             | <details><summary>Related products</summary><img src="./documentation/images/features/relateditems.png"></details>          | <mark>PASS<mark> |
 | As a User, I can see error pages (such as 400, 403, 404, 500) so that I am informed and guided appropriately when unexpected issues arise during my interaction with the website.                      | <details><summary>Error Page</summary><img src="./documentation/images/features/errorpage.png"></details>                   | <mark>PASS<mark> |
-| As a User, I can see error pages (such as 400, 403, 404, 500) so that I am informed and guided appropriately when unexpected issues arise during my interaction with the website.                      | <mark>PASS<mark>                                                                                                            |
+| As a User, I can access the Privacy Policy page so that I understand how my personal information is collected, used, and protected.                                                                    | <details><summary>Privacy Policy Page</summary><img src="./documentation/images/features/privacypolicypage.png"></details>  | <mark>PASS<mark> |
+| As a User, I can sign up for the newsletter so that I stay updated with the latest news and offerings                                                                                                  | <details><summary>Newsletter</summary><img src="./documentation/images/features/newsletter.png"></details>                  | <mark>PASS<mark> |
+| As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose.                          | All custom code is commented and documented                                                                                 | <mark>PASS<mark> |
+| As a User, I can reset my password if I forget it, so that I can regain access to my account.                                                                                                          | <details><summary>Password Reset</summary><img src="./documentation/images/features/passwordreset.png"></details>           | <mark>PASS<mark> |
 
 ## Stripe
 

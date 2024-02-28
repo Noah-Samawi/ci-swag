@@ -29,7 +29,6 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
     - [GitHub Projects](#github-projectskanban)
     - [Late Design Changes](#late-design-changes)
 - [Features](#features)
-
   - [Navigation Header](#navigation-header)
   - [Footer](#footer)
   - [Home Page](#home-page)
@@ -43,6 +42,7 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
   - [Confirmation Page](#confirmation-page)
   - [Profile Page](#profile-page)
   - [My Courses Page](#my-courses-page)
+  - [Privacy Policy Page](#privacy-policy-page)
   - [Sign In Page](#sign-in-page)
   - [Sign Up Page](#sign-up-page)
   - [Sign Out Page](#sign-out-page)
@@ -56,7 +56,6 @@ CiSwag is an online product shop and course enrollment platform, built using Pyt
   - [Password Reset Email ](#password-reset-email)
   - [Error Pages](#error-pages)
   - [Future Features](#future-features)
-
 - [Marketing](#marketing)
   - [Initial Plan](#initial-plan)
   - [Paid Business Plan](#paid-business-plan)
@@ -433,6 +432,14 @@ The mobile version of the navbar has all the content rendered when a hamburger i
 <img src="./documentation/images/features/navbarmobile.png">
 </details>
 
+### Footer
+
+The footer contains all the contact informtion about the website as well as the copywrite of trademark. It links to the socials as well as developers contact email. The privacy policy is also linked here
+
+<details><summary>Footer</summary>
+<img src="./documentation/images/features/footer.png">
+</details>
+
 ### Home Page
 
 The homepage serves as the central hub of the site, providing visitors with an overview of its offerings, including featured products, testimonials, imagery, and marketing copy. It serves as a gateway to navigate the store sections through shop now navigation links, inviting users to explore further and discover more about the brand's offerings and value propositions. It uses the fold of the screen to showcase branding imagery.
@@ -521,6 +528,14 @@ The my courses page gives authenticated users quick access to view there total p
 
 <details><summary>Profile</summary>
 <img src="./documentation/images/features/mycourses.png">
+</details>
+
+### Privacy Policy Page
+
+This page indicates the legal text of the website and informs users of the privacy and policies as they will be submitting personal data to the website upon checkout. This page was created using a policy generator.
+
+<details><summary>Privacy Policy Page</summary>
+<img src="./documentation/images/features/privacypolicypage.png">
 </details>
 
 ### Sign In page
