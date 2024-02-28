@@ -87,6 +87,7 @@ Go back to [README.md](/README.md)
 | handler  | checkout | ![handler](./documentation/images/testing/python/checkouthandlerpy.png)   | <mark>PASS<mark> |                                                                     |
 | view     | checkout | ![view](./documentation/images/testing/python/checkoutviewspy.png)        | <mark>PASS<mark> |                                                                     |
 | urls     | checkout | ![urls](./documentation/images/testing/python/checkouturlspy.png)         | <mark>PASS<mark> |                                                                     |
+| tests    | checkout | ![urls](./documentation/images/testing/python/checkouttestspy.png)        | <mark>PASS<mark> |                                                                     |
 | signals  | checkout | ![signals](./documentation/images/testing/python/checkoutsignalspy.png)   | <mark>PASS<mark> |                                                                     |
 | models   | checkout | ![models](./documentation/images/testing/python/checkoutmodelspy.png)     | <mark>PASS<mark> |                                                                     |
 | forms    | checkout | ![forms](./documentation/images/testing/python/checkoutformspy.png)       | <mark>PASS<mark> |                                                                     |
@@ -332,6 +333,7 @@ The main crud functionality of this website pertains to user accounts and produc
 
 | Element                    | Action      | Expected Result                                            | Pass/Fail         |
 | -------------------------- | ----------- | ---------------------------------------------------------- | ----------------- |
+| Checkout No Items          | Display     | Redirect to cart page with noti                            | <mark>Pass</mark> |
 | Checkout Form              | Submit      | Checkout form submit user and delivery data to stripe      | <mark>Pass</mark> |
 | Checkout Form              | Submit      | Stripe payment intent, charge and succeeded occurs         | <mark>Pass</mark> |
 | Checkout Form              | Submit      | Non valid form returns context of errors                   | <mark>Pass</mark> |

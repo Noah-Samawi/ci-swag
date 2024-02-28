@@ -1,6 +1,9 @@
+"""Checkout app tests"""
+
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.messages import get_messages
+
 
 class TestCheckoutView(TestCase):
     """
@@ -16,7 +19,8 @@ class TestCheckoutView(TestCase):
 
     def test_redirect_if_cart_is_empty(self):
         """
-        Test if the checkout view redirects to the cart view when the cart is empty.
+        Test if the checkout view redirects to the cart view
+        when the cart is empty.
         """
         response = self.client.get(self.checkout_url)
         messages = list(get_messages(response.wsgi_request))

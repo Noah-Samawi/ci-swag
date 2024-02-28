@@ -995,6 +995,7 @@ All Media images on this website were created using [Leondardo AI](https://leona
 - [Bootstrap Templates](https://startbootstrap.com/templates/ecommerce)
 - [Local Stripe Webhook Testing](https://www.youtube.com/watch?v=q33qN2zz4E4&t=453s)
 - [Basic Automated Tests](https://learndjango.com/tutorials/django-testing-tutorial)
+- [Client Testing](https://docs.djangoproject.com/en/5.0/topics/testing/tools/)
 
 ### Acknowledgements
 
