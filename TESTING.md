@@ -10,6 +10,7 @@ Go back to [README.md](/README.md)
 - [Responsiveness](#Responsiveness)
 - [Browser Compatibility](#browser-compatibility)
 - [Lighthouse](#Lighthouse)
+- [CRUD](#crud)
 - [Manual Testing](#manual-testing)
 - [Automated Testing](#automated-testing)
 - [User Story Testing](#user-story-testing)
@@ -145,6 +146,36 @@ After must research I could not find a solution to this issue. I will continue t
 ### Heroku Server Delay Issue
 
 ![Server Delay](./documentation/images/testing/lighthouse/serverdelay.png)
+
+## CRUD
+
+The main crud functionality of this website pertains to user accounts and product purchases
+
+### Create
+
+1. Users can create accounts
+2. Users can create cart items
+3. Users can create orders
+
+### Read
+
+1. All products are read from DB
+2. All programs are read from DB
+3. All subscriptions are read from DB
+4. All user orders are read from DB
+5. All user information is read from DB
+
+### Update
+
+1. Users can update cart items
+2. Users can update user account information
+3. Users can update user profile information
+4. Users can update subscription status
+
+### Delete
+
+1. Users can remove items from cart
+2. User can delete thier accounts
 
 ## Manual Testing
 
@@ -334,6 +365,9 @@ After must research I could not find a solution to this issue. I will continue t
 | Delivery Form          | Submit      | A valid form updates the user delivery information               | <mark>Pass</mark> |
 | Delivery Form          | Submit      | Non valid form returns the context of the error                  | <mark>Pass</mark> |
 | Delivery Notification  | Submit      | A Notification appears highlighting outcome of form submission   | <mark>Pass</mark> |
+| Delete Account Button  | Click       | A confirmation modal appears warning the user of the action      | <mark>Pass</mark> |
+| Delete Account Confirm | Click       | The user account is deleted from the database                    | <mark>Pass</mark> |
+| Delete Account Confirm | Click       | A notification informs the user of the outcome of the operation  | <mark>Pass</mark> |
 | Checkout Form          | Display     | Total cost breakdown is displayed for the user                   | <mark>Pass</mark> |
 | Update Profile Button  | Click       | Submits the user form                                            | <mark>Pass</mark> |
 | Update Delivery Button | Click       | Submits the user profile form for delivery information           | <mark>Pass</mark> |
@@ -505,6 +539,7 @@ All automated tests are documented in test.py files and pass without error.
 | As a User, I can sign up for the newsletter so that I stay updated with the latest news and offerings                                                                                                  | <details><summary>Newsletter</summary><img src="./documentation/images/features/newsletter.png"></details>                  | <mark>PASS<mark> |
 | As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose.                          | All custom code is commented and documented                                                                                 | <mark>PASS<mark> |
 | As a User, I can reset my password if I forget it, so that I can regain access to my account.                                                                                                          | <details><summary>Password Reset</summary><img src="./documentation/images/features/passwordreset.png"></details>           | <mark>PASS<mark> |
+| As a User, I can delete my account so that my personal information and data are removed from the websit                                                                                                | <details><summary>Password Reset</summary><img src="./documentation/images/features/accountdeletion.png"></details>         | <mark>PASS<mark> |
 
 ## Stripe
 

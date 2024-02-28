@@ -139,6 +139,7 @@ CiSwag is an online merchandise store catering specifically to software develope
 53. As a User, I can sign up for the newslette so that I stay updated with the latest news and offerings. [#65](https://github.com/DarrachBarneveld/ci-swag/issues/65)
 54. As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose [#68](https://github.com/DarrachBarneveld/ci-swag/issues/68)
 55. As a User, I can reset my password if I forget it, so that I can regain access to my account. [#69](https://github.com/DarrachBarneveld/ci-swag/issues/69)
+56. As a User, I can delete my account so that my personal information and data are removed from the website. [#74](https://github.com/DarrachBarneveld/ci-swag/issues/74)
 
 ### Site Goals
 
@@ -600,6 +601,14 @@ This page is for users that clicked the verification link in their email to chan
 
 <details><summary>Password Change Page</summary>
 <img src="./documentation/images/features/changepassword.png">
+</details>
+
+### Account Deletion
+
+This Feature allows users to delete their accounts so that all there personal data can be removed from the website. This adheres to GDPR principles
+
+<details><summary>Account Deletion</summary>
+<img src="./documentation/images/features/accountdeletion.png">
 </details>
 
 ### Email Verification
