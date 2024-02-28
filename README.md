@@ -728,6 +728,8 @@ Here is a list of all the major bugs encountered throughout development. Links t
 | [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)              | Closed |
 | [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
 | [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
+| [Bug: LCP Page Performance #70](https://github.com/DarrachBarneveld/ci-swag/issues/70)         | Open   |
+| [Bug: Stripe WH Order Creation #67](https://github.com/DarrachBarneveld/ci-swag/issues/75)     | Open   |
 
 ## Technologies And Languages
 
