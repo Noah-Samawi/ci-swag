@@ -719,17 +719,18 @@ In depth testing documentation can be found [here.](./TESTING.md)
 
 Here is a list of all the major bugs encountered throughout development. Links to specific issues provide a more in depth analysis of how they were identified and resolved. This can also be found documented in [TESTING.md](./TESTING.md)
 
-| Bug                                                                                            | Status |
-| ---------------------------------------------------------------------------------------------- | ------ |
-| [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)            | Closed |
-| [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59) | Closed |
-| [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)  | Closed |
-| [Bug: PhoneNumber Order Widget #63](https://github.com/DarrachBarneveld/ci-swag/issues/63)     | Closed |
-| [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)              | Closed |
-| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
-| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
-| [Bug: LCP Page Performance #70](https://github.com/DarrachBarneveld/ci-swag/issues/70)         | Open   |
-| [Bug: Stripe WH Order Creation #67](https://github.com/DarrachBarneveld/ci-swag/issues/75)     | Open   |
+| Bug                                                                                                      | Status |
+| -------------------------------------------------------------------------------------------------------- | ------ |
+| [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)                      | Closed |
+| [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59)           | Closed |
+| [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)            | Closed |
+| [Bug: PhoneNumber Order Widget #63](https://github.com/DarrachBarneveld/ci-swag/issues/63)               | Closed |
+| [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)                        | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)                      | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)                      | Closed |
+| [Bug: LCP Page Performance #70](https://github.com/DarrachBarneveld/ci-swag/issues/70)                   | Open   |
+| [Bug: Stripe WH Order Creation #75](https://github.com/DarrachBarneveld/ci-swag/issues/75)               | Open   |
+| [Bug: Stripe WH fires on invalid order error #76](https://github.com/DarrachBarneveld/ci-swag/issues/76) | Closed |
 
 ## Technologies And Languages
 

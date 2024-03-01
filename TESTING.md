@@ -562,14 +562,19 @@ All automated tests are documented in test.py files and pass without error.
 
 Two bugs were left unhandled. Reasons are documented. Issues will take too much time and can lead to large restructuring of codebase. Noted for fix in future editions of website.
 
-| Bug                                                                                            | Status |
-| ---------------------------------------------------------------------------------------------- | ------ |
-| [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)            | Closed |
-| [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59) | Closed |
-| [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)  | Closed |
-| [Bug: PhoneNumber Order Widget #63](https://github.com/DarrachBarneveld/ci-swag/issues/63)     | Closed |
-| [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)              | Closed |
-| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
-| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)            | Closed |
-| [Bug: LCP Page Performance #70](https://github.com/DarrachBarneveld/ci-swag/issues/70)         | Open   |
-| [Bug: Stripe WH Order Creation #67](https://github.com/DarrachBarneveld/ci-swag/issues/75)     | Open   |
+| Bug                                                                                                      | Status |
+| -------------------------------------------------------------------------------------------------------- | ------ |
+| [Bug: Negative Products #52](https://github.com/DarrachBarneveld/ci-swag/issues/52)                      | Closed |
+| [Bug: Adding Generic Items To Cart #59](https://github.com/DarrachBarneveld/ci-swag/issues/59)           | Closed |
+| [Bug: Checkout Form Error Context #60](https://github.com/DarrachBarneveld/ci-swag/issues/60)            | Closed |
+| [Bug: PhoneNumber Order Widget #63](https://github.com/DarrachBarneveld/ci-swag/issues/63)               | Closed |
+| [Bug: Stripe Autofill #66](https://github.com/DarrachBarneveld/ci-swag/issues/66)                        | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)                      | Closed |
+| [Bug: Form Accessibiliy #67](https://github.com/DarrachBarneveld/ci-swag/issues/67)                      | Closed |
+| [Bug: LCP Page Performance #70](https://github.com/DarrachBarneveld/ci-swag/issues/70)                   | Open   |
+| [Bug: Stripe WH Order Creation #75](https://github.com/DarrachBarneveld/ci-swag/issues/75)               | Open   |
+| [Bug: Stripe WH fires on invalid order error #76](https://github.com/DarrachBarneveld/ci-swag/issues/76) | Closed |
+
+### Bug Comments
+
+Issue number [76](<(https://github.com/DarrachBarneveld/ci-swag/issues/76)>) was the largest and most difficult issue I encountered. My solution is not fool proof as stated in the issue card comments but as it was related to the course walkthrough I couldnt find signficant support to help me resolve this issue. I tried my very best to provide a solution that was error free and and mimimal security errors.
