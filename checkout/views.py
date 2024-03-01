@@ -66,33 +66,70 @@ class CheckoutView(View):
         else:
             order_form = OrderForm()
 
-        if not self.stripe_secret_key:
-            return redirect(reverse('home'))
-
-        stripe.api_key = self.stripe_secret_key
-
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
-
-        # order_form_data = request.session.get('order_form_data')
-
-        # # Render error context if form data is present
-        # if order_form_data:
-        #     order_form = OrderForm(initial=order_form_data['cleaned_data'])
-        #     order_form._errors = order_form_data['errors']
-        #     del request.session['order_form_data']
-
         context = {
             'order_form': order_form,
-            'stripe_public_key': self.stripe_public_key,
-            'client_secret': intent.client_secret,
         }
 
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
+
+        if "detail_verify" in request.POST:
+            form_data = {
+                'full_name': request.POST['full_name'],
+                'email': request.POST['email'],
+                'phone_number': request.POST['phone_number'],
+                'country': request.POST['country'],
+                'postcode': request.POST['postcode'],
+                'town_or_city': request.POST['town_or_city'],
+                'street_address1': request.POST['street_address1'],
+                'street_address2': request.POST['street_address2'],
+                'county': request.POST['county'],
+            }
+
+            order_form = OrderForm(form_data)
+
+            if order_form.is_valid():
+                current_cart = cart_contents(request)
+                total = current_cart['total']
+
+                if len(current_cart['cart_items']) == 0:
+                    messages.error(request, "There are no items in your cart")
+                    return redirect(reverse('view_cart'))
+
+                stripe_total = round(total * 100)
+
+                if not self.stripe_secret_key:
+                    return redirect(reverse('home'))
+
+                stripe.api_key = self.stripe_secret_key
+
+                intent = stripe.PaymentIntent.create(
+                    amount=stripe_total,
+                    currency=settings.STRIPE_CURRENCY,
+                )
+
+                for field_name, field in order_form.fields.items():
+                    order_form.fields[field_name].widget.attrs['disabled'] = 'disabled'
+
+                context = {
+                    'order_form': order_form,
+                    'stripe_public_key': self.stripe_public_key,
+                    'client_secret': intent.client_secret,
+                    'verified': True  
+                }
+
+                return render(request, 'checkout/checkout.html', context)
+
+            else:
+                context = {
+                'order_form': order_form,
+                }
+
+                messages.error(request, 'There was an error with your form. \
+                    Please double-check your information.')
+                return render(request, 'checkout/checkout.html', context)
+
         cart = request.session.get('cart', {})
         profile = None
 
@@ -109,7 +146,6 @@ class CheckoutView(View):
             }
 
         order_form = OrderForm(form_data)
-
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -182,37 +218,8 @@ class CheckoutView(View):
             return redirect(reverse('checkout_success',
                             args=[order.order_number]))
 
-        # Form is invalid, store context session data and redirect to checkout
-        # order_form_data = {
-        #                 'cleaned_data': order_form.cleaned_data,
-        #                 'errors': order_form.errors,
-        #             }
-
-        # request.session['order_form_data'] = order_form_data
-
-        if not self.stripe_secret_key:
-            return redirect(reverse('home'))
-
-        stripe.api_key = self.stripe_secret_key
-        current_cart = cart_contents(request)
-        total = current_cart['total']
-
-        # Return if no items in cart
-        if len(current_cart['cart_items']) == 0:
-            messages.error(request, "There are no items in your cart")
-            return redirect(reverse('view_cart'))
-
-        stripe_total = round(total * 100)
-
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
-
         context = {
         'order_form': order_form,
-        'stripe_public_key': self.stripe_public_key,
-        'client_secret': intent.client_secret,
         }
 
         messages.error(request, 'There was an error with your form. \

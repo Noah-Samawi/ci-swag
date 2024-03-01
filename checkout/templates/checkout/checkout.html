@@ -122,6 +122,7 @@
                       </div>
                     </div>
                   </li>
+                  {% if verified %}
                   <li class="checkout-item">
                     <div class="avatar checkout-icon p-1">
                       <div class="avatar-title rounded-circle bg-primary">
@@ -156,6 +157,7 @@
                       >
                     </fieldset>
                   </li>
+                  {% endif %}
                 </ol>
                 <div class="row my-4">
                   <div class="col">
@@ -165,7 +167,15 @@
                   </div>
                   <div class="col">
                     <div class="text-end mt-2 mt-sm-0">
-                      <button type="submit" class="btn btn-success">Pay Now</button>
+
+                      {% if verified %}
+                      <a href={% url "checkout" %} class='btn btn-primary me-1'>Edit Delivery</a>
+                      <button type="submit" class="btn btn-success" >Pay Now</button>
+
+                      {% else %}
+                      <button type="submit" class="btn btn-primary" name='detail_verify'>Verifiy Delivery</button>
+                      {% endif %}
+                 
                     </div>
                   </div>
                 </div>
@@ -266,7 +276,12 @@
 <!-- Stripe handler scripts-->
 {% block postloadjs %}
 {{ block.super }}
+
+
+{% if verified %}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endif %}
+
 {% endblock %}
