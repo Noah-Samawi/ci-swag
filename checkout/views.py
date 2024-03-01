@@ -3,7 +3,6 @@ import stripe
 import json
 import inspect
 
-
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import View
 from django.conf import settings
@@ -77,13 +76,13 @@ class CheckoutView(View):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form_data = request.session.get('order_form_data')
+        # order_form_data = request.session.get('order_form_data')
 
-        # Render error context if form data is present
-        if order_form_data:
-            order_form = OrderForm(initial=order_form_data['cleaned_data'])
-            order_form._errors = order_form_data['errors']
-            del request.session['order_form_data']
+        # # Render error context if form data is present
+        # if order_form_data:
+        #     order_form = OrderForm(initial=order_form_data['cleaned_data'])
+        #     order_form._errors = order_form_data['errors']
+        #     del request.session['order_form_data']
 
         context = {
             'order_form': order_form,
@@ -110,6 +109,7 @@ class CheckoutView(View):
             }
 
         order_form = OrderForm(form_data)
+
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -183,16 +183,41 @@ class CheckoutView(View):
                             args=[order.order_number]))
 
         # Form is invalid, store context session data and redirect to checkout
-        order_form_data = {
-                        'cleaned_data': order_form.cleaned_data,
-                        'errors': order_form.errors,
-                    }
+        # order_form_data = {
+        #                 'cleaned_data': order_form.cleaned_data,
+        #                 'errors': order_form.errors,
+        #             }
 
-        request.session['order_form_data'] = order_form_data
+        # request.session['order_form_data'] = order_form_data
+
+        if not self.stripe_secret_key:
+            return redirect(reverse('home'))
+
+        stripe.api_key = self.stripe_secret_key
+        current_cart = cart_contents(request)
+        total = current_cart['total']
+
+        # Return if no items in cart
+        if len(current_cart['cart_items']) == 0:
+            messages.error(request, "There are no items in your cart")
+            return redirect(reverse('view_cart'))
+
+        stripe_total = round(total * 100)
+
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
+
+        context = {
+        'order_form': order_form,
+        'stripe_public_key': self.stripe_public_key,
+        'client_secret': intent.client_secret,
+        }
 
         messages.error(request, 'There was an error with your form. \
             Please double-check your information.')
-        return redirect(reverse('checkout'))
+        return render(request, 'checkout/checkout.html', context)
 
 
 def checkout_success(request, order_number):
