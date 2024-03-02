@@ -2,6 +2,7 @@
 
 from decimal import Decimal
 from django.utils.crypto import get_random_string
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -41,11 +42,13 @@ class Product(models.Model):
     category = models.ForeignKey('Category', null=True,
                                  on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True)
-    name = models.CharField(max_length=254)
+    name = models.CharField(max_length=254, unique=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2,
-                                 null=True, blank=True)
+    price = models.DecimalField(max_digits=6, decimal_places=2, 
+                                validators=[MinValueValidator(1)])
+    rating = models.DecimalField(max_digits=6, decimal_places=2, default=1, 
+                                 validators=[MinValueValidator(1),
+                                             MaxValueValidator(5)])
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     sale = models.IntegerField(default=0, null=True, blank=True)

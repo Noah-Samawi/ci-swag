@@ -69,7 +69,7 @@ class AddProductPage(LoginRequiredMixin, UserPassesTestMixin,
 
     """
     template_name = "products/add_product.html"
-    success_url = "/"
+    success_url = "/products"
     form_class = ProductForm
 
     def test_func(self):
@@ -79,14 +79,14 @@ class AddProductPage(LoginRequiredMixin, UserPassesTestMixin,
             self.request.user.profile.moderator
 
     def form_valid(self, form):
-        response = super().form_valid(form)
         messages.success(self.request, "Product created successfully!")
-        return response
+        return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(self.request,
                        "Product creation failed. Please check your input.")
-        return response
+        return super().form_invalid(form)
+
 
 
 class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
@@ -98,7 +98,7 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
     model = Product
     form_class = ProductForm
     template_name = "products/edit_product.html"
-    success_url = "/"
+    success_url = "/products"
 
     def post(self, request, *args, **kwargs):
         # Check if the "delete_item" field is present in the POST data
@@ -106,8 +106,8 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
             product = self.get_object()
             if product:
                 product.delete()
-                messages.success(request, "Post deleted successfully.")
-                return redirect("/")
+                messages.success(request, "Product deleted successfully.")
+                return redirect("products")
 
             messages.error(
                 request,
@@ -125,11 +125,11 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
     def form_valid(self, form):
         messages.success(
             self.request,
-            "Post edited successfully! Review in progress!")
+            "Product updateed successfully!")
         return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(
             self.request,
-            "Post editing failed. Please check your input.")
+            "Product update failed. Please check your input.")
         return super().form_invalid(form)
