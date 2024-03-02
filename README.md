@@ -140,6 +140,8 @@ CiSwag is an online merchandise store catering specifically to software develope
 54. As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose [#68](https://github.com/DarrachBarneveld/ci-swag/issues/68)
 55. As a User, I can reset my password if I forget it, so that I can regain access to my account. [#69](https://github.com/DarrachBarneveld/ci-swag/issues/69)
 56. As a User, I can delete my account so that my personal information and data are removed from the website. [#74](https://github.com/DarrachBarneveld/ci-swag/issues/74)
+57. As a Moderator User, I can update product information but do not have administration access, so ensure product information is accurate [#77](https://github.com/DarrachBarneveld/ci-swag/issues/77)
+58. As a Moderator or Superuser, I can manage products by adding, editing, and deleting so that I can keep business inventory up to date. [#78](https://github.com/DarrachBarneveld/ci-swag/issues/78)
 
 ### Site Goals
 
@@ -457,6 +459,14 @@ The products page showcases preview cards of various products, each accompanied 
 <img src="./documentation/images/features/productspage.png">
 </details>
 
+### Add/Edit Products Page
+
+The Add/Edit products page displays a simple form where moderators or admins can add products to the database. Exisiting products can be edited or deleted. This gives business owners the ability to adjust prices, images, sales and other fields so as to keep an up to date inventory and business model
+
+<details><summary>Add/Edit Products</summary>
+<img src="./documentation/images/features/addproducts.png">
+</details>
+
 ### Programs Page
 
 Similar to the products page, the programs page presents preview cards of different educational programs, providing brief descriptions and images to offer users a glimpse into each program's content and offerings. Searchbar and filtering tools remain consistant with the products page
@@ -646,6 +656,10 @@ An Example below is the 400 page
 </details>
 
 ## Future Features
+
+### Add/Edit Programs
+
+Enable administrators or moderators to add and update programs.
 
 ### Product Review
 

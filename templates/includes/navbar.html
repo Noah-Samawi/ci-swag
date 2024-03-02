@@ -110,6 +110,12 @@
                     <li>
                       <a class="dropdown-item" href="{% url 'my_courses' %}">My Courses</a>
                     </li>
+
+                    {% if request.user.is_superuser or request.user.profile.moderator %}
+                    <li>
+                      <a class="dropdown-item" href="{% url 'add_product' %}">Add Products</a>
+                    </li>
+                    {% endif %}
     
                     <li><hr class="dropdown-divider"></li>
     
@@ -133,7 +139,6 @@
                   <a class="nav-link m-0" href="{% url "view_cart" %}" aria-label="View Cart" aria-expanded="false">
                     <p class='p-0 m-0'> 
                       <span class='fw-bold d-md-none'>Cart</span> 
-                      
                       
                       <i class="fas fa-shopping-cart fa-lg position-relative h5">
                       {% if cart_items|length > 0 %}
