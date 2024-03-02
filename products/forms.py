@@ -12,4 +12,5 @@ class ProductForm(forms.ModelForm):
         """Get product model, choose fields to display"""
 
         model = Product
-        fields = ['name', 'description', 'price', 'image', 'category', 'sale', 'rating']
+        fields = ['name', 'description', 'price', 'image',
+                  'category', 'sale', 'rating']

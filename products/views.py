@@ -6,8 +6,7 @@ from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Product, Category
-from .forms import ProductForm  
-
+from .forms import ProductForm
 
 
 from .utils import filter_and_sort_products
@@ -63,10 +62,11 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
-class AddProductPage(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+class AddProductPage(LoginRequiredMixin, UserPassesTestMixin,
+                     generic.CreateView):
     """
-    A view for adding products to the stor
-  
+    A view for adding products to the store
+
     """
     template_name = "products/add_product.html"
     success_url = "/"
@@ -75,25 +75,22 @@ class AddProductPage(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView
     def test_func(self):
         """Check if user is admin or moderator"""
 
-        return self.request.user.is_superuser or self.request.user.profile.moderator
-
+        return self.request.user.is_superuser or \
+            self.request.user.profile.moderator
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        messages.success(
-            self.request,
-            "Product created successfully!")
+        messages.success(self.request, "Product created successfully!")
         return response
 
     def form_invalid(self, form):
-        messages.error(
-            self.request,
-            "Product creation failed. Please check your input.")
+        messages.error(self.request,
+                       "Product creation failed. Please check your input.")
         return response
 
 
 class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
-                   generic.UpdateView):
+                      generic.UpdateView):
     """
     Allows admins and moderators to to edit or delete products.
     """
@@ -105,9 +102,9 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
 
     def post(self, request, *args, **kwargs):
         # Check if the "delete_item" field is present in the POST data
-        if "delete_item" in request.POST:
+        if "delete_product" in request.POST:
             product = self.get_object()
-            if post:
+            if product:
                 product.delete()
                 messages.success(request, "Post deleted successfully.")
                 return redirect("/")
@@ -119,22 +116,20 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
 
         return super().post(request, *args, **kwargs)
 
-
     def test_func(self):
         """Check if user is admin or moderator"""
-        
-        return self.request.user.is_superuser or self.request.user.profile.moderator
 
-    
+        return self.request.user.is_superuser or \
+            self.request.user.profile.moderator
+
     def form_valid(self, form):
-        response = super().form_valid(form)
         messages.success(
             self.request,
-            "Product updated successfully!")
-        return response
+            "Post edited successfully! Review in progress!")
+        return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(
             self.request,
-            "Product creation failed. Please check your input.")
-        return response
+            "Post editing failed. Please check your input.")
+        return super().form_invalid(form)

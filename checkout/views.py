@@ -110,20 +110,21 @@ class CheckoutView(View):
                 )
 
                 for field_name, field in order_form.fields.items():
-                    order_form.fields[field_name].widget.attrs['disabled'] = 'disabled'
+                    order_form.fields[field_name].widget.attrs['disabled'] = \
+                                                                    'disabled'
 
                 context = {
                     'order_form': order_form,
                     'stripe_public_key': self.stripe_public_key,
                     'client_secret': intent.client_secret,
-                    'verified': True  
+                    'verified': True
                 }
 
                 return render(request, 'checkout/checkout.html', context)
 
             else:
                 context = {
-                'order_form': order_form,
+                    'order_form': order_form,
                 }
 
                 messages.error(request, 'There was an error with your form. \
@@ -219,11 +220,11 @@ class CheckoutView(View):
                             args=[order.order_number]))
 
         context = {
-        'order_form': order_form,
+            'order_form': order_form,
         }
 
         messages.error(request, 'There was an error with your form. \
-            Please double-check your information.')
+                        Please double-check your information.')
         return render(request, 'checkout/checkout.html', context)
 
 
