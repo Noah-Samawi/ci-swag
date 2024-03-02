@@ -7,6 +7,7 @@
   --primary-green: #4caf50;
   --primary-cyan: #00bcd4;
   --primary-blue: #0d6efd;
+  --primary-dark: #212529;
   --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --btn-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -41,6 +42,11 @@ a:link {
 /* CUSTOM BOOTSTRAP INLINE THEMES */
 .bg-orange {
   background: var(--primary-orange);
+}
+
+.bg-orange-gradient {
+  background-color: #f9d29d;
+  background-image: linear-gradient(180deg, #fff0db 0%, #f8f6f5 74%);
 }
 
 .text-orange {
