@@ -1,6 +1,7 @@
 """Product Models"""
 
 from decimal import Decimal
+from django.utils.crypto import get_random_string
 from django.db import models
 
 
@@ -37,9 +38,9 @@ class Product(models.Model):
     SKU, name, description, price, rating, etc.
 
     """
-    category = models.ForeignKey('Category', null=True, blank=True,
+    category = models.ForeignKey('Category', null=True,
                                  on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -49,6 +50,13 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     sale = models.IntegerField(default=0, null=True, blank=True)
     discount = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+
+    def save(self, *args, **kwargs):
+        if not self.sku:
+            # Generate a random SKU
+            self.sku = get_random_string(length=10)
+
+        super().save(*args, **kwargs)
 
     @property
     def rating_array(self):
