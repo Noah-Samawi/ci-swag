@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Product, Category
+from .forms import ProductForm  
 
 
 
@@ -68,7 +69,9 @@ class AddProductPage(LoginRequiredMixin, generic.CreateView):
     """
     template_name = "products/add_product.html"
     success_url = "/"
+    form_class = ProductForm
 
+    
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
