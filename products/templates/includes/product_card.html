@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="col px-1 mb-3">
     <article class="card h-100 border-grey shadow">
       <!-- Sale badge-->
@@ -7,8 +9,13 @@
       </div>
       {% endif %}
       <!-- Product image-->
-      
+
+      {% if product.image and product.image.url %}
       <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+      {% else %}
+
+      <img class="card-img-top" src="{% static 'images/default-product-image.webp' %}" alt="product placeholder default">
+      {% endif %}
 
       <!-- Product details-->
       <div class="card-body p-2">

@@ -53,8 +53,8 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.sku:
-            # Generate a random SKU
-            self.sku = get_random_string(length=10)
+            # Generate a random SKU on save if one is not provided
+            self.sku = 'pp' + get_random_string(length=8)
 
         super().save(*args, **kwargs)
 
