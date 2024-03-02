@@ -1,9 +1,9 @@
 """Product Views"""
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Product, Category
 from .forms import ProductForm  
 
@@ -62,7 +62,7 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
-class AddProductPage(LoginRequiredMixin, generic.CreateView):
+class AddProductPage(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
     """
     A view for adding products to the stor
   
@@ -71,7 +71,10 @@ class AddProductPage(LoginRequiredMixin, generic.CreateView):
     success_url = "/"
     form_class = ProductForm
 
-    
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.profile.moderator
+
+
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
