@@ -58,7 +58,9 @@
        <!-- Edit Product if allowed -->
        {% if request.user.is_authenticated %}
         {% if request.user.is_superuser or request.user.profile.moderator %}
-            <p>hi</p>
+        <a class="btn btn-primary mt-auto" href="{% url "edit_product" product.pk %}"
+        >Edit <i class="fa-solid fa-gear"></i></a
+      >
         {% endif %}
     {% endif %}
       </div>

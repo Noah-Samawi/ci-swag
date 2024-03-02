@@ -98,8 +98,9 @@ class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
     Allows admins and moderators to to edit or delete products.
     """
 
+    model = Product
     form_class = ProductForm
-    template_name = "edit_product.html"
+    template_name = "products/edit_product.html"
     success_url = "/"
 
     def post(self, request, *args, **kwargs):
