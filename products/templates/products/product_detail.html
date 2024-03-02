@@ -25,11 +25,12 @@
     <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
         <div class="col-md-6 position-relative">
-          <img
-            class="card-img-top mb-5 mb-md-0"
-            src="{{ product.image.url }}"
-            alt="..."
-          >
+          {% if product.image and product.image.url %}
+          <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}">
+          {% else %}
+          <img class="card-img-top" src="{% static 'images/default-product-image.webp' %}" alt="product placeholder default">
+          {% endif %}
+      
           {% if product.sale %}
           <div class="position-absolute " style="top: 0.5rem; right: 0.5rem">
             <p class='h5'><span class="badge bg-success">{{product.sale}}% Sale

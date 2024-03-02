@@ -73,19 +73,66 @@ class AddProductPage(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView
     form_class = ProductForm
 
     def test_func(self):
+        """Check if user is admin or moderator"""
+
         return self.request.user.is_superuser or self.request.user.profile.moderator
 
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
         response = super().form_valid(form)
         messages.success(
             self.request,
-            "Product created successfully! Review in progress!")
+            "Product created successfully!")
         return response
 
     def form_invalid(self, form):
-        response = super().form_invalid(form)
+        messages.error(
+            self.request,
+            "Product creation failed. Please check your input.")
+        return response
+
+
+class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
+                   generic.UpdateView):
+    """
+    Allows admins and moderators to to edit or delete products.
+    """
+
+    form_class = ProductForm
+    template_name = "edit_product.html"
+    success_url = "/"
+
+    def post(self, request, *args, **kwargs):
+        # Check if the "delete_item" field is present in the POST data
+        if "delete_item" in request.POST:
+            product = self.get_object()
+            if post:
+                product.delete()
+                messages.success(request, "Post deleted successfully.")
+                return redirect("/")
+
+            messages.error(
+                request,
+                "There was an error with your request, please try again."
+            )
+
+        return super().post(request, *args, **kwargs)
+
+
+    def test_func(self):
+        """Check if user is admin or moderator"""
+        
+        return self.request.user.is_superuser or self.request.user.profile.moderator
+
+    
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(
+            self.request,
+            "Product updated successfully!")
+        return response
+
+    def form_invalid(self, form):
         messages.error(
             self.request,
             "Product creation failed. Please check your input.")

@@ -987,6 +987,7 @@ For Readme/Testing templates inspiration and guidance from [BookHeaven](https://
 
 All Media images on this website were created using [Leondardo AI](https://leonardo.ai/)
 [Hero Image](https://www.linkedin.com/posts/melinda-zhang-2020_the-weekend-ended-with-a-blast-our-activity-6975486245997056001-W-_I/)
+[Default Product Image](https://nayemdevs.com/changing-the-default-thumbnail-placeholder-of-woocommerce-product-is-easy/)
 
 ### Code
 

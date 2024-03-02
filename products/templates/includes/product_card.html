@@ -53,6 +53,14 @@
           <a class="btn btn-outline-dark mt-auto" href="{% url "product_detail" product.id %}"
           >View Product</a
         >
+
+
+       <!-- Edit Product if allowed -->
+       {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser or request.user.profile.moderator %}
+            <p>hi</p>
+        {% endif %}
+    {% endif %}
       </div>
     </article>
 </div>
