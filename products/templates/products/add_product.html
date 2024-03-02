@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}Add Product{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+
+{% block page_header %}
+<header class="bg-dark">
+  <div class="container px-4 px-lg-5 mt-5 mb-2">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Update Inventory</h1>
+      <p class="lead fw-normal text-white-50 mb-0">
+        Add, update or delete products from CI Swag
+      </p>
+    </div>
+  </div>
+</header>  
+
+{% endblock %}
+
+{% block content %}
+    <!-- Product-->
+    <section class="py-3 bg-white">
+      <!-- Heading for accessibility-->
+      <h2>Add Product</h2> 
+
+   
+      </section>
+{% endblock %}

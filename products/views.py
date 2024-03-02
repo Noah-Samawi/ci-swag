@@ -2,7 +2,10 @@
 
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Product, Category
+
 
 
 from .utils import filter_and_sort_products
@@ -56,3 +59,27 @@ def product_detail(request, product_id):
     }
 
     return render(request, 'products/product_detail.html', context)
+
+
+class AddProductPage(LoginRequiredMixin, generic.CreateView):
+    """
+    A view for adding products to the stor
+  
+    """
+    template_name = "products/add_product.html"
+    success_url = "/"
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        response = super().form_valid(form)
+        messages.success(
+            self.request,
+            "Product created successfully! Review in progress!")
+        return response
+
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        messages.error(
+            self.request,
+            "Product creation failed. Please check your input.")
+        return response
