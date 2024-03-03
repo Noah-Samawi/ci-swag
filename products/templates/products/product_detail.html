@@ -51,7 +51,7 @@
           </div>
           <p class="lead">{{product.description}}</p>
 
-         <!-- Add to cart form -->
+          <!-- Add to cart form -->
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="d-flex">
@@ -77,6 +77,15 @@
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
+
+              <!-- Edit Product if allowed -->
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser or request.user.profile.moderator %}
+            <a class="btn btn-primary mt-3" href="{% url "edit_product" product.pk %}"
+            >Edit Product<i class="fa-solid fa-gear ms-1"></i></a
+          >
+            {% endif %}
+        {% endif %}
         </div>
       </div>
 

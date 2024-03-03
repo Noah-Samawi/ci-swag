@@ -39,12 +39,7 @@
           <!-- Item actions-->
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
-              {% if item == 'prod' %}
               <a class="btn btn-outline-dark mt-auto" href="{% url "product_detail" related.id %}">View Product</a>
-              {% else  %}
-              <a class="btn btn-outline-dark mt-auto" href="{% url "program_detail" related.id %}">View Program</a>
-              {% endif %}
-
             </div>
 
           </div>

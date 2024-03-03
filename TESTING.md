@@ -124,6 +124,10 @@ The responsiveness of the website was thoroughly tested on various devices, incl
 | Product Mobile         | ![products mobile](./documentation/images/testing/lighthouse/productsmobile.png)             | <mark>Pass</mark>      |
 | Product Detail         | ![product detail](./documentation/images/testing/lighthouse/productdetail.png)               | <mark>Good</mark>      |
 | Product Detail Mobile  | ![product detail mobile](./documentation/images/testing/lighthouse/productdetailmobile.png)  | <mark>Pass</mark>      |
+| Add Product            | ![add product](./documentation/images/testing/lighthouse/addproduct.png)                     | <mark>Excellent</mark> |
+| Add Product Mobile     | ![add product mobile](./documentation/images/testing/lighthouse/addproductmobile.png)        | <mark>Excellent</mark> |
+| Edit Product           | ![edit product](./documentation/images/testing/lighthouse/editproduct.png)                   | <mark>Excellent</mark> |
+| Edit Product Mobile    | ![edit product mobile](./documentation/images/testing/lighthouse/editproductmobile.png)      | <mark>Excellent</mark> |
 | Programs               | ![programs](./documentation/images/testing/lighthouse/programs.png)                          | <mark>Excellent</mark> |
 | Programs Mobile        | ![programs mobile](./documentation/images/testing/lighthouse/programsmobile.png)             | <mark>Pass</mark>      |
 | Programs Detail        | ![programs detail](./documentation/images/testing/lighthouse/programsdetail.png)             | <mark>Good</mark>      |
