@@ -83,7 +83,7 @@ class Subscription(models.Model):
         return self.price
 
     def __str__(self):
-        return str(self.name)
+        return self.get_name_display()
 
 
 class UserProfile(models.Model):
@@ -110,8 +110,8 @@ class UserProfile(models.Model):
                                             on_delete=models.SET_NULL,
                                             null=True, blank=True,
                                             related_name='active_subscription')
-    moderator = models.BooleanField(default=False) 
-
+    moderator = models.BooleanField(default=False)
+    
     def __str__(self):
         return str(self.user)
 
