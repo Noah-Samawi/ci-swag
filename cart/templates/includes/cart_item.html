@@ -1,5 +1,5 @@
 {% load cart_tools %}
-{% load is_product %}
+{% load is_instance %}
 {% load static %}
 
 
@@ -22,7 +22,11 @@
           {% endif %}       
         </div>
         <div class="col-md-9 text-left mt-sm-2">
+          {% if item.product|is_subscription %}
+              <h2 class='cart-title h4'>{{item.product.get_name_display}}</h2>
+          {% else %}
           <h2 class='cart-title h4'>{{item.product.name}}</h2>
+          {% endif %}
           <p class="font-weight-light text-secondary d-none d-sm-block">
             {{item.product.description}}
           </p>
@@ -42,7 +46,7 @@
       {% if request.user.is_authenticated %}
       {% if request.user.profile.subscription and item.product.discount != None %}
        <p class='badge bg-{{request.user.profile.subscription.color}} text-wrap'>
-        <span class='membership-tag'>{{request.user.profile.subscription}}</span>
+        <span class='membership-tag'>{{request.user.profile.subscription.get_name_display}}</span>
         <span>-${{item.product.discount|floatformat:2}}</span>
         </p> 
       {% endif %}

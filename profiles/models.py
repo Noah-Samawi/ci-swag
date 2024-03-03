@@ -29,7 +29,7 @@ class Subscription(models.Model):
         ('mid_dev', 'Mid Dev'),
         ('senior_dev', 'Senior Dev'),
     ]
-
+    image = models.ImageField(null=True, blank=True)
     sku = models.CharField(
         max_length=254,
         null=True,

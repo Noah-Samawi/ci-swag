@@ -38,7 +38,7 @@
             <div class="subscription card text-center">
                 <div class="header {% if subscription.current %} text-white bg-secondary {% else %} bg-{{subscription.color}} {% endif %}">
                     <h2 class='fw-bolder'>${{subscription.price}} <small>| mo</small></h2>
-                    <div class="title fw-bolder">{{subscription.name}}</div>
+                    <div class="title fw-bolder">{{subscription.get_name_display}}</div>
 
                     {% if subscription.current %}
                     <span class='position-absolute top-0 right-0 translate-middle badge rounded-pill bg-danger'>Current Membership</span>
