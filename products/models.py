@@ -44,14 +44,16 @@ class Product(models.Model):
     sku = models.CharField(max_length=254, null=True)
     name = models.CharField(max_length=254, unique=True)
     description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2, 
+    price = models.DecimalField(max_digits=6, decimal_places=2,
                                 validators=[MinValueValidator(1)])
-    rating = models.DecimalField(max_digits=6, decimal_places=2, default=1, 
+    rating = models.DecimalField(max_digits=6, decimal_places=2, default=1,
                                  validators=[MinValueValidator(1),
                                              MaxValueValidator(5)])
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    sale = models.IntegerField(default=0, null=True, blank=True)
+    sale = models.IntegerField(default=0, null=True,
+                               blank=True, validators=[MinValueValidator(0),
+                                                       MaxValueValidator(100)])
     discount = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
     def save(self, *args, **kwargs):
