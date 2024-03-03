@@ -26,6 +26,8 @@ Go back to [README.md](/README.md)
 | Home               | ![home](./documentation/images/testing/html/homepagehtml.png)                        | <mark>PASS<mark>  |                                                 |
 | Products           | ![products](./documentation/images/testing/html/productshtml.png)                    | <mark>PASS<mark>  |                                                 |
 | Product Detail     | ![product detail](./documentation/images/testing/html/productdetailhtml.png)         | <mark>PASS<mark>  |                                                 |
+| Add Product        | ![add product](./documentation/images/testing/html/addproducthtml.png)               | <mark>PASS<mark>  |                                                 |
+| Edit Product       | ![add product](./documentation/images/testing/html/editproducthtml.png)              | <mark>PASS<mark>  |                                                 |
 | Programs           | ![programs](./documentation/images/testing/html/programshtml.png)                    | <mark>PASS<mark>  |                                                 |
 | Program Detail     | ![program detail](./documentation/images/testing/html/programdetailhtml.png)         | <mark>Error<mark> | Youtube embed issue outdated property           |
 | Cart               | ![cart](./documentation/images/testing/html/carthtml.png)                            | <mark>PASS<mark>  |                                                 |
@@ -72,6 +74,7 @@ Go back to [README.md](/README.md)
 | tests    | products | ![tests](./documentation/images/testing/python/productstestspy.png)       | <mark>PASS<mark> |                                                                     |
 | models   | products | ![models](./documentation/images/testing/python/productsmodelspy.png)     | <mark>PASS<mark> |                                                                     |
 | admin    | products | ![admin](./documentation/images/testing/python/productsadminpy.png)       | <mark>PASS<mark> |                                                                     |
+| forms    | products | ![forms](./documentation/images/testing/python/productformspy.png)        | <mark>PASS<mark> |                                                                     |
 | views    | programs | ![views](./documentation/images/testing/python/programsviewspy.png)       | <mark>PASS<mark> |                                                                     |
 | urls     | programs | ![urls](./documentation/images/testing/python/programsurlspy.png)         | <mark>PASS<mark> |                                                                     |
 | tests    | programs | ![tests](./documentation/images/testing/python/programstestspy.png)       | <mark>PASS<mark> |                                                                     |
@@ -135,6 +138,7 @@ The responsiveness of the website was thoroughly tested on various devices, incl
 | Subscription Mobile    | ![subscription mobile](./documentation/images/testing/lighthouse/subscriptionsmobile.png)    | <mark>Pass</mark>      |
 | My courses             | ![my courses](./documentation/images/testing/lighthouse/mycourses.png)                       | <mark>Excellent</mark> |
 | My courses Mobile      | ![my courses mobile](./documentation/images/testing/lighthouse/mycoursesmobile.png)          | <mark>Excellent</mark> |
+| My courses Mobile      | ![my courses mobile](./documentation/images/testing/lighthouse/mycoursesmobile.png)          | <mark>Excellent</mark> |
 
 Signficant optimisation practices were used to try and increase the Largest Contentful Paint (LCP)
 
@@ -158,6 +162,7 @@ The main crud functionality of this website pertains to user accounts and produc
 1. Users can create accounts
 2. Users can create cart items
 3. Users can create orders
+4. Admins and Moderators can create products
 
 ### Read
 
@@ -173,11 +178,13 @@ The main crud functionality of this website pertains to user accounts and produc
 2. Users can update user account information
 3. Users can update user profile information
 4. Users can update subscription status
+5. Admins and Moderators can update products
 
 ### Delete
 
 1. Users can remove items from cart
 2. User can delete thier accounts
+3. Admins and Moderators can delete products
 
 ## Manual Testing
 
@@ -194,7 +201,7 @@ The main crud functionality of this website pertains to user accounts and produc
 | Profile Button           | Click       | Render a dropdown menu of all profile sections          | <mark>Pass</mark> |
 | Profile Dropdown         | Click       | Redirect to selected page                               | <mark>Pass</mark> |
 | Profile Dropdown Link    | Click       | Redirect to selected page                               | <mark>Pass</mark> |
-| Profile Dropdown Auth    | Click       | Render logout, profile and my courses links             | <mark>Pass</mark> |
+| Profile Dropdown Auth    | Display     | Render logout, profile, courses, add product links      | <mark>Pass</mark> |
 | Profile Dropdown NonAuth | Click       | Render login and register links                         | <mark>Pass</mark> |
 | Cart Icon Link           | Click       | Redirect to cart page                                   | <mark>Pass</mark> |
 | Hamburger Menu           | Click       | Render a dropdown menu of all links                     | <mark>Pass</mark> |
@@ -224,21 +231,77 @@ The main crud functionality of this website pertains to user accounts and produc
 
 ### Product Page
 
-| Element                 | Action      | Expected Result                                                 | Pass/Fail         |
-| ----------------------- | ----------- | --------------------------------------------------------------- | ----------------- |
-| Category Widgets        | Click       | Redirect to selected product category page                      | <mark>Pass</mark> |
-| Filter By Price Button  | Click       | Filter queried products based on price                          | <mark>Pass</mark> |
-| Filter By Rating Button | Click       | Filter queried products based on rating                         | <mark>Pass</mark> |
-| Filter By Sale Button   | Click       | Filter queried products based on sale                           | <mark>Pass</mark> |
-| Filter Direction        | Display     | Filter direction displayed via an arrow                         | <mark>Pass</mark> |
-| Current Category        | Display     | Current displayed category is shown in the header               | <mark>Pass</mark> |
-| Search Bar              | Search      | Filter products based on query to category, name or description | <mark>Pass</mark> |
-| Product Cards           | Display     | All filtered Product Cards Rendered in grid layout              | <mark>Pass</mark> |
-| Product Card Button     | Click       | Redirect to product detail page                                 | <mark>Pass</mark> |
-| Product Card Button     | Hover/Focus | Background darkens, text lightens                               | <mark>Pass</mark> |
-| Filter Button           | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
-| Search Icon             | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
-| Category Widgets        | Hover/Focus | Background turns orange, text turns white                       | <mark>Pass</mark> |
+| Element                  | Action      | Expected Result                                                 | Pass/Fail         |
+| ------------------------ | ----------- | --------------------------------------------------------------- | ----------------- |
+| Category Widgets         | Click       | Redirect to selected product category page                      | <mark>Pass</mark> |
+| Filter By Price Button   | Click       | Filter queried products based on price                          | <mark>Pass</mark> |
+| Filter By Rating Button  | Click       | Filter queried products based on rating                         | <mark>Pass</mark> |
+| Filter By Sale Button    | Click       | Filter queried products based on sale                           | <mark>Pass</mark> |
+| Filter Direction         | Display     | Filter direction displayed via an arrow                         | <mark>Pass</mark> |
+| Current Category         | Display     | Current displayed category is shown in the header               | <mark>Pass</mark> |
+| Search Bar               | Search      | Filter products based on query to category, name or description | <mark>Pass</mark> |
+| Product Cards            | Display     | All filtered Product Cards Rendered in grid layout              | <mark>Pass</mark> |
+| Product View Card Button | Click       | Redirect to product detail page                                 | <mark>Pass</mark> |
+| Product Edit Button      | Display     | Only moderators and admins can see this button                  | <mark>Pass</mark> |
+| Product Edit Button      | Click       | Redirect to edit product page                                   | <mark>Pass</mark> |
+| Product View Card Button | Hover/Focus | Background darkens, text lightens                               | <mark>Pass</mark> |
+| Product Edit Button      | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
+| Filter Button            | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
+| Search Icon              | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
+| Category Widgets         | Hover/Focus | Background turns orange, text turns white                       | <mark>Pass</mark> |
+
+### Product Detail Page
+
+| Element             | Action      | Expected Result                                                  | Pass/Fail         |
+| ------------------- | ----------- | ---------------------------------------------------------------- | ----------------- |
+| Quantity Input      | Input       | Updates the total amount of desired product - no negative values | <mark>Pass</mark> |
+| Add to Cart Button  | Click       | Total quantity of item added to cart                             | <mark>Pass</mark> |
+| Add to Cart Button  | Click       | Notification appears upon outcome of adding to cart              | <mark>Pass</mark> |
+| Product Edit Button | Display     | Only moderators and admins can see this button                   | <mark>Pass</mark> |
+| Product Edit Button | Click       | Redirect to edit product page                                    | <mark>Pass</mark> |
+| Back Link           | Click       | Redirects back to the products page                              | <mark>Pass</mark> |
+| Paginator           | Click       | All navigations buttons redirect to correct paginated results    | <mark>Pass</mark> |
+| View Product Button | Click       | Redirect to related product detail page                          | <mark>Pass</mark> |
+| Related Products    | Display     | Display product cards of 4 related items with pagination         | <mark>Pass</mark> |
+| Back Link           | Hover/Focus | Text darkens                                                     | <mark>Pass</mark> |
+| Add to Cart Button  | Hover/Focus | Background darkens, text lightens                                | <mark>Pass</mark> |
+| Product Edit Button | Hover/Focus | Background darkens                                               | <mark>Pass</mark> |
+| Paginator Button    | Hover/Focus | Background darkens                                               | <mark>Pass</mark> |
+
+### Add Product Page
+
+| Element            | Action      | Expected Result                                | Pass/Fail         |
+| ------------------ | ----------- | ---------------------------------------------- | ----------------- |
+| Authentication     | Display     | Only Moderators and Admins can access the page | <mark>Pass</mark> |
+| Form               | Display     | A form is rendered with all fields editable    | <mark>Pass</mark> |
+| Form               | Display     | Required fields are clearly marked             | <mark>Pass</mark> |
+| Form Valid         | Submit      | A a product is saved to the database           | <mark>Pass</mark> |
+| Form Valid         | Submit      | User is redirected to the products page        | <mark>Pass</mark> |
+| Form Valid         | Submit      | A notification displays the success message    | <mark>Pass</mark> |
+| Form Invalid       | Submit      | Error context is rendered to the UI            | <mark>Pass</mark> |
+| Form Invalid       | Submit      | A notification display an error occured        | <mark>Pass</mark> |
+| Form Invalid       | Submit      | User is redirected to the add product page     | <mark>Pass</mark> |
+| Form Image Button  | Hover/Focus | Darkens background                             | <mark>Pass</mark> |
+| Form Submit Button | Hover/Focus | Darkens background                             | <mark>Pass</mark> |
+
+### Edit Product Page
+
+| Element             | Action      | Expected Result                                           | Pass/Fail         |
+| ------------------- | ----------- | --------------------------------------------------------- | ----------------- |
+| Tests Add Products  | All         | All validation and display context from add products pass | <mark>Pass</mark> |
+| Form                | Display     | Product data is pre rendered to the page                  | <mark>Pass</mark> |
+| Form                | Display     | Product data is pre rendered to the page                  | <mark>Pass</mark> |
+| Current Image       | Display     | Link to current image displayed                           | <mark>Pass</mark> |
+| Current Image Clear | Checked     | Image is removed from the product                         | <mark>Pass</mark> |
+| Current Image Clear | Checked     | Image is removed from the product                         | <mark>Pass</mark> |
+| Form Update Button  | Click       | Form is submitted                                         | <mark>Pass</mark> |
+| Form Delete Button  | Click       | Confirmation modal appears                                | <mark>Pass</mark> |
+| Modal Delete Button | Click       | Product is removed from the database                      | <mark>Pass</mark> |
+| Modal Delete Button | Click       | User is redirected to the products page                   | <mark>Pass</mark> |
+| Modal Delete Button | Click       | A notification message is displayed to user               | <mark>Pass</mark> |
+| Modal Cancel Button | Click       | Modal is hidden                                           | <mark>Pass</mark> |
+| Form Update Button  | Hover/Focus | Darkens background                                        | <mark>Pass</mark> |
+| Form Delete Button  | Hover/Focus | Darkens background                                        | <mark>Pass</mark> |
 
 ### Program Page
 
@@ -257,22 +320,6 @@ The main crud functionality of this website pertains to user accounts and produc
 | Filter Button           | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
 | Search Icon             | Hover/Focus | Background darkens                                              | <mark>Pass</mark> |
 | Category Widgets        | Hover/Focus | Background turns orange, text turns white                       | <mark>Pass</mark> |
-
-### Product Detail Page
-
-| Element             | Action      | Expected Result                                                  | Pass/Fail         |
-| ------------------- | ----------- | ---------------------------------------------------------------- | ----------------- |
-| Quantity Input      | Input       | Updates the total amount of desired product - no negative values | <mark>Pass</mark> |
-| Add to Cart Button  | Click       | Total quantity of item added to cart                             | <mark>Pass</mark> |
-| Add to Cart Button  | Click       | Notification appears upon outcome of adding to cart              | <mark>Pass</mark> |
-| Back Link           | Click       | Redirects back to the products page                              | <mark>Pass</mark> |
-| Paginator           | Click       | All navigations buttons redirect to correct paginated results    | <mark>Pass</mark> |
-| View Product Button | Click       | Redirect to related product detail page                          | <mark>Pass</mark> |
-| Related Products    | Display     | Display product cards of 4 related items with pagination         | <mark>Pass</mark> |
-| Back Link           | Hover/Focus | Text darkens                                                     | <mark>Pass</mark> |
-| Add to Cart Button  | Hover/Focus | Background darkens, text lightens                                | <mark>Pass</mark> |
-| View Product Button | Hover/Focus | Background darkens, text lightens                                | <mark>Pass</mark> |
-| Paginator Button    | Hover/Focus | Background darkens                                               | <mark>Pass</mark> |
 
 ### Program Detail Page
 
@@ -542,7 +589,9 @@ All automated tests are documented in test.py files and pass without error.
 | As a User, I can sign up for the newsletter so that I stay updated with the latest news and offerings                                                                                                  | <details><summary>Newsletter</summary><img src="./documentation/images/features/newsletter.png"></details>                  | <mark>PASS<mark> |
 | As a developer, I can ensure that all code is thoroughly documented with comments in a standardised format so that anyone reading the code can easily understand its purpose.                          | All custom code is commented and documented                                                                                 | <mark>PASS<mark> |
 | As a User, I can reset my password if I forget it, so that I can regain access to my account.                                                                                                          | <details><summary>Password Reset</summary><img src="./documentation/images/features/passwordreset.png"></details>           | <mark>PASS<mark> |
-| As a User, I can delete my account so that my personal information and data are removed from the websit                                                                                                | <details><summary>Password Reset</summary><img src="./documentation/images/features/accountdeletion.png"></details>         | <mark>PASS<mark> |
+| As a User, I can delete my account so that my personal information and data are removed from the website                                                                                               | <details><summary>Delete Account</summary><img src="./documentation/images/features/accountdeletion.png"></details>         | <mark>PASS<mark> |
+| As a Moderator User, I can update product information but do not have administration access, so ensure product information is accurate                                                                 | <details><summary>Moderator</summary><img src="./documentation/images/features/addproducts.png"></details>                  | <mark>PASS<mark> |
+| As a Moderator or Superuser, I can manage products by adding, editing, and deleting so that I can keep business inventory up to date.                                                                  | <details><summary>Add/Edit Product</summary><img src="./documentation/images/features/addproducts.png"></details>           | <mark>PASS<mark> |
 
 ## Stripe
 
