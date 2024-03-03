@@ -7,22 +7,19 @@
     <td data-th="Item">
       <div class="row">
         <div class="col-md-3 text-left">
-          {% if item.product.image.url %}    
+
+          {% if item.product.image and item.product.image.url %}
           <img
           src="{{item.product.image.url}}"
           alt="Product {{item.product.name}}"
           class="img-fluid d-none d-md-block rounded mb-2 border border-black-50"
           style="height: 100px;  width: 100px; object-fit: cover;"
-        >
-        {% else %}
-        <img
-        src="{% static 'images/award-placeholder.webp' %}"
-        alt="Product {{item.product.name}}"
-        class="img-fluid d-none d-md-block rounded mb-2 bg-{{item.product.color}} border border-black-50"
-        style="height: 100px;   width: 100px; object-fit: cover;"
-      >
-        {% endif %}
-       
+          >
+          {% else %}
+          <img class="card-img-top" src="{% static 'images/default-product-image.webp' %}" alt="product placeholder default"
+          style="height: 100px;  width: 100px; object-fit: cover;"
+          >
+          {% endif %}       
         </div>
         <div class="col-md-9 text-left mt-sm-2">
           <h2 class='cart-title h4'>{{item.product.name}}</h2>
@@ -54,7 +51,7 @@
     </td>
       <!--Update Product Form if Product -->
     <td data-th="Quantity">
-      {% if item|is_product %}
+      {% if item.product|is_product %}
       <form
       class="form text-center"
       action="{% url 'update_cart' item.product.id %}"
@@ -82,7 +79,7 @@
         method="POST"
         >
           {% csrf_token %}
-          {% if item.product.id >= 31 %}
+          {% if not item.product|is_product %}
           <strong class="form-control bg-secondary text-center text-white fw-bold"
           >{{item.quantity}}</strong> 
           {% endif %}
