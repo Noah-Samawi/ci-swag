@@ -1,4 +1,5 @@
 {% load cart_tools %}
+{% load is_product %}
 {% load static %}
 
 
@@ -53,7 +54,7 @@
     </td>
       <!--Update Product Form if Product -->
     <td data-th="Quantity">
-      {% if item.product.id < 31 %}
+      {% if item|is_product %}
       <form
       class="form text-center"
       action="{% url 'update_cart' item.product.id %}"
