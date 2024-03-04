@@ -5,7 +5,7 @@ Thank you for choosing CiSwag Store! This email is to confirm that we have recei
 {% for item in order.lineitems.all %}
 Title: {{item.content_object.name }},
 Quantity: {{ item.quantity }},
-Price:  €{{ item.content_object.price }}
+Price:  €{{ item.content_object.total_final_price }}
 {% endfor %}
 {% if order.discount %}
 Discount: € {{ order.discount }}

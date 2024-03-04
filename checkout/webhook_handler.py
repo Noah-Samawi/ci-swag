@@ -140,23 +140,53 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
+                
+                if profile is not None:
+                    product_discount = profile.subscription.product_discount
+                    program_discount = profile.subscription.program_discount
+                
                 for item_id, item_data in json.loads(cart).items():
-                    item = get_item_from_item_id(item_id)
-                    if isinstance(item, Subscription):
-                        content_type = \
-                            ContentType.objects.get_for_model(Subscription)
-                    if isinstance(item, Program):
-                        content_type = \
-                            ContentType.objects.get_for_model(Program)
-                    if isinstance(item, Product):
-                        content_type = \
-                            ContentType.objects.get_for_model(Product)
+                    discount = 0
+                    if profile is not None:
+                        # Membership discount
+                        item = get_item_from_item_id(item_id)
+                        # Apply discounts to products if user has a subscription
+                        
+                        if isinstance(item, Subscription):
+                            content_type = \
+                                ContentType.objects.get_for_model(Subscription)
+                            
+                        elif isinstance(item, Program):
+                            content_type = \
+                                ContentType.objects.get_for_model(Program)
+                            item.price =- program_discount
+                            if profile.subscription:
+                                discount = profile.subscription
+                        else:
+                            content_type = \
+                                ContentType.objects.get_for_model(Product)
+                            item.price =- product_discount
+                            if profile.subscription:
+                                discount = profile.subscription
+                    else:
+                        item = get_item_from_item_id(item_id)
+                        if isinstance(item, Subscription):
+                            content_type = \
+                                ContentType.objects.get_for_model(Subscription)
+                        if isinstance(item, Program):
+                            content_type = \
+                                ContentType.objects.get_for_model(Program)
+                        if isinstance(item, Product):
+                            content_type = \
+                                ContentType.objects.get_for_model(Product)
+
 
                     order_line_item = OrderLineItem(
                             order=order,
                             content_type=content_type,
                             object_id=item_id,
                             quantity=item_data,
+                            subscription_discount=discount
                         )
                     order_line_item.save()
 
@@ -166,7 +196,6 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]}'

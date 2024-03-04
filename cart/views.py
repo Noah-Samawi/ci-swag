@@ -23,7 +23,6 @@ def add_to_cart(request, item_id):
 
     product = get_item_from_item_id(item_id)
     cart = request.session.get('cart', {})
-    print(isinstance(product, Product))
 
     # Server side validation to prevent negative or zero quantities
     if quantity is not None and int(quantity) <= 0 \

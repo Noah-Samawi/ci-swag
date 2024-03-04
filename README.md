@@ -463,6 +463,8 @@ The products page showcases preview cards of various products, each accompanied 
 
 The Add/Edit products page displays a simple form where moderators or admins can add products to the database. Exisiting products can be edited or deleted. This gives business owners the ability to adjust prices, images, sales and other fields so as to keep an up to date inventory and business model
 
+A design decision was made here to allow moderators to add and edit products as well as superusers/admins. This meant business owners could give potential employees powers to edit inventory but not directly have access to the secure admin portal that had full CRUD functionality.
+
 <details><summary>Add/Edit Products</summary>
 <img src="./documentation/images/features/addproducts.png">
 </details>
