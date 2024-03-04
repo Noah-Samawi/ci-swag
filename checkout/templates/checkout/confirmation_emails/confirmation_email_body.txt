@@ -5,14 +5,14 @@ Thank you for choosing CiSwag Store! This email is to confirm that we have recei
 {% for item in order.lineitems.all %}
 Title: {{item.content_object.name }},
 Quantity: {{ item.quantity }},
-Price:  €{{ item.item_total }}
+Price:  ${{ item.item_total }}
 {% endfor %}
 {% if order.discount %}
-Discount: € {{ order.discount }}
+Discount: $ {{ order.discount }}
 {% endif %}
-Order Total: € {{ order.order_total }}
-Delivery: € {{ order.delivery_cost }}
-Grand Total: € {{ order.grand_total }}
+Order Total: $ {{ order.order_total }}
+Delivery/Admin: $ {{ order.delivery_cost }}
+Grand Total: $ {{ order.grand_total }}
 
 Delivery Address: 
 {{ order.street_address1 }},
