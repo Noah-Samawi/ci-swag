@@ -705,8 +705,8 @@ By combining social media outreach with targeted email marketing, CI Swag aims t
 ![Facebook Page](./documentation/images/fbpage.png)
 ![Facebook Banner](./documentation/images/fbfaq.png)
 ![Facebook Banner](./documentation/images/fbreply.png)
-![Newsletter](./documentation/images/mailchimp.png)
-![Email Marketing]()
+![Newsletter](./documentation/images/features/newsletter.png)
+![Email Marketing](./documentation/images/mailchimp.png)
 
 ### Paid Business Plan
 
