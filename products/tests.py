@@ -2,6 +2,9 @@
 
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth.models import User
+from profiles.models import UserProfile
+
 
 from .models import Product, Category
 
@@ -51,3 +54,54 @@ class ProductsDetailPageTests(TestCase):
             )
             )
         self.assertTemplateUsed(response, 'products/product_detail.html')
+
+
+class AddProductPageTests(TestCase):
+    '''
+    Test case class for verifying the functionality of the add product page.
+    '''
+
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='12345'
+        )
+        self.admin = User.objects.create_superuser(
+            username='admin',
+            password='12345'
+        )
+        self.moderator = User.objects.create_user(
+            username='moderator',
+            password='12345'
+        )
+        self.moderator.profile.moderator = True
+        self.moderator.profile.save()
+
+    def test_add_product_page(self):
+        '''
+        Test if add product page can be accessed by admin
+        and it returns the correct template
+        '''
+
+        self.client.login(username='admin', password='12345')
+        response = self.client.get(reverse('add_product'))
+        self.assertTemplateUsed(response, 'products/add_product.html')
+
+    def test_moderator_access(self):
+        '''
+        Test if user with moderator profile can access the add product page
+        '''
+
+        self.client.login(username='moderator', password='12345')
+        response = self.client.get(reverse('add_product'))
+        self.assertTemplateUsed(response, 'products/add_product.html')
+
+    def test_non_admin_access(self):
+        '''
+        Test if non-admin user is forbidden to access the add product page
+        '''
+
+        self.client.login(username='testuser', password='12345')
+        response = self.client.get(reverse('add_product'))
+        self.assertEqual(response.status_code, 403)
