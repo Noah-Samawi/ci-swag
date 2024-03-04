@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import User
 from products.models import Product
 from programs.models import Program
 from profiles.models import UserProfile, Subscription
@@ -151,23 +152,25 @@ class StripeWH_Handler:
                         # Membership discount
                         item = get_item_from_item_id(item_id)
                         # Apply discounts to products if user has a subscription
-                        
                         if isinstance(item, Subscription):
                             content_type = \
-                                ContentType.objects.get_for_model(Subscription)
-                            
+                                ContentType.objects.get_for_model(Subscription) 
                         elif isinstance(item, Program):
                             content_type = \
                                 ContentType.objects.get_for_model(Program)
-                            item.price =- program_discount
-                            if profile.subscription:
-                                discount = profile.subscription
+                            total_item_price = item_data * item.total_final_price
+                            if program_discount:
+                                discount = program_discount
+                                item.price = item.price * (1 - program_discount / 100)
+                                item.save()
                         else:
                             content_type = \
                                 ContentType.objects.get_for_model(Product)
-                            item.price =- product_discount
-                            if profile.subscription:
-                                discount = profile.subscription
+                            total_item_price = item_data * item.total_final_price
+                            if product_discount:
+                                item.price = item.price * (1 - product_discount / 100)
+                                item.save()
+
                     else:
                         item = get_item_from_item_id(item_id)
                         if isinstance(item, Subscription):
@@ -196,6 +199,8 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
+        self._send_confirmation_email(order)
+
         return HttpResponse(
             content=(
                 f'Webhook received: {event["type"]}'
