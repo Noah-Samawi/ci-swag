@@ -513,7 +513,9 @@ The cart page displays a summary of the items currently in the user's cart, pres
 
 ### Checkout Page
 
-The checkout page streamlines the purchasing process, guiding users through the final steps of completing their orders. Users can review their selected items, input shipping and payment information. Users can add email changes and name changes for orders, but this will only affect a singler purpose. The checkout page provides order summary details, ensuring transparency regarding the total cost, including discounts and shipping fees. Stripe payment elements are used to handle the payment processing
+The checkout page streamlines the purchasing process, guiding users through the final steps of completing their orders. Users can review their selected items, input shipping and payment information. Users can add email changes and name changes for orders, but this will only affect a singler purpose. The checkout page provides order summary details, ensuring transparency regarding the total cost, including discounts and shipping fees. Stripe payment elements are used to handle the payment processing.
+
+The checkout page is a two step processed. Verification of delivery address, and then payment verification. I allowed users to have alternate names and emails on orders so they could gift presents and emails with the correct name and email address would be reflected on a single order and not persisted to the database.
 
 <details><summary>Checkout</summary>
 <img src="./documentation/images/features/checkoutpage.png">
@@ -726,6 +728,10 @@ Hypthoesis of a marketing plan for paid business. This will be broken down into 
 2. Google ads for targeting audiences with banner ads and promoted search results
 3. Analytics for understanding traffic and audience
 4. Installing pixel throughout the website for key metrics
+
+### Subscriptions
+
+A demo subscription model was used in this application, enabling users to subscribe for benefits. Subscribers are billed on a monthly basis. However, since the Stripe account used is for testing purposes, monthly billing is inactive in this iteration, and memberships require a one-time payment.
 
 ## Search Engine Optimization SEO
 
