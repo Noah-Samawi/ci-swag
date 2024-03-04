@@ -220,7 +220,7 @@ DELIVERY_COST = 5
 
 # EMAILS
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# DEFAULT_FROM_EMAIL = 'ciswag@example.com'
+DEFAULT_FROM_EMAIL = 'ciswag@example.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
