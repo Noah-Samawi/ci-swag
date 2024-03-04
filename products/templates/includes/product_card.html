@@ -50,13 +50,13 @@
       </div>
       <!-- Product actions-->
       <div class="p-1 pb-2 p-lg-4 pt-0 text-center">
-          <a class="btn btn-outline-dark mt-auto mb-sm-1 mb-md-0" href="{% url "product_detail" product.id %}"
+          <a class="btn btn-outline-dark mt-auto mb-1" href="{% url "product_detail" product.id %}"
           >View Product</a
         >
        <!-- Edit Product if allowed -->
        {% if request.user.is_authenticated %}
         {% if request.user.is_superuser or request.user.profile.moderator %}
-        <a class="btn btn-primary" href="{% url "edit_product" product.pk %}"
+        <a class="btn btn-primary mb-1" href="{% url "edit_product" product.pk %}"
         >Edit <i class="fa-solid fa-gear ms-1"></i></a
       >
         {% endif %}

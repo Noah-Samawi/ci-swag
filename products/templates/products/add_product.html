@@ -41,7 +41,14 @@
       <!--  -->
       {% csrf_token %}
   
-      <button type="submit" class="btn btn-primary my-4">Add Product</button>
+
+      <div class='d-flex flex-column gap-2'>
+      <button type="submit" class="btn btn-primary my-4 w-fit" >Add Product</button>
+      
+      <a href="{% url "products" %}">
+        <i class="fas fa-arrow-left mr-2"></i> Back to Products</a
+      >
+      </div>
     </form>
   </section>
 {% endblock %}
