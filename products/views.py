@@ -88,7 +88,6 @@ class AddProductPage(LoginRequiredMixin, UserPassesTestMixin,
         return super().form_invalid(form)
 
 
-
 class EditProductPage(LoginRequiredMixin, UserPassesTestMixin,
                       generic.UpdateView):
     """
