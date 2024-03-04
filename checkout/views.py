@@ -119,6 +119,7 @@ class CheckoutView(View):
                     'client_secret': intent.client_secret,
                     'verified': True
                 }
+                messages.success(request, "Delivery details verified")
 
                 return render(request, 'checkout/checkout.html', context)
 
