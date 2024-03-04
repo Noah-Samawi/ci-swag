@@ -171,10 +171,9 @@ class MyCoursesView(LoginRequiredMixin, View):
 
         programs = []
     
-            # Check if user has a profile and orders
+        # Check if user has a profile and orders
         orders = request.user.profile.orders.all() or []
         for order in orders:
-            print(order)
             for item in order.lineitems.all():
                 if isinstance(item.content_object, Program):
                     programs.append(item.content_object)
