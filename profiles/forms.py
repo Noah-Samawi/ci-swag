@@ -22,7 +22,7 @@ class UserProfileForm(forms.ModelForm):
         """Get UserProfile model, choose fields to display"""
 
         model = UserProfile
-        exclude = ('user', 'active_subscription', 'subscription')
+        exclude = ('user', 'active_subscription', 'subscription', 'moderator')
 
 
 class UpdateUserForm(UserChangeForm):
