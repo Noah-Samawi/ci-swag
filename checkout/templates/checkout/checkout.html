@@ -161,15 +161,15 @@
                   {% endif %}
                 </ol>
                 <div class="d-flex justify-content-between align-content-center my-4 px-2" >
-                    <a href="#">
+                    <a href={% url "products" %} class='text-nowrap px-2'>
                       <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
                     </a>
                   <div class="p-0">
-                    <div class="text-end mt-2 mt-sm-0">
+                    <div class="d-flex flex-wrap text-end mt-2 mt-sm-0 gap-1 justify-content-end">
 
                       {% if verified %}
                       <a href={% url "checkout" %} class='btn btn-primary me-1'>Edit Delivery</a>
-                      <button type="submit" class="btn btn-success mt-3" >Pay Now</button>
+                      <button type="submit" class="btn btn-success" >Pay Now</button>
 
                       {% else %}
                       <button type="submit" class="btn btn-primary" name='detail_verify'>Verify Delivery</button>
