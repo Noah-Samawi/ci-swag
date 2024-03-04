@@ -114,7 +114,7 @@ form.addEventListener("submit", function (ev) {
               Array.from(form.elements).forEach(function (field) {
                 field.disabled = false;
               });
-              // form.submit();
+              form.submit();
             }
           }
         });
