@@ -632,3 +632,7 @@ Two bugs were left unhandled. Reasons are documented. Issues will take too much 
 ### Bug Comments
 
 Issue number [76](<(https://github.com/DarrachBarneveld/ci-swag/issues/76)>) was the largest and most difficult issue I encountered. My solution is not fool proof as stated in the issue card comments but as it was related to the course walkthrough I couldnt find signficant support to help me resolve this issue. I tried my very best to provide a solution that was error free and and mimimal security errors.
+
+### Noteable issues
+
+When purchasing the senior dev subscription you can add all courses to cart. This means even upon cancellation of the monthly subscription the courses will still be available which is a hack. All courses should have a payment attached to them in a future feature.

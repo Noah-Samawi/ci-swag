@@ -142,6 +142,9 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
+                
+                product_discount = 0
+                program_discount = 0
 
                 if profile is not None:
                     product_discount = profile.subscription.product_discount
@@ -162,13 +165,11 @@ class StripeWH_Handler:
                     elif isinstance(item, Program):
                         content_type = \
                             ContentType.objects.get_for_model(Program)
-                        if program_discount:
-                            discount = program_discount
+                        discount = program_discount
                     else:
                         content_type = \
                             ContentType.objects.get_for_model(Product)
-                        if product_discount:
-                            discount = product_discount
+                        discount = product_discount
 
                     order_line_item = OrderLineItem(
                             order=order,

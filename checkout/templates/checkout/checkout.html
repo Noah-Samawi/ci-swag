@@ -30,10 +30,10 @@
 
 {% block content %}
     <section class="container p-0">
-      <div class="row m-0">
-        <div class="col-xl-8">
+      <div class="row m-0 mt-2">
+        <div class="col-xl-8 p-0 mb-4">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body p-1">
               <!-- Checkout Form-->
               <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
@@ -138,7 +138,7 @@
                         </p>
                       </div>
                     </div>
-                    <fieldset class="px-3">
+                    <fieldset class="p-0">
                       <legend class="fieldset-label small text-black px-2 w-auto">
                         Payment
                       </legend>
@@ -160,18 +160,16 @@
                   </li>
                   {% endif %}
                 </ol>
-                <div class="row my-4">
-                  <div class="col">
+                <div class="d-flex justify-content-between align-content-center my-4 px-2" >
                     <a href="#">
                       <i class="fas fa-arrow-left mr-2"></i> Continue Shopping
                     </a>
-                  </div>
-                  <div class="col">
+                  <div class="p-0">
                     <div class="text-end mt-2 mt-sm-0">
 
                       {% if verified %}
                       <a href={% url "checkout" %} class='btn btn-primary me-1'>Edit Delivery</a>
-                      <button type="submit" class="btn btn-success" >Pay Now</button>
+                      <button type="submit" class="btn btn-success mt-3" >Pay Now</button>
 
                       {% else %}
                       <button type="submit" class="btn btn-primary" name='detail_verify'>Verify Delivery</button>
