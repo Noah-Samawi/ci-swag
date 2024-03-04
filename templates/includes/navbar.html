@@ -160,7 +160,7 @@
   </nav>
   {% if request.user %}
   {% if request.user.profile.active_subscription %}
-  <span class='membership bg-dark badge rounded-pill text-{{request.user.profile.active_subscription.color}}'> <i class="fa-solid fa-trophy me-2"></i>{{request.user.profile.subscription}} Member</span>
+  <span class='membership bg-dark badge rounded-pill text-{{request.user.profile.active_subscription.color}}'> <i class="fa-solid fa-trophy me-2"></i>{{request.user.profile.active_subscription}} Member</span>
   {% endif %}
   {% endif %}
 </div>

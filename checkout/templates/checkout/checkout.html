@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load cart_tools %}
+{% load is_instance %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -200,20 +201,28 @@
               <div class="card border-0 my-2">
                 <div class="row">
                   <div class="col-3 p-0">
-                    {% if item.product.image.url %}
+
+                    {% if item.product.image and item.product.image.url %}
                     <img
-                      class="avatar-lg"
-                      src="{{item.product.image.url}}"
-                      alt="{{item.product.name}} product photo"
-                      style="object-fit: cover"
+                    class="avatar-lg"
+                    src="{{item.product.image.url}}"
+                    alt="{{item.product.name}} product photo"
+                    style="object-fit: cover"
+                  >
+                    {% else %}
+                    <img class="avatar-lg" src="{% static 'images/default-product-image.webp' %}" alt="product placeholder default"
+                    style='object-fit: cover;'
                     >
-                    {% else %} <img class="avatar-lg bg-{{item.product.color}}"
-                    alt='{{item.product.name}} product photo' 
-                    src="{% static "images/award-placeholder.webp" %}" style='object-fit: cover;' >
-                    {% endif %}
+                    {% endif %}       
+                 
                   </div>
                   <div class="col-6">
                     <div class="row d-flex">
+                    {% if item.product|is_subscription %}
+                      <p class='small'>{{item.product.get_name_display}}</p>
+                    {% else %}
+                    <p class="small">{{ item.product.name }}</p>
+                    {% endif %}
                       <p class="small">{{ item.product.name }}</p>
                     </div>
                     <div class="row d-flex">
