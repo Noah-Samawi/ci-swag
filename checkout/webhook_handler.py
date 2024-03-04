@@ -27,6 +27,10 @@ class StripeWH_Handler:
 
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
+
+        for line_item in order.lineitems.all():
+            print(line_item.content_object.discount)
+
         customer_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
@@ -148,40 +152,26 @@ class StripeWH_Handler:
 
                 for item_id, item_data in json.loads(cart).items():
                     discount = 0
-                    if profile is not None:
-                        # Membership discount
-                        item = get_item_from_item_id(item_id)
-                        # Apply discounts to products if subscription
-                        if isinstance(item, Subscription):
-                            content_type = \
-                                ContentType.objects.get_for_model(Subscription)
-                        elif isinstance(item, Program):
-                            content_type = \
-                                ContentType.objects.get_for_model(Program)
-                            if program_discount:
-                                discount = program_discount
-                                item.price = item.price * (
-                                                1 - program_discount / 100)
-                                item.save()
-                        else:
-                            content_type = \
-                                ContentType.objects.get_for_model(Product)
-                            if product_discount:
-                                item.price = item.price * (
-                                                1 - product_discount / 100)
-                                item.save()
+                    item = get_item_from_item_id(item_id)
 
+                    # Apply discounts to products if subscription
+                    if isinstance(item, Subscription):
+                        content_type = \
+                            ContentType.objects.get_for_model(Subscription)
+                        if profile is not None:
+                            profile.active_subscription = item
+                            profile.save()
+
+                    elif isinstance(item, Program):
+                        content_type = \
+                            ContentType.objects.get_for_model(Program)
+                        if program_discount:
+                            discount = program_discount
                     else:
-                        item = get_item_from_item_id(item_id)
-                        if isinstance(item, Subscription):
-                            content_type = \
-                                ContentType.objects.get_for_model(Subscription)
-                        if isinstance(item, Program):
-                            content_type = \
-                                ContentType.objects.get_for_model(Program)
-                        if isinstance(item, Product):
-                            content_type = \
-                                ContentType.objects.get_for_model(Product)
+                        content_type = \
+                            ContentType.objects.get_for_model(Product)
+                        if product_discount:
+                            discount = product_discount
 
                     order_line_item = OrderLineItem(
                             order=order,

@@ -181,7 +181,7 @@ class MyCoursesView(LoginRequiredMixin, View):
                     for item in order.lineitems.all():
                         if isinstance(item.content_object, Program):
                             programs.append(item.content_object)
-
+        print(programs)
         context = {
             'programs': programs,
         }

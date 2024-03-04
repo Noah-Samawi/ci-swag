@@ -166,7 +166,6 @@ class CheckoutView(View):
                 # Membership discount
                 discount = 0
                 item = get_item_from_item_id(item_id)
-
                 # Apply discounts to products if user has a subscription
                 try:
                     if isinstance(item, Subscription):
