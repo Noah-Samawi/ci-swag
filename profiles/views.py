@@ -170,17 +170,19 @@ class MyCoursesView(LoginRequiredMixin, View):
     def get(self, request):
 
         programs = []
+    
+            # Check if user has a profile and orders
+        orders = request.user.profile.orders.all() or []
+        for order in orders:
+            print(order)
+            for item in order.lineitems.all():
+                if isinstance(item.content_object, Program):
+                    programs.append(item.content_object)
+
         if request.user.profile.active_subscription:
             if request.user.profile.active_subscription.id == 54:
                 programs = Program.objects.all()
-            # Check if user has a profile and orders
-        else:
-            orders = request.user.profile.orders.all() or []
-            for order in orders:
-                print(order)
-                for item in order.lineitems.all():
-                    if isinstance(item.content_object, Program):
-                        programs.append(item.content_object)
+        
         context = {
             'programs': programs,
         }
