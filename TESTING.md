@@ -285,6 +285,8 @@ The main crud functionality of this website pertains to user accounts and produc
 | Form Invalid       | Submit      | Error context is rendered to the UI            | <mark>Pass</mark> |
 | Form Invalid       | Submit      | A notification display an error occured        | <mark>Pass</mark> |
 | Form Invalid       | Submit      | User is redirected to the add product page     | <mark>Pass</mark> |
+| Products Link      | Click       | Navigate to products page                      | <mark>Pass</mark> |
+| Products Link      | Hover/Focus | Darkens text                                   | <mark>Pass</mark> |
 | Form Image Button  | Hover/Focus | Darkens background                             | <mark>Pass</mark> |
 | Form Submit Button | Hover/Focus | Darkens background                             | <mark>Pass</mark> |
 
@@ -304,6 +306,8 @@ The main crud functionality of this website pertains to user accounts and produc
 | Modal Delete Button | Click       | User is redirected to the products page                   | <mark>Pass</mark> |
 | Modal Delete Button | Click       | A notification message is displayed to user               | <mark>Pass</mark> |
 | Modal Cancel Button | Click       | Modal is hidden                                           | <mark>Pass</mark> |
+| Products Link       | Click       | Navigate to products page                                 | <mark>Pass</mark> |
+| Products Link       | Hover/Focus | Darkens text                                              | <mark>Pass</mark> |
 | Form Update Button  | Hover/Focus | Darkens background                                        | <mark>Pass</mark> |
 | Form Delete Button  | Hover/Focus | Darkens background                                        | <mark>Pass</mark> |
 
