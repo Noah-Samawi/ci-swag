@@ -599,6 +599,14 @@ This modal appears whenever a users is performing a delete CRUD operation. It en
 <img src="./documentation/images/features/confirmmodal.png">
 </details>
 
+### Searchbar
+
+This reusable component allows for quick searching of products and programs. When searching it will search by category, description and title. It will only search within the category selected if you have pre filtered by category, hence narrowing the search. Blending filters and search queries gives the best results
+
+<details><summary>Searchbar </summary>
+<img src="./documentation/images/features/searchbar.png">
+</details>
+
 ### Password Reset Page
 
 This page is for users that which to request a password reset verification link to an email
@@ -1021,3 +1029,5 @@ All Media images on this website were created using [Leondardo AI](https://leona
 ### Acknowledgements
 
 I would personally like to thank all people who underwent testing for this website. The critial feedback was instrumental in providing a good user experience, finding edge case errors and generally keeping me motivated to improve the website. John Paul Larkin, Megan ODonohoe, Juan Boccia, Izabella Lopes, Gary Donlan, Alan Bushell and Dayana.
+
+I would finally like to thank my mentor Antonio Rodriguez who helped identify critical issues and bugs along the way.
