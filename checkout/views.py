@@ -257,9 +257,7 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-            else:
-                for field, errors in user_profile_form.errors.items():
-                    print(f'Field: {field}, Errors: {", ".join(errors)}')
+
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

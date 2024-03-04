@@ -141,34 +141,34 @@ class StripeWH_Handler:
                     original_cart=cart,
                     stripe_pid=pid,
                 )
-                
+
                 if profile is not None:
                     product_discount = profile.subscription.product_discount
                     program_discount = profile.subscription.program_discount
-                
+
                 for item_id, item_data in json.loads(cart).items():
                     discount = 0
                     if profile is not None:
                         # Membership discount
                         item = get_item_from_item_id(item_id)
-                        # Apply discounts to products if user has a subscription
+                        # Apply discounts to products if subscription
                         if isinstance(item, Subscription):
                             content_type = \
-                                ContentType.objects.get_for_model(Subscription) 
+                                ContentType.objects.get_for_model(Subscription)
                         elif isinstance(item, Program):
                             content_type = \
                                 ContentType.objects.get_for_model(Program)
-                            total_item_price = item_data * item.total_final_price
                             if program_discount:
                                 discount = program_discount
-                                item.price = item.price * (1 - program_discount / 100)
+                                item.price = item.price * (
+                                                1 - program_discount / 100)
                                 item.save()
                         else:
                             content_type = \
                                 ContentType.objects.get_for_model(Product)
-                            total_item_price = item_data * item.total_final_price
                             if product_discount:
-                                item.price = item.price * (1 - product_discount / 100)
+                                item.price = item.price * (
+                                                1 - product_discount / 100)
                                 item.save()
 
                     else:
@@ -182,7 +182,6 @@ class StripeWH_Handler:
                         if isinstance(item, Product):
                             content_type = \
                                 ContentType.objects.get_for_model(Product)
-
 
                     order_line_item = OrderLineItem(
                             order=order,
