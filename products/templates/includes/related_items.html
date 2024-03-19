@@ -1,3 +1,5 @@
+{% load static %}
+  
   <!-- Related items section-->
   <section class="py-5 bg-light">
     <div class="container px-4 px-lg-5 mt-5">
@@ -15,7 +17,13 @@
           </div>
           {% endif %}
           <!-- Item image-->
+
+          {% if related.image and related.image.url %}
           <img class="card-img-top" src="{{ related.image.url }}" alt="{{ related.name }}">
+          {% else %}
+
+          <img class="card-img-top" src="{% static 'images/default-product-image.webp' %}" alt="product placeholder default">
+          {% endif %}
           <!-- Item details-->
           <div class="card-body p-4">
             <div class="text-center">
