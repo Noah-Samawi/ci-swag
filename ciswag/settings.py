@@ -28,14 +28,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['e-handel-474b04331b25.herokuapp.com', 'localhost', '8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io']
+ALLOWED_HOSTS = ['e-handel-474b04331b25.herokuapp.com', 'localhost', '127.0.0.1', '8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io']
+
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io'  # Gitpod URL
+    'https://8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io',
+    'https://e-handel-474b04331b25.herokuapp.com'
 ]
-
-
 
 # Application definition
 
@@ -64,6 +64,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this before other middlewares
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,6 +73,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware'
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ROOT_URLCONF = 'ciswag.urls'
 
@@ -223,10 +226,11 @@ STRIPE_CURRENCY = 'usd'
 DELIVERY_COST = 5
 
 # EMAILS
+# EMAILS
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  # Your Gmail address here
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # Your Gmail app password here
-DEFAULT_FROM_EMAIL = 'your_email@gmail.com'  # The same as your Gmail address
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'your_email@gmail.com')  # Set via env or fallback
