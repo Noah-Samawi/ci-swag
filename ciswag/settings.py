@@ -31,6 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = ['e-handel-474b04331b25.herokuapp.com', 'localhost', '8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-noahsamawi-ciswag-4fj8byqlywn.ws-eu116.gitpod.io'  # Gitpod URL
+]
+
 
 
 # Application definition
@@ -126,10 +130,15 @@ if 'DATABASE_URL' in os.environ:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'oval_mop_music_577132',
+            'USER': 'uqjblnv8ooz',
+            'PASSWORD': 'X3ppY4Ah97dm',
+            'HOST': 'ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech',
+            'PORT': '5432',
         }
     }
+
 
 
 # Password validation
@@ -215,9 +224,9 @@ DELIVERY_COST = 5
 
 # EMAILS
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'nas@example.com'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')  # Your Gmail address here
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')  # Your Gmail app password here
+DEFAULT_FROM_EMAIL = 'your_email@gmail.com'  # The same as your Gmail address
